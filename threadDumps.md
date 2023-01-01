@@ -502,24 +502,25 @@ well as the current state which is also sleeping.
 The state of the threads is actually "TIMED_WAIT",
 which VisualVM displays as sleeping.
 
-# TODO: continue writing here
-
 ### Power of JVM instrumentation
 
-As you can see, the JVM gives an enormous amount
-of information about the state of the JVM and
-the threads within it.  This advantage of using 
+As you can see, the JVM provides an enormous amount
+of information regarding internal state of the JVM and
+the threads running within it.  
+The advantage of using 
 Java as a server side software language can not 
 be understated.  There has never been a language
 with this much power while at the same time
 easy to author, and given the wealth of instrumentation,
-nearly trivial to observe and debug at runtime,
-including in production itself.  The instrumentation
+nearly trivial to observe and debug at runtime 
+(including of course using thread dumps, 
+in production itself.)  The instrumentation
 is one of the major advantages of the JVM over 
 competing languages.  While others offer similar,
 none are as elegant or powerful as the JVM today
 still in 2023.  This same power has existed in the JVM
-almost exactly as it does today, since the late 1990s.
+almost exactly as it does today, 
+since the late 1990s.
 
 ## Information gleaned from a thread dump
 
