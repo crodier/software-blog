@@ -524,13 +524,174 @@ since the late 1990s.
 
 ## Information gleaned from a thread dump
 
+### Are your application threads alive?
+
+If you name your threads, it is trivial to see if
+those threads have exited.  Without naming every thread,
+you can look for lines of code which must be in the stack,
+but this is more cumbersome and error prone during an emergency.
+
+### Example from the field
+
+One example from the field is when a java.lang.StackOverflowException
+was thrown, in code generated ANTLR.
+When a particularly large message
+with more than 10,000 expressions in the expression tree arrived,
+the thread processing the messages exited.  This thread
+which exited was not named.  Therefore, we had to
+infer from the code itself and certain methods and line numbers,
+that this thread had exited, instead of looking for the name of the thread.
+During an outage emergency, this is heavy lifting you want to avoid,
+also time consuming analysis.  By simply naming every thread,
+you are in much better shape, and this takes only a few seconds
+when writing threaded code.
+
+A thread processing the messages only checked for caught exceptions,
+which allowed one message to throw an exception which was uncaught.
+This causes the thread to exit, without so much as logging the uncaught exception.
+Once this has happened, if the thread is not named, you are left
+wondering what the name of the thread is.
+
+Two more important take-aways exist from this example.
+Code which starts a thread, must always be surrounded
+by try-catch-exception-finally blocks, particularly the 
+finally block.  In the finally block, you should always note
+that the particularly named thread is exiting.  This way
+in your logs, you can be certain the thread stopped, and 
+know exactly when it stopped.  
+
+Second, the catch block **must
+always catch unchecked exceptions** (java.lang.Exception should be caught.)
+This advice seems to fly in the 
+face of much writing and "conventional wisdom."  
+For example, [InfoWorld tip 134](https://www.infoworld.com/article/2077500/java-tip-134--when-catching-exceptions--don-t-cast-your-net-too-wide.html) 
+talks extensively about reasons to not catch
+uncaught exceptions, but mentions, perhaps in 
+general error handling you could do this, but only then.
+This is too weak a statement from the InfoWorld author.
+Instead, the article should add, you must always
+name your threads when you start them, and log them
+if they exit abnormally by catching Exception.
+If your colleagues call this code bloat, you can
+direct them back to this article, and the specific
+ANTLR example which took down a large multi-thousand
+machine system for many hours in production recently.
+
+This also makes me think ANTLR should force you to
+catch a specific sub-class itself throws of 
+java.lang.StackOverflowError, as this happens
+in generated code and is not something you would expect
+to happen, but it is not too difficult to occur
+"in the field" with a large enough expression.
+
+Writing a few lines around any code which
+starts threads, and catching and logging if they exit,
+can someday save you hours of confusion during an outage,
+despite the overhead in code bloat.  The most important
+thing about code is for it to be useful, not how it looks
+or if your co-workers think it is elegant.
+
+### What state are your threads in?
+
+As seen from the "main" thread in ThreadingExample.java
+it is easy to see on the VisualVM chart which 
+states a thread has been in while you watch it.
+
+This exact information is also in the thread dump.
+
+## TODO:  Get an Icon for Key Tricks
+### Key trick [!!!]  Solve high CPU utilization outages
+
+To do something similar to VisualVM, you can
+take multiple thread dumps on the command line,
+a few seconds apart from each other.
+Next, you can line up the threads using their names.
+Using this crude text approach, can tell you what 
+each thread has done and if any state has changed
+over the time horizon of your taking the snapshots.
+
+This is most useful if there is high CPU.  For 
+each thread which is in RUNNING state across more than
+one or all of the thread dumps, you should first 
+review what the code is doing, and if the code
+could be in an infinite or long running and CPU
+expensive loop without any other IO operations.
+It is usually very likely that these threads 
+are the cause of high CPU, and you can guess
+which one of the threads is to blame by reading
+the code for the threads which are in RUNNING state,
+to develop a good hypothesis of what code is causing
+the high CPU.  Once you have a hypothesis, you 
+can take many more thread dumps and see if this
+code remains in the RUNNING state.  If it does,
+then it is very likely the cause of high CPU.
+From there, you can look at the inputs to 
+the area which is likely high CPU, and see 
+if any recent inputs would result in higher 
+than expected CPU usage of the code you are reviewing.
+CPU usage outages are one of if not the most challenging
+outages you can solve.  Using this technique
+of thread dumps, you will be able to sovle high
+CPU situations with relative easy, in a matter of
+minutes.  These same problems without using this 
+specific approach
+can take days or weeks, or go totally unsolved.
+With your enhanced Java knowledge, you can now
+solve these toughest of all outages in production,
+and extremely quickly compared to other engineers.
+This is one critical skill for being a senior
+or staff engineer, as otherwise the reputational
+risk to the business of outages can be enormous.
+Examples of this include running major cloud
+services, or major financial systems in the cloud,
+where minutes of outages are measured in millions
+of dollars in lost revenue.
+
+#### Field example, high CPU usage
+
+Pagination code for an authorization system
+was incapable of handling more than thousands
+of accounts being associated with a user.
+The pagniation code would send this message
+to a downstream system, which would throw a caught
+exception, resulting in a retry.  This retry would
+be run in a tight loop in pagination code, taking up
+one entire CPU.  Each time one of these request was
+made, one CPU on one server would go in a tight
+loop to 100%.  With a server farm of for example
+one hundred machines and 64 cores per machine, it
+would take 6400 requests before the entire authroziation
+cluster was at 100% CPU, a brownout.  This would take
+some time to occur, as not every request had this 
+unhandled exception, but over a period of tens of 
+minutes, the cluster would become unstable.
+As authorization is at the core of all systems,
+this kind of defect can be catastrophic for 
+a major billion dollar cloud financial institution.
+If you can quickly identify this problem and solve it
+using these techniques, you will be identified
+as a star engineer, particularly if you have
+practiced the techniques in this chapter beforehand
+in a simulated emergency environment, for example,
+by running the ThreadingExample.java on a Linux system,
+and practicing.
+
+# TODO:  More work here.
+
 ## How to interpret a thread dump
 
-## Java thread dumps
+## Java thread dump specific
+
+## Java thread dump tools
 
 ## C++ thread dumps
 
 ## Python thread dumps
 
-Joke, there are no threads in Python.
+Small joke here; everyone knows, 
+there are no real threads in Python due to the GIL.
+This makes python inappropriate, when alternatives
+like Rust and Julia exist for any non-research 
+based coding, which needs to run stably in production.
+
 
