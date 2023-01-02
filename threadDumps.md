@@ -1,5 +1,41 @@
 # Thread Dumps
 
+## TLDR;
+
+One of the best techniques during an outage is to take 
+thread dumps.  If you take three successive thread dumps
+with a five second wait between the threads, and review
+the thread dumps, you can quickly develop a reasonable picture
+of what your application is doing.  Search the thread dumps
+for the name of you company, and you will find
+it in the package of the stack of any of your own
+application threads, like 'com.company.util.'
+
+Once you have done this, review any threads which are BLOCKED,
+RUNNING, and WAITING.  Start with the BLOCKED threads.
+What are they blocking on?
+
+The most typical problems are:
+1.  A thread is blocked waiting for the results of a database query
+1.  A thread slow, writing or reading from a disk drive
+1.  CPU is being exhausted by a section of code which is running
+on a larger data set than it was designed to use.
+
+By taking thread dumps and reviewing the output of a few of them,
+looking first at application threads from code from your team,
+you can quickly pinpoint most production problems with systems
+as they run in production.
+
+This article teaches you how to take thread dumps and 
+use them efficiently during an outage.  This is a critical
+skill which any senior engineer should be extremely efficient
+and well versed at.  Without this capability, you may be
+unable to quickly diagnose production problem which 
+can cause extended disruptions for your business.
+
+We assume familiarity in this article but err on the side
+of more detail.
+
 ## What is a thread?
 
 Fully explaining threading is beyond the
@@ -118,26 +154,219 @@ executed in every loop, the other being incrementing the counter.
 if (counter == Integer.MAX_VALUE) {
 ```
 
+## VisualVM display of a thread dump
+
+#### What is VisualVM ?
+VisualVM is a graphic system for reviewing the JVM, which is
+free
+and open source from Oracle.  We will install
+it now and briefly review it in the context of threading.
+
+#### Installing VisualVM
+
+On Linux Mint and Ubuntu systems, you can install visualvm with apt-get.
+```shell
+sudo apt-get install visualvm
+```
+VisualVM is itself a Java program written in Swing.
+VisualVM is trivial to download and run, if you don't
+wish to install it.
+
+### VisualVM Threading Display Tab
+VisualVM has a tab to display the threads in the JVM.
+The tab is named "Threads", which is not the first tab
+you see when you start visual VM.  When you click the "Threads" tab,
+you can observe how VisualVM views threads
+while they are running.  
+
+To generate this "Threads" tab, Visual VM interrogates
+the state of the threads once every second using 
+[JMX (Java Management Extensions)](https://www.oracle.com/technical-resources/articles/javase/jmx.html)
+Using the information from the JMX calls, VisualVM
+creates this bar chart of the Java threads.
+
+Reviewing the bar chart is a good place to begin
+understanding the threading information provided by the JVM.
+
+VisualVM retrieves this information by polling using JMX; however,
+the same exact information is presented in a thread dump
+of the JVM, along with more.   We will first review
+the VisualVM "Threads" tab, and then later we review
+the thread dump itself to see the same information
+is available.
+
+![JVisualVM Threading Tab](images/jvisualVmThreadingExampleWArrow.png)
+
+#### What threads are running?
+
+Two types of threads run in the JVM.
+*Application threads* are threads the application itself
+is running, which is your code you have written.
+The other threads running are *JVM internal threads.*
+
+The ThreadingExample.java program has three 
+application threads
+running.  
+
+#### (1) The "main" thread
+The first application thread is "main", which is
+the convention the JVM uses for the main method
+which is kicked off when you start the program.
+The name is always "main".  The name of this thread
+can not be changed by Java programmers.
+
+The main thread of our ThreadingExample.java starts
+two more application threads.
+
+#### (2) The "Thread-0" thread
+
+To show an example of what not to do, ThreadingExample.java
+creates an unnamed application thread.  While
+you would expect in professional software development,
+all threads would be named, it is not well understood
+as a rule of programming, and the JVM unfortunately
+does not require a name for each thread.
+
+Here on line 48 of ThreadingExample.java, 
+the unnamed thread is created by using the
+single argument constructor.
+```java
+Thread threadA = new Thread(slowWorker);
+```
+
+If you do not give a thread
+a name when it is started the JVM generates a default name
+for the thread, by using a counter, and names it: **"Thread-0."**
+
+There is a static counter in the JVM, which simply counts upwards
+any time an unnamed thread is started.
+
+#### (3) The "fastWorkerA" thread
+
+The second application thread is created 
+in ThreadingExample.java
+and given a name by using the Java
+constructor with three arguments, the third one
+being the name.
+
+On line 56 we create the thread to run 'fastWorker'
+and name it **fastWorkerA**
+```
+Thread threadB = new Thread(null, fastWorker, "fastWorkerA");
+```
+
+### Review the threads in VisualVM
+
+We can see the third row in the VisualVM thread
+output shows "fastWorkerA", as a green bar.
+The green bar means the thread is in RUNNING state.
+
+Two rows are highlighted purple in the VisualVM
+tab, the 6th and 13th rows in the "Threads" window.
+
+The first purple and green row is "main".  
+Purple means sleeping thread state in VisualVM.
+The main thread was sleeping at this time.
+The graph displays the thread state over time,
+and the "main" method is coded to count to one billion
+and then sleep for three seconds.  The purple blocks
+in the "main" bar show the three second sleeps, while
+the green area is where the thread woke up and was 
+counting to a billion, in RUNNING state.
+
+The second purple row is running "slowWorker", 
+the unnamed "Thread-0"
+which was the first thread kicked off by the ThreadingExample.java program.
+The SlowWorker code only wakes up briefly, compared 
+to the amount of time spent sleeping.  Because the JVM
+polls JMX and finds the thread to always be sleeping,
+the entire bar shows purple as **sleeping** state, as 
+well as the current state which is also sleeping.
+The state of the threads is actually "TIMED_WAIT",
+which VisualVM displays as sleeping.
+
+### Power of JVM instrumentation
+
+As you can see, the JVM provides an enormous amount
+of information regarding internal state of the JVM and
+the threads running within it.  
+The advantage of using 
+Java as a server side software language can not 
+be understated.  There has never been a language
+with this much power while at the same time
+easy to author, and given the wealth of instrumentation,
+nearly trivial to observe and debug at runtime 
+(including of course using thread dumps, 
+in production itself.)  The instrumentation
+is one of the major advantages of the JVM over 
+competing languages.  While others offer similar,
+none are as elegant or powerful as the JVM today
+still in 2023.  This same power has existed in the JVM
+almost exactly as it does today, 
+since the late 1990s.
+
+# Java Thread Dump:  Full review
+
 ### Entire thread dump output, followed by discussion
 Next let us review the complete thread dump output for this
 three thread java program "ThreadingExample.java".
 
-First take a moment and read through this output.
+You may take a thread dump by starting VisualVM,
+and pressing the "Thread dump" button on the Threads Tab above.
+<picture>
 
-There are 13 threads in total; three are threads
+Easier than starting VisualVM is to issue the 'QUIT' signal
+to the JVM.  The JVM is written to produce a Thread Dump
+to the standard out stream (typically on the console) 
+when it receives a 'QUIT' signal from the Operating System.
+
+On Linux, the way to issue a QUIT signal to a process
+is to send the signal via the 'kill' command.
+
+e.g.
+```java
+kill -QUIT <pid>
+```
+
+To do this, first you must obtain the process id, to pass to the
+kill command above as '<pid>'.  The unix 'ps' command can get you
+this pid by looking for java processes.
+
+```java
+ps -ef | grep java
+```
+
+Once you take the thread dump, it will output to the console
+of your program.  If you are using logback this output
+may be piped to your log file.  For Tomcat is will be
+directed to the catalina.out log file.
+
+As you review the thread dump, you can note a few things.
+This is merely a text output which is what VisualVM uses
+to produce the "Threads" GUI tab.
+
+There are 13 threads in total; three are application threads
 from our own ThreadingExample.java, and the other
-ten are JVM threads we do not control.
-As you typically do not review the JVM controlled
-threads, a JVM option should exist to avoid this 
-part of the output, but it does not, 
-and instead, we see our three threads "main", "fastWorkerA", and "Thread-0"
-intertwined with the 10 JVM threads.  Each thread dump block
-begins 
-with the name of the thread in quotes, and we can see "main" is the first 
+ten are JVM threads we do not control, started by the JVM itself.
+These JVM threads are for garbage collection and connecting to the JVM,
+for example as we have done for VisualVM.
+
+We will also see our three application threads:
+
+1. main
+1. fastWorkerA
+1. Thread-0
+
+These are intertwined with the 10 JVM threads without a strong ordering.  
+
+Each thread dump block begins
+with the name of the thread in quotes, 
+and we can see "main" is the first
 thread dumped to output.
 
-Start by scanning the output quickly.  
-Do not try to understand the output now.
+Start by scanning the output quickly.
+Do not try to understand the entire output, which
+we will break down in detail later in this article.
 ```
 2023-01-01 13:27:32
 Full thread dump OpenJDK 64-Bit Server VM (11.0.16+8-post-Ubuntu-0ubuntu118.04 mixed mode, sharing):
@@ -371,156 +600,6 @@ Locked ownable synchronizers:
 JNI global refs: 17, weak refs: 0
 
 ```
-## VisualVM display of a thread dump
-
-#### What is VisualVM ?
-VisualVM is a graphic system for reviewing the JVM, which is
-free
-and open source from Oracle.  We will install
-it now and briefly review it in the context of threading.
-
-#### Installing VisualVM
-
-On Linux Mint and Ubuntu systems, you can install visualvm with apt-get.
-```shell
-sudo apt-get install visualvm
-```
-VisualVM is itself a Java program written in Swing.
-VisualVM is trivial to download and run, if you don't
-wish to install it.
-
-### VisualVM Threading Display Tab
-VisualVM has a tab to display the threads in the JVM.
-The tab is named "Threads", which is not the first tab
-you see when you start visual VM.  When you click the "Threads" tab,
-you can observe how VisualVM views threads
-while they are running.  
-
-To generate this "Threads" tab, Visual VM interrogates
-the state of the threads once every second using 
-[JMX (Java Management Extensions)](https://www.oracle.com/technical-resources/articles/javase/jmx.html)
-Using the information from the JMX calls, VisualVM
-creates this bar chart of the Java threads.
-
-Reviewing the bar chart is a good place to begin
-understanding the threading information provided by the JVM.
-
-VisualVM retrieves this information by polling using JMX; however,
-the same exact information is presented in a thread dump
-of the JVM, along with more.   We will first review
-the VisualVM "Threads" tab, and then later we review
-the thread dump itself to see the same information
-is available.
-
-![JVisualVM Threading Tab](images/jvisualVmThreadingExampleWArrow.png)
-
-#### What threads are running?
-
-Two types of threads run in the JVM.
-*Application threads* are threads the application itself
-is running, which is your code you have written.
-The other threads running are *JVM internal threads.*
-
-The ThreadingExample.java program has three 
-application threads
-running.  
-
-#### (1) The "main" thread
-The first application thread is "main", which is
-the convention the JVM uses for the main method
-which is kicked off when you start the program.
-The name is always "main".  The name of this thread
-can not be changed by Java programmers.
-
-The main thread of our ThreadingExample.java starts
-two more application threads.
-
-#### (2) The "Thread-0" thread
-
-To show an example of what not to do, ThreadingExample.java
-creates an unnamed application thread.  While
-you would expect in professional software development,
-all threads would be named, it is not well understood
-as a rule of programming, and the JVM unfortunately
-does not require a name for each thread.
-
-Here on line 48 of ThreadingExample.java, 
-the unnamed thread is created by using the
-single argument constructor.
-```java
-Thread threadA = new Thread(slowWorker);
-```
-
-If you do not give a thread
-a name when it is started the JVM generates a default name
-for the thread, by using a counter, and names it: **"Thread-0."**
-
-There is a static counter in the JVM, which simply counts upwards
-any time an unnamed thread is started.
-
-#### (3) The "fastWorkerA" thread
-
-The second application thread is created 
-in ThreadingExample.java
-and given a name by using the Java
-constructor with three arguments, the third one
-being the name.
-
-On line 56 we create the thread to run 'fastWorker'
-and name it **fastWorkerA**
-```
-Thread threadB = new Thread(null, fastWorker, "fastWorkerA");
-```
-
-### Review the Threads in VisualVM
-
-We can see the third row in the VisualVM thread
-output shows "fastWorkerA", as a green bar.
-The green bar means the thread is in RUNNING state.
-
-Two rows are highlighted purple in the VisualVM
-tab, the 6th and 13th rows in the "Threads" window.
-
-The first purple and green row is "main".  
-Purple means sleeping thread state in VisualVM.
-The main thread was sleeping at this time.
-The graph displays the thread state over time,
-and the "main" method is coded to count to one billion
-and then sleep for three seconds.  The purple blocks
-in the "main" bar show the three second sleeps, while
-the green area is where the thread woke up and was 
-counting to a billion, in RUNNING state.
-
-The second purple row is running "slowWorker", 
-the unnamed "Thread-0"
-which was the first thread kicked off by the ThreadingExample.java program.
-The SlowWorker code only wakes up briefly, compared 
-to the amount of time spent sleeping.  Because the JVM
-polls JMX and finds the thread to always be sleeping,
-the entire bar shows purple as **sleeping** state, as 
-well as the current state which is also sleeping.
-The state of the threads is actually "TIMED_WAIT",
-which VisualVM displays as sleeping.
-
-### Power of JVM instrumentation
-
-As you can see, the JVM provides an enormous amount
-of information regarding internal state of the JVM and
-the threads running within it.  
-The advantage of using 
-Java as a server side software language can not 
-be understated.  There has never been a language
-with this much power while at the same time
-easy to author, and given the wealth of instrumentation,
-nearly trivial to observe and debug at runtime 
-(including of course using thread dumps, 
-in production itself.)  The instrumentation
-is one of the major advantages of the JVM over 
-competing languages.  While others offer similar,
-none are as elegant or powerful as the JVM today
-still in 2023.  This same power has existed in the JVM
-almost exactly as it does today, 
-since the late 1990s.
 
 ## Information gleaned from a thread dump
 
@@ -528,27 +607,41 @@ since the late 1990s.
 
 If you name your threads, it is trivial to check if
 those threads have exited, by grepping for their thread
-name in the thread dump.  
+name in the thread dump.  If the threads are not listed,
+then they have exited.
 
 Without naming every thread, other approaches must be used,
 which can be error prone during an emergency.
 You can for example look for lines of code which 
-must be in the stack.  For this to work, you must have
+must be in the stack for a particular thread to be running.  
+
+For this to work, you must have
 the exact release of the code checked out and be reviewing
 this exact commit.  During an emergency this can be challenging
 and is additional wasted time you want to avoid by 
 naming all your threads.
 
-### Example from the field
+### Example 'from the field'
 
-One example from the field is when a java.lang.StackOverflowException
+One example from the field is 
+when a java.lang.StackOverflowException
 was thrown, in ANTLR generated code.
-This happened to me in production once.
+This happened to our team in production once, causing a major outage.
 
 Whenever a particularly large message
-with more than 5,000 ANTLR expressions in the expression tree arrived,
+with more than 5,000 nested ANTLR expressions in the expression tree arrived,
 the thread for reading and processing 
-new messages exited with this exception.  
+new messages exited with this exception.  The java stack
+for each thread is about 10,000 in size, and each ANTLR 
+call adds two calls to the call stack, building a recursive
+expression tree using the Java stack.  This exceeded
+the Java stack size, and the JVM threw 
+the java.lang.StackOverflowException.  It is not an exception
+you often see unless you code recursion with an incorrect
+base case, which was not the problem here.  It was indeed,
+correct code which happened to exceed the extremely large,
+default Java stack size.
+
 This thread which exited was also not named.
 
 Therefore, we had to
