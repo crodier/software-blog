@@ -526,31 +526,44 @@ since the late 1990s.
 
 ### Are your application threads alive?
 
-If you name your threads, it is trivial to see if
-those threads have exited.  Without naming every thread,
-you can look for lines of code which must be in the stack,
-but this is more cumbersome and error prone during an emergency.
+If you name your threads, it is trivial to check if
+those threads have exited, by grepping for their thread
+name in the thread dump.  
+
+Without naming every thread, other approaches must be used,
+which can be error prone during an emergency.
+You can for example look for lines of code which 
+must be in the stack.  For this to work, you must have
+the exact release of the code checked out and be reviewing
+this exact commit.  During an emergency this can be challenging
+and is additional wasted time you want to avoid by 
+naming all your threads.
 
 ### Example from the field
 
 One example from the field is when a java.lang.StackOverflowException
-was thrown, in code generated ANTLR.
-When a particularly large message
-with more than 10,000 expressions in the expression tree arrived,
-the thread processing the messages exited.  This thread
-which exited was not named.  Therefore, we had to
-infer from the code itself and certain methods and line numbers,
-that this thread had exited, instead of looking for the name of the thread.
-During an outage emergency, this is heavy lifting you want to avoid,
-also time consuming analysis.  By simply naming every thread,
-you are in much better shape, and this takes only a few seconds
-when writing threaded code.
+was thrown, in ANTLR generated code.
+This happened to me in production once.
 
-A thread processing the messages only checked for caught exceptions,
+Whenever a particularly large message
+with more than 5,000 ANTLR expressions in the expression tree arrived,
+the thread for reading and processing 
+new messages exited with this exception.  
+This thread which exited was also not named.
+
+Therefore, we had to
+infer from the code itself and by reviewing 
+certain methods and line numbers,
+that this thread had exited, which we did.
+
+#### Catch Unchecked Exception when kicking off threads
+
+Still, we could not know for sure, but 
+decided it must have been an unchecked exception.
+
+Since the thread processing the messages only checked for caught exceptions,
 which allowed one message to throw an exception which was uncaught.
-This causes the thread to exit, without so much as logging the uncaught exception.
-Once this has happened, if the thread is not named, you are left
-wondering what the name of the thread is.
+This caused the thread to exit, without so much as logging the uncaught exception.
 
 Two more important take-aways exist from this example.
 Code which starts a thread, must always be surrounded
@@ -562,27 +575,31 @@ know exactly when it stopped.
 
 Second, the catch block **must
 always catch unchecked exceptions** (java.lang.Exception should be caught.)
-This advice seems to fly in the 
-face of much writing and "conventional wisdom."  
+This advice contradicts much writing and "conventional wisdom."  
 For example, [InfoWorld tip 134](https://www.infoworld.com/article/2077500/java-tip-134--when-catching-exceptions--don-t-cast-your-net-too-wide.html) 
 talks extensively about reasons to not catch
-uncaught exceptions, but mentions, perhaps in 
-general error handling you could do this, but only then.
+uncaught exceptions, but mentions, "perhaps in 
+general error handling you could do this, but only then."
 This is too weak a statement from the InfoWorld author.
 Instead, the article should add, you must always
 name your threads when you start them, and log them
-if they exit abnormally by catching Exception.
+if they exit abnormally by catching java.lang.Exception
+where the thread was started.
 If your colleagues call this code bloat, you can
 direct them back to this article, and the specific
 ANTLR example which took down a large multi-thousand
-machine system for many hours in production recently.
+node financial system for many hours in production recently.
 
-This also makes me think ANTLR should force you to
-catch a specific sub-class itself throws of 
-java.lang.StackOverflowError, as this happens
+Recounting this example also makes me think ANTLR should force
+developers to catch a specific sub-class itself of 
+java.lang.StackOverflowError.  
+This rare problem happens only
 in generated code and is not something you would expect
-to happen, but it is not too difficult to occur
-"in the field" with a large enough expression.
+to happen or would reasonably unit test, yet it 
+is not too difficult to occur
+"in the field" with a large expression.
+
+#### Summary
 
 Writing a few lines around any code which
 starts threads, and catching and logging if they exit,
@@ -591,7 +608,7 @@ despite the overhead in code bloat.  The most important
 thing about code is for it to be useful, not how it looks
 or if your co-workers think it is elegant.
 
-### What state are your threads in?
+## What state are your threads in?
 
 As seen from the "main" thread in ThreadingExample.java
 it is easy to see on the VisualVM chart which 
@@ -676,7 +693,7 @@ in a simulated emergency environment, for example,
 by running the ThreadingExample.java on a Linux system,
 and practicing.
 
-# TODO:  More work here.
+# TODO:  More work here 1/1/2023.
 
 ## How to interpret a thread dump
 
