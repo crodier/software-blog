@@ -677,7 +677,7 @@ one entire CPU.  Each time one of these request was
 made, one CPU on one server would go in a tight
 loop to 100%.  With a server farm of for example
 one hundred machines and 64 cores per machine, it
-would take 6400 requests before the entire authroziation
+would take 6400 requests before the entire authorization
 cluster was at 100% CPU, a brownout.  This would take
 some time to occur, as not every request had this 
 unhandled exception, but over a period of tens of 
@@ -697,9 +697,24 @@ and practicing.
 
 ## How to interpret a thread dump
 
+TODO:  How to read the stack and see where 
+a thread has been in the code.
+
+TODO:  How can you identify a deadlock in
+your code, and what tool should you try first
+to show you if you have a deadlock.
+
 ## Java thread dump specific
 
+TODO:  Highlight in Libre Office, then
+explain the thread example from above, in detail.
+Not only what the application threads are,
+but each of the JVM threads.
+
 ## Java thread dump tools
+
+Review the best tools available for thread 
+dump analysis, and which is recommended.
 
 ## C++ thread dumps
 
