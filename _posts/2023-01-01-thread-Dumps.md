@@ -3,22 +3,22 @@
 ## TLDR;
 
 One of the best techniques during an outage is to take 
-thread dumps.  If you take three successive thread dumps
-with a five second wait between the threads, and review
-the thread dumps, you can quickly develop a reasonable picture
+thread dumps.  First you take three successive thread dumps
+with a five second pause.  Capture and share these with your team.
+Next review the thread dumps.  Now you can quickly develop a reasonable picture
 of what your application is doing.  Search the thread dumps
-for the name of you company, and you will find
-it in the package of the stack of any of your own
-application threads, like 'com.company.util.'
+for the name of you company to find threads specific to 
+your own application code, like 'com.company.util.'
 
-Once you have done this, review any threads which are BLOCKED,
+Next review any threads with state BLOCKED,
 RUNNING, and WAITING.  Start with the BLOCKED threads.
 What are they blocking on?
 
-The most typical problems are:
-1.  A thread is blocked waiting for the results of a database query
-1.  A thread slow, writing or reading from a disk drive
-1.  CPU is being exhausted by a section of code which is running
+The most typical problems to look for:
+1.  A thread is waiting for the results of a database query,
+    in JDBC network driver code, after making the remote call.
+1.  A thread is slow due to writing or reading from a disk drive
+1.  The CPU is being exhausted by a section of code which is running
 on a larger data set than it was designed to use.
 
 By taking thread dumps and reviewing the output of a few of them,
