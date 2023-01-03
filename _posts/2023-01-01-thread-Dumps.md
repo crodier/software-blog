@@ -34,7 +34,7 @@ unable to quickly diagnose production problem which
 can cause extended disruptions for your business.
 
 We assume familiarity in this article but err on the side
-of more detail.
+of providing more detail than necessary.
 
 ## What is a thread?
 
