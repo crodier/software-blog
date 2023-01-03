@@ -613,6 +613,7 @@ JNI global refs: 17, weak refs: 0
 
 {% endhighlight %}
 
+
 ## Information gleaned from a thread dump
 
 ### Are your application threads alive?
