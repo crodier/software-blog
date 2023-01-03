@@ -335,7 +335,7 @@ e.g.
 
 {% highlight shell %}
 kill -QUIT <pid>
-{% highlight shell %}
+{% endhighlight %}
 
 
 To do this, first you must obtain the process id, to pass to the
