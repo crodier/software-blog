@@ -195,7 +195,7 @@ the VisualVM "Threads" tab, and then later we review
 the thread dump itself to see the same information
 is available.
 
-![JVisualVM Threading Tab]({{ site.url }}{{ site.baseurl }}/assets/images//assets/images/jvisualVmThreadingExampleWArrow.png)
+![JVisualVM Threading Tab]({{ site.url }}{{ site.baseurl }}/assets/images/jvisualVmThreadingExampleWArrow.png)
 
 #### What threads are running?
 
