@@ -821,6 +821,18 @@ but each of the JVM threads.
 Review the best tools available for thread 
 dump analysis, and which is recommended.
 
+##VisualVM in Production
+
+VisualVM can be run remotely, from the machine you are working on.
+This technique can be useful but requires you to configure X-windows
+which is typically not avialable on production linux OS builds,
+because it is considered to make the security on the system
+marginally weaker.  You can enable remote JMX access
+to your development and QA areas, and connect directly 
+to the JVMs using VisualVM, and this can be useful for debugging
+and observing the application behavior prior to releasing.
+Generally you should avoided opening remote JMX connections in production.
+
 ## C++ thread dumps
 
 ## Python thread dumps
