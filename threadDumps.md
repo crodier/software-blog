@@ -264,15 +264,23 @@ The green bar means the thread is in RUNNING state.
 Two rows are highlighted purple in the VisualVM
 tab, the 6th and 13th rows in the "Threads" window.
 
+#### Main thread
+
 The first purple and green row is "main".  
 Purple means sleeping thread state in VisualVM.
-The main thread was sleeping at this time.
-The graph displays the thread state over time,
-and the "main" method is coded to count to one billion
-and then sleep for three seconds.  The purple blocks
-in the "main" bar show the three second sleeps, while
-the green area is where the thread woke up and was 
-counting to a billion, in RUNNING state.
+This means the main thread was sleeping when I took the screenshot.
+The bar chart displays the thread state for the prior 20 seconds.
+
+The "main" thread counts to one billion (RUNNING state)
+and then sleeps for three seconds (TIMED_WAIT state, Sleeping.)
+This is why the main bar in the chart has blocks of purple followed by shorter green blocks.
+
+The purple blocks in the "main" bar reflect these 
+three second sleeps.  The shorter green blocks on the "main" thread
+bar shows where the main thread 
+woke up and was counting to a billion, taking about a second.
+
+#### Slow worker thread
 
 The second purple row is running "slowWorker", 
 the unnamed "Thread-0"
