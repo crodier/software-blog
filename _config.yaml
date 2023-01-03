@@ -2,4 +2,4 @@
 # theme: jekyll-theme-hacker
 title: The Dark Army Blog
 description: Homepage for The Dark Army coding site.
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+remote_theme: "mmistakes/minimal-mistakes"
