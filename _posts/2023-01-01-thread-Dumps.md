@@ -332,15 +332,17 @@ On Linux, the way to issue a QUIT signal to a process
 is to send the signal via the 'kill' command.
 
 e.g.
-```java
+
+{% highlight shell %}
 kill -QUIT <pid>
-```
+{% highlight shell %}
+
 
 To do this, first you must obtain the process id, to pass to the
 kill command above as '<pid>'.  The unix 'ps' command can get you
 this pid by looking for java processes.
 
-```java
+```
 ps -ef | grep java
 ```
 
