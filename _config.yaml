@@ -4,7 +4,7 @@ title: The Dark Army Blog
 description: Homepage for The Dark Army coding site.
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-minimal_mistakes_skin: "dark"
+minimal_mistakes_skin: "neon"
 
 plugins:
   - jekyll-include-cache
