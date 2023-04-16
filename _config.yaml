@@ -3,9 +3,9 @@
 locale: "en-US"
 title: Ticks of the Trade
 description: Homepage for Tricks of the Trade coding site.
-# remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-# minimal_mistakes_skin: "default"
+minimal_mistakes_skin: "default"
 
 plugins:
   - jekyll-include-cache
