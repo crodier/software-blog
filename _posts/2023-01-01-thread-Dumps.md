@@ -54,7 +54,7 @@ You start additional threads other than the main
 thread when you  
 do work in parallel.
 
-Typically threads interact with each other
+Threads usually interact with each other
 by passing information to other threads
 using memory.
 
@@ -374,7 +374,7 @@ Start by scanning the output quickly.
 Do not try to understand the entire output, which
 we will break down in detail later in this article.
 
-{% highlight linenos %}
+{% highlight text linenos %}
 
 2023-01-01 13:27:32
 Full thread dump OpenJDK 64-Bit Server VM (11.0.16+8-post-Ubuntu-0ubuntu118.04 mixed mode, sharing):
@@ -609,6 +609,7 @@ JNI global refs: 17, weak refs: 0
 
 {% endhighlight %}
 
+-- End thread dump --
 
 ## Information gleaned from a thread dump
 
