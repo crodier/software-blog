@@ -4,7 +4,7 @@
 
 One of the best techniques during an outage is to take 
 thread dumps.  First you take three successive thread dumps
-with a five second pause.  Capture and share these with your team.
+with five second pause.  Capture and share these with your team.
 Next review the thread dumps.  Now you can quickly develop a reasonable picture
 of what your application is doing.  Search the thread dumps
 for the name of you company to find threads specific to 
@@ -17,19 +17,16 @@ What are they blocking on?
 The most typical problems to look for:
 1.  A thread is waiting for the results of a database query,
     in JDBC network driver code, after making the remote call.
-1.  A thread is slow due to writing or reading from a disk drive
-1.  The CPU is being exhausted by a section of code which is running
-on a larger data set than it was designed to use.
+1.  A thread is slow due to writing or reading from a disk drive.
+1.  The CPU is being exhausted by a section of code.
 
 By taking thread dumps and reviewing the output of a few of them,
-looking first at application threads from code from your team,
-you can quickly pinpoint most production problems with systems
-as they run in production.
+looking first at application threads from code from your team authored,
+you can quickly pinpoint most production problems.
 
 This article teaches you how to take thread dumps and 
 use them efficiently during an outage.  This is a critical
-skill which any senior engineer should be extremely efficient
-and well versed at.  Without this capability, you may be
+skill which any senior engineer should be adept at.  Without this capability, you may be
 unable to quickly diagnose production problem which 
 can cause extended disruptions for your business.
 
@@ -55,11 +52,11 @@ of any program is the main thread.
 
 You start additional threads other than the main 
 thread when you  
-do work independently, and in parallel.
+do work in parallel.
 
 Typically threads interact with each other
 by passing information to other threads
-using memory.  
+using memory.
 
 Languages like Java, C++, Rust
 and others support threading and will natively
@@ -70,10 +67,10 @@ using a part of the kernel called a scheduler.
 Generally you can run at least as many threads
 as there are cores on your machine.  You are
 free to start as many threads as you want.  Once
-you have exceeded the number of cores on your system,
+you exceed the number of cores on your system,
 the operating system scheduler gives each thread
 a slice of time to run on a core.  The operating
-system code takes care of the heavy lifting of 
+system code does the heavy lifting of 
 recording where the thread was last running,
 and then continuing exactly where the thread
 has been running, when a core becomes available.
@@ -83,7 +80,7 @@ has been running, when a core becomes available.
 Each thread in any software system
 has an instruction it is running.
 The calls which led to this instruction running
-are the call stack.
+are the "call stack."
 
 Next we will examine the threads from 
 the threading example in the examples
@@ -94,8 +91,7 @@ can be found here:
 
 [Threading Java Class:  ThreadingExample.java](https://github.com/crodier/software-blog-examples/blob/main/examples/src/main/java/org/example/ThreadingExample.java)
 
-You can safely checkout and run this example "main" 
-method from ThreadingExample.java.
+You can safely checkout and run this example main method from ThreadingExample.java on your desktop or development server.
 
 The sample program starts and runs two threads
 and continues the main thread of execution. 
