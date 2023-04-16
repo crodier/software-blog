@@ -374,7 +374,6 @@ Start by scanning the output quickly.
 Do not try to understand the entire output, which
 we will break down in detail later in this article.
 
-```text
 {% highlight text linenos mark_lines="1 2"  %}
 2023-01-01 13:27:32
 Full thread dump OpenJDK 64-Bit Server VM (11.0.16+8-post-Ubuntu-0ubuntu118.04 mixed mode, sharing):
@@ -607,7 +606,6 @@ Locked ownable synchronizers:
 
 JNI global refs: 17, weak refs: 0
 {% endhighlight %}
-```
 
 ## Information gleaned from a thread dump
 
