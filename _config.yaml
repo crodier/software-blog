@@ -22,3 +22,8 @@ defaults:
       comments: true
       share: true
       related: true
+
+# turning off HTML compression fixes highlighting
+compress_html:
+  ignore:
+    envs: all
