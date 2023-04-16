@@ -374,7 +374,7 @@ Start by scanning the output quickly.
 Do not try to understand the entire output, which
 we will break down in detail later in this article.
 
-```text
+~~~ text
 2023-01-01 13:27:32
 Full thread dump OpenJDK 64-Bit Server VM (11.0.16+8-post-Ubuntu-0ubuntu118.04 mixed mode, sharing):
 
@@ -605,7 +605,7 @@ Locked ownable synchronizers:
 "VM Periodic Task Thread" os_prio=0 cpu=16.41ms elapsed=54.12s tid=0x00007f6b2c2fd800 nid=0x306c waiting on condition
 
 JNI global refs: 17, weak refs: 0
-```
+~~~
 
 ## Information gleaned from a thread dump
 
