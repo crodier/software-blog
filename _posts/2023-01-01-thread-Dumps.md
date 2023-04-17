@@ -329,18 +329,17 @@ is to send the signal via the 'kill' command.
 
 e.g.
 
-{% highlight shell %}
+```shell
 kill -QUIT <pid>
-{% endhighlight %}
-
+```
 
 To do this, first you must obtain the process id, to pass to the
 kill command above as '<pid>'.  The unix 'ps' command can get you
 this pid by looking for java processes.
 
-{% highlight shell %}
+```shell
 ps -ef | grep java
-{% endhighlight %}
+```
 
 Once you take the thread dump, it will output to the console
 of your program.  If you are using logback this output
