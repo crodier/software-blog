@@ -372,196 +372,6 @@ Start by scanning the output quickly.
 Do not try to understand the entire output, which
 we will break down in detail later in this article.
 
-**(example thread dump in APPENDIX)**
-
-## Information gleaned from a thread dump
-
-### Are your application threads alive?
-
-If you name your threads, it is trivial to check if
-those threads have exited, by grepping for their thread
-name in the thread dump.  If the threads are not listed,
-then they have exited.
-
-Without naming every thread, other approaches must be used,
-which can be error prone during an emergency.
-You can for example look for lines of code which 
-must be in the stack for a particular thread to be running.  
-
-For this to work, you must have
-the exact release of the code checked out and be reviewing
-this exact commit.  During an emergency this can be challenging
-and is additional wasted time you want to avoid by 
-naming all your threads.
-
-### Example 'from the field'
-
-One example from the field is 
-when a java.lang.StackOverflowException
-was thrown, in ANTLR generated code.
-This happened to our team in production once, causing a major outage.
-
-Whenever a particularly large message
-with more than 5,000 nested ANTLR expressions in the expression tree arrived,
-the thread for reading and processing 
-new messages exited with this exception.  The java stack
-for each thread is about 10,000 in size, and each ANTLR 
-call adds two calls to the call stack, building a recursive
-expression tree using the Java stack.  This exceeded
-the Java stack size, and the JVM threw 
-the java.lang.StackOverflowException.  It is not an exception
-you often see unless you code recursion with an incorrect
-base case, which was not the problem here.  It was indeed,
-correct code which happened to exceed the extremely large,
-default Java stack size.
-
-This thread which exited was also not named.
-
-Therefore, we had to
-infer from the code itself and by reviewing 
-certain methods and line numbers,
-that this thread had exited, which we did.
-
-#### Catch Unchecked Exception when kicking off threads
-
-Still, we could not know for sure, but 
-decided it must have been an unchecked exception.
-
-Since the thread processing the messages only checked for caught exceptions,
-which allowed one message to throw an exception which was uncaught.
-This caused the thread to exit, without so much as logging the uncaught exception.
-
-Two more important take-aways exist from this example.
-Code which starts a thread, must always be surrounded
-by try-catch-exception-finally blocks, particularly the 
-finally block.  In the finally block, you should always note
-that the particularly named thread is exiting.  This way
-in your logs, you can be certain the thread stopped, and 
-know exactly when it stopped.  
-
-Second, the catch block **must
-always catch unchecked exceptions** (java.lang.Exception should be caught.)
-This advice contradicts much writing and "conventional wisdom."  
-For example, [InfoWorld tip 134](https://www.infoworld.com/article/2077500/java-tip-134--when-catching-exceptions--don-t-cast-your-net-too-wide.html) 
-talks extensively about reasons to not catch
-uncaught exceptions, but mentions, "perhaps in 
-general error handling you could do this, but only then."
-This is too weak a statement from the InfoWorld author.
-Instead, the article should add, you must always
-name your threads when you start them, and log them
-if they exit abnormally by catching java.lang.Exception
-where the thread was started.
-If your colleagues call this code bloat, you can
-direct them back to this article, and the specific
-ANTLR example which took down a large multi-thousand
-node financial system for many hours in production recently.
-
-Recounting this example also makes me think ANTLR should force
-developers to catch a specific sub-class itself of 
-java.lang.StackOverflowError.  
-This rare problem happens only
-in generated code and is not something you would expect
-to happen or would reasonably unit test, yet it 
-is not too difficult to occur
-"in the field" with a large expression.
-
-#### Summary
-
-Writing a few lines around any code which
-starts threads, and catching and logging if they exit,
-can someday save you hours of confusion during an outage,
-despite the overhead in code bloat.  The most important
-thing about code is for it to be useful, not how it looks
-or if your co-workers think it is elegant.
-
-## What state are your threads in?
-
-As seen from the "main" thread in ThreadingExample.java
-it is easy to see on the VisualVM chart which 
-states a thread has been in while you watch it.
-
-This exact information is also in the thread dump.
-
-### Key trick [!!!]  Solve high CPU utilization outages
-
-To do something similar to VisualVM, you can
-take multiple thread dumps on the command line,
-a few seconds apart from each other.
-Next, you can line up the threads using their names.
-Using this crude text approach, can tell you what 
-each thread has done and if any state has changed
-over the time horizon of your taking the snapshots.
-
-This is most useful if there is high CPU.  For 
-each thread which is in RUNNING state across more than
-one or all of the thread dumps, you should first 
-review what the code is doing, and if the code
-could be in an infinite or long running and CPU
-expensive loop without any other IO operations.
-It is usually very likely that these threads 
-are the cause of high CPU, and you can guess
-which one of the threads is to blame by reading
-the code for the threads which are in RUNNING state,
-to develop a good hypothesis of what code is causing
-the high CPU.  Once you have a hypothesis, you 
-can take many more thread dumps and see if this
-code remains in the RUNNING state.  If it does,
-then it is very likely the cause of high CPU.
-From there, you can look at the inputs to 
-the area which is likely high CPU, and see 
-if any recent inputs would result in higher 
-than expected CPU usage of the code you are reviewing.
-CPU usage outages are one of if not the most challenging
-outages you can solve.  Using this technique
-of thread dumps, you will be able to sovle high
-CPU situations with relative easy, in a matter of
-minutes.  These same problems without using this 
-specific approach
-can take days or weeks, or go totally unsolved.
-With your enhanced Java knowledge, you can now
-solve these toughest of all outages in production,
-and extremely quickly compared to other engineers.
-This is one critical skill for being a senior
-or staff engineer, as otherwise the reputational
-risk to the business of outages can be enormous.
-Examples of this include running major cloud
-services, or major financial systems in the cloud,
-where minutes of outages are measured in millions
-of dollars in lost revenue.
-
-#### Field example, high CPU usage
-
-Pagination code for an authorization system
-was incapable of handling more than thousands
-of accounts being associated with a user.
-The pagniation code would send this message
-to a downstream system, which would throw a caught
-exception, resulting in a retry.  This retry would
-be run in a tight loop in pagination code, taking up
-one entire CPU.  Each time one of these request was
-made, one CPU on one server would go in a tight
-loop to 100%.  With a server farm of for example
-one hundred machines and 64 cores per machine, it
-would take 6400 requests before the entire authorization
-cluster was at 100% CPU, a brownout.  This would take
-some time to occur, as not every request had this 
-unhandled exception, but over a period of tens of 
-minutes, the cluster would become unstable.
-As authorization is at the core of all systems,
-this kind of defect can be catastrophic for 
-a major billion dollar cloud financial institution.
-If you can quickly identify this problem and solve it
-using these techniques, you will be identified
-as a star engineer, particularly if you have
-practiced the techniques in this chapter beforehand
-in a simulated emergency environment, for example,
-by running the ThreadingExample.java on a Linux system,
-and practicing.
-
-# APPENDIX
-
-## Thread dump example discussed
-
 {% highlight text linenos mark_lines="1 2"  %}
 
 2023-01-01 13:27:32
@@ -796,6 +606,193 @@ Locked ownable synchronizers:
 JNI global refs: 17, weak refs: 0
 {% endhighlight %}
 
+
+
+## Information gleaned from a thread dump
+
+### Are your application threads alive?
+
+If you name your threads, it is trivial to check if
+those threads have exited, by grepping for their thread
+name in the thread dump.  If the threads are not listed,
+then they have exited.
+
+Without naming every thread, other approaches must be used,
+which can be error prone during an emergency.
+You can for example look for lines of code which 
+must be in the stack for a particular thread to be running.  
+
+For this to work, you must have
+the exact release of the code checked out and be reviewing
+this exact commit.  During an emergency this can be challenging
+and is additional wasted time you want to avoid by 
+naming all your threads.
+
+### Example 'from the field'
+
+One example from the field is 
+when a java.lang.StackOverflowException
+was thrown, in ANTLR generated code.
+This happened to our team in production once, causing a major outage.
+
+Whenever a particularly large message
+with more than 5,000 nested ANTLR expressions in the expression tree arrived,
+the thread for reading and processing 
+new messages exited with this exception.  The java stack
+for each thread is about 10,000 in size, and each ANTLR 
+call adds two calls to the call stack, building a recursive
+expression tree using the Java stack.  This exceeded
+the Java stack size, and the JVM threw 
+the java.lang.StackOverflowException.  It is not an exception
+you often see unless you code recursion with an incorrect
+base case, which was not the problem here.  It was indeed,
+correct code which happened to exceed the extremely large,
+default Java stack size.
+
+This thread which exited was also not named.
+
+Therefore, we had to
+infer from the code itself and by reviewing 
+certain methods and line numbers,
+that this thread had exited, which we did.
+
+#### Catch Unchecked Exception when kicking off threads
+
+Still, we could not know for sure, but 
+decided it must have been an unchecked exception.
+
+Since the thread processing the messages only checked for caught exceptions,
+which allowed one message to throw an exception which was uncaught.
+This caused the thread to exit, without so much as logging the uncaught exception.
+
+Two more important take-aways exist from this example.
+Code which starts a thread, must always be surrounded
+by try-catch-exception-finally blocks, particularly the 
+finally block.  In the finally block, you should always note
+that the particularly named thread is exiting.  This way
+in your logs, you can be certain the thread stopped, and 
+know exactly when it stopped.  
+
+Second, the catch block **must
+always catch unchecked exceptions** (java.lang.Exception should be caught.)
+This advice contradicts much writing and "conventional wisdom."  
+For example, [InfoWorld tip 134](https://www.infoworld.com/article/2077500/java-tip-134--when-catching-exceptions--don-t-cast-your-net-too-wide.html) 
+talks extensively about reasons to not catch
+uncaught exceptions, but mentions, "perhaps in 
+general error handling you could do this, but only then."
+This is too weak a statement from the InfoWorld author.
+Instead, the article should add, you must always
+name your threads when you start them, and log them
+if they exit abnormally by catching java.lang.Exception
+where the thread was started.
+If your colleagues call this code bloat, you can
+direct them back to this article, and the specific
+ANTLR example which took down a large multi-thousand
+node financial system for many hours in production recently.
+
+Recounting this example also makes me think ANTLR should force
+developers to catch a specific sub-class itself of 
+java.lang.StackOverflowError.  
+This rare problem happens only
+in generated code and is not something you would expect
+to happen or would reasonably unit test, yet it 
+is not too difficult to occur
+"in the field" with a large expression.
+
+#### Summary
+
+Writing a few lines around any code which
+starts threads, and catching and logging if they exit,
+can someday save you hours of confusion during an outage,
+despite the overhead in code bloat.  The most important
+thing about code is for it to be useful, not how it looks
+or if your co-workers think it is elegant.
+
+## What state are your threads in?
+
+As seen from the "main" thread in ThreadingExample.java
+it is easy to see on the VisualVM chart which 
+states a thread has been in while you watch it.
+
+This exact information is also in the thread dump.
+
+### Key trick [!!!]  Solve high CPU utilization outages
+
+To do something similar to VisualVM, you can
+take multiple thread dumps on the command line,
+a few seconds apart from each other.
+Next, you can line up the threads using their names.
+Using this crude text approach, can tell you what 
+each thread has done and if any state has changed
+over the time horizon of your taking the snapshots.
+
+This is most useful if there is high CPU.  For 
+each thread which is in RUNNING state across more than
+one or all of the thread dumps, you should first 
+review what the code is doing, and if the code
+could be in an infinite or long running and CPU
+expensive loop without any other IO operations.
+It is usually very likely that these threads 
+are the cause of high CPU, and you can guess
+which one of the threads is to blame by reading
+the code for the threads which are in RUNNING state,
+to develop a good hypothesis of what code is causing
+the high CPU.  Once you have a hypothesis, you 
+can take many more thread dumps and see if this
+code remains in the RUNNING state.  If it does,
+then it is very likely the cause of high CPU.
+From there, you can look at the inputs to 
+the area which is likely high CPU, and see 
+if any recent inputs would result in higher 
+than expected CPU usage of the code you are reviewing.
+CPU usage outages are one of if not the most challenging
+outages you can solve.  Using this technique
+of thread dumps, you will be able to sovle high
+CPU situations with relative easy, in a matter of
+minutes.  These same problems without using this 
+specific approach
+can take days or weeks, or go totally unsolved.
+With your enhanced Java knowledge, you can now
+solve these toughest of all outages in production,
+and extremely quickly compared to other engineers.
+This is one critical skill for being a senior
+or staff engineer, as otherwise the reputational
+risk to the business of outages can be enormous.
+Examples of this include running major cloud
+services, or major financial systems in the cloud,
+where minutes of outages are measured in millions
+of dollars in lost revenue.
+
+#### Field example, high CPU usage
+
+Pagination code for an authorization system
+was incapable of handling more than thousands
+of accounts being associated with a user.
+The pagniation code would send this message
+to a downstream system, which would throw a caught
+exception, resulting in a retry.  This retry would
+be run in a tight loop in pagination code, taking up
+one entire CPU.  Each time one of these request was
+made, one CPU on one server would go in a tight
+loop to 100%.  With a server farm of for example
+one hundred machines and 64 cores per machine, it
+would take 6400 requests before the entire authorization
+cluster was at 100% CPU, a brownout.  This would take
+some time to occur, as not every request had this 
+unhandled exception, but over a period of tens of 
+minutes, the cluster would become unstable.
+As authorization is at the core of all systems,
+this kind of defect can be catastrophic for 
+a major billion dollar cloud financial institution.
+If you can quickly identify this problem and solve it
+using these techniques, you will be identified
+as a star engineer, particularly if you have
+practiced the techniques in this chapter beforehand
+in a simulated emergency environment, for example,
+by running the ThreadingExample.java on a Linux system,
+and practicing.
+
+# APPENDIX
 
 ### TODO:  More work here 1/1/2023.
 
