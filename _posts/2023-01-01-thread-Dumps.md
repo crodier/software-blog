@@ -790,7 +790,7 @@ and practicing.
 
 # APPENDIX
 
-##VisualVM in Production
+## VisualVM in Production
 
 VisualVM can be run remotely, from the machine you are working on.
 This technique can be useful but requires you to configure X-windows
