@@ -1,7 +1,7 @@
 
 # theme: jekyll-theme-hacker
 locale: "en-US"
-title: Ticks of the Trade
+title: Tricks of the Trade
 description: Homepage for Tricks of the Trade coding site.
 remote_theme: "mmistakes/minimal-mistakes"
 # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
