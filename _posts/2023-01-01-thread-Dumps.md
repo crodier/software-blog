@@ -317,15 +317,14 @@ three thread java program "ThreadingExample.java".
 
 You may take a thread dump by starting VisualVM,
 and pressing the "Thread dump" button on the Threads Tab above.
-<picture>
 
-Easier than starting VisualVM is to issue the 'QUIT' signal
+Easier than starting VisualVM is to issue the **QUIT** signal
 to the JVM.  The JVM is written to produce a Thread Dump
 to the standard out stream (typically on the console) 
-when it receives a 'QUIT' signal from the Operating System.
+when it receives a **QUIT** signal from the Operating System.
 
 On Linux, the way to issue a QUIT signal to a process
-is to send the signal via the 'kill' command.
+is to send the signal via the **kill** command.
 
 e.g.
 
