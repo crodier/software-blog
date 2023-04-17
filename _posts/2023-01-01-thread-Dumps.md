@@ -608,6 +608,10 @@ Locked ownable synchronizers:
 JNI global refs: 17, weak refs: 0
 {% endhighlight %}
 
+```text 
+-- end of thread dump --
+```
+
 ## Information gleaned from a thread dump
 
 ### Are your application threads alive?
