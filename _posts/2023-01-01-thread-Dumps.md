@@ -2,10 +2,11 @@
 
 ## TLDR;
 
-One of the best techniques during an outage is to take 
-thread dumps.  First you take three successive thread dumps
-with five second pause.  Capture and share these with your team.
-Next review the thread dumps.  Now you can quickly develop a reasonable picture
+During an outage, thread dumps
+are one of the most effective tools you can use towards resolution.
+First you take three successive thread dumps
+with five second pause.  Capture, share and review them with your team.
+Now you can quickly develop a reasonable picture
 of what your application is doing.  Search the thread dumps
 for the name of you company to find threads specific to 
 your own application code, like 'com.company.util.'
@@ -26,17 +27,13 @@ you can quickly pinpoint most production problems.
 
 This article teaches you how to take thread dumps and 
 use them efficiently during an outage.  This is a critical
-skill which any senior engineer should be adept at.  Without this capability, you may be
-unable to quickly diagnose production problem which 
+skill which any engineer should be adept at.  Without this capability, you may be
+unable to diagnose production problem which 
 can cause extended disruptions for your business.
-
-We assume familiarity in this article but err on the side
-of providing more detail than necessary.
 
 ## What is a thread?
 
-Fully explaining threading is beyond the
-scope of this firefighting guide.  We assume
+We assume
 readers are well versed in concurrency and 
 threading in software systems.  If not,
 some background may be reviewed here. 
@@ -59,9 +56,9 @@ by passing information to other threads
 using memory.
 
 Languages like Java, C++, Rust
-and others support threading and will natively
-run the software in parallel.  The operating system,
-usually Linux, schedules the threads to run 
+and others support threading and will
+run the software using parallel threads of execution, when asked.
+The operating system schedules the threads to run 
 using a part of the kernel called a scheduler.
 
 Generally you can run at least as many threads
@@ -91,7 +88,7 @@ can be found here:
 
 [Threading Java Class:  ThreadingExample.java](https://github.com/crodier/software-blog-examples/blob/main/examples/src/main/java/org/example/ThreadingExample.java)
 
-You can safely checkout and run this example main method from ThreadingExample.java on your desktop or development server.
+You can safely clone and run this example main method from ThreadingExample.java on your desktop or development server.
 
 The sample program starts and runs two threads
 and continues the main thread of execution. 
@@ -103,11 +100,13 @@ Later we will examine this specific programs threads.
 ## What is a thread dump?
 
 A thread dump instructs the software system
-to log whatever information it has about every 
+to log information regarding every 
 thread of execution in the system.
-The most valuable piece of information is 
-stating exactly which line in the code every 
-thread is running.  This is followed by the "call stack",
+The most valuable piece of information returned is 
+knowing exactly which line in the code every 
+thread is running, which is the top of each call stack returned.
+
+This is followed by the complete call stack,
 which is the chain of calls through the software
 system which led to the line of code being run
 in each thread.  Java makes these easy to read,
@@ -143,7 +142,7 @@ at java.lang.Thread.run(java.base@11.0.16/Thread.java:829)
 Notably this line 34 in the sample java program 
 is testing if a counter has exceeded "MAX_VALUE".
 When we take more thread dumps, fastWorkerA is almost always on this
-specific line; most likely because it is the slowest line
+specific line.  Testing the counter is the slowest line
 executed in every loop, the other being incrementing the counter.
 
 ```java
@@ -171,7 +170,7 @@ wish to install it.
 ### VisualVM Threading Display Tab
 VisualVM has a tab to display the threads in the JVM.
 The tab is named "Threads", which is not the first tab
-you see when you start visual VM.  When you click the "Threads" tab,
+you see when you start VisualVM.  When you click the "Threads" tab,
 you can observe how VisualVM views threads
 while they are running.  
 
@@ -268,7 +267,7 @@ This means the main thread was sleeping when I took the screenshot.
 The bar chart displays the thread state for the prior 20 seconds.
 
 The "main" thread counts to one billion (RUNNING state)
-and then sleeps for three seconds (TIMED_WAIT state, Sleeping.)
+and then sleeps for three seconds (TIMED_WAIT state, sleeping.)
 This is why the main bar in the chart has blocks of purple followed by shorter green blocks.
 
 The purple blocks in the "main" bar reflect these 
@@ -370,7 +369,7 @@ thread dumped to output.
 
 Start by scanning the output quickly.
 Do not try to understand the entire output, which
-we will break down in detail later in this article.
+we will review later in this article.
 
 {% highlight text linenos mark_lines="1 2"  %}
 
@@ -606,8 +605,6 @@ Locked ownable synchronizers:
 JNI global refs: 17, weak refs: 0
 {% endhighlight %}
 
-
-
 ## Information gleaned from a thread dump
 
 ### Are your application threads alive?
@@ -755,8 +752,7 @@ can take days or weeks, or go totally unsolved.
 With your enhanced Java knowledge, you can now
 solve these toughest of all outages in production,
 and extremely quickly compared to other engineers.
-This is one critical skill for being a senior
-or staff engineer, as otherwise the reputational
+This is one critical skill, as otherwise the reputational
 risk to the business of outages can be enormous.
 Examples of this include running major cloud
 services, or major financial systems in the cloud,
@@ -779,8 +775,8 @@ one hundred machines and 64 cores per machine, it
 would take 6400 requests before the entire authorization
 cluster was at 100% CPU, a brownout.  This would take
 some time to occur, as not every request had this 
-unhandled exception, but over a period of tens of 
-minutes, the cluster would become unstable.
+unhandled exception.  Over a period of tens of 
+minutes the cluster would become unstable.
 As authorization is at the core of all systems,
 this kind of defect can be catastrophic for 
 a major billion dollar cloud financial institution.
@@ -794,29 +790,6 @@ and practicing.
 
 # APPENDIX
 
-### TODO:  More work here 1/1/2023.
-
-## How to interpret a thread dump
-
-TODO:  How to read the stack and see where 
-a thread has been in the code.
-
-TODO:  How can you identify a deadlock in
-your code, and what tool should you try first
-to show you if you have a deadlock.
-
-## Java thread dump specific
-
-TODO:  Highlight in Libre Office, then
-explain the thread example from above, in detail.
-Not only what the application threads are,
-but each of the JVM threads.
-
-## Java thread dump tools
-
-Review the best tools available for thread 
-dump analysis, and which is recommended.
-
 ##VisualVM in Production
 
 VisualVM can be run remotely, from the machine you are working on.
@@ -824,7 +797,21 @@ This technique can be useful but requires you to configure X-windows
 which is typically not available on production linux OS builds,
 because it is considered to make the security on the system
 marginally weaker.  You can enable remote JMX access
-to your development and QA areas, and connect directly 
+to your development and QA areas, and connect directly
 to the JVMs using VisualVM, and this can be useful for debugging
 and observing the application behavior prior to releasing.
 Generally you should avoid opening remote JMX connections in production.
+
+## How to interpret a thread dump
+
+Follow up - How to read the stack and see where 
+a thread has been in the code?
+
+Follow up - How can you identify a deadlock in
+your code, and what tool should you try first
+to show you if you have a deadlock?
+
+## Java thread dump tools
+
+Follow up - Review the best tools available for thread 
+dump analysis, and which is recommended.
