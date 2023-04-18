@@ -16,14 +16,14 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
+#      layout: single
       author_profile: true
       read_time: true
       comments: true
       share: true
       related: true
 
-# turning off HTML compression fixes highlighting
+# turning off HTML compression fixes highlighting (?)
 compress_html:
   ignore:
     envs: all

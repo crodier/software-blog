@@ -3,14 +3,14 @@
 Chris Rodier:
   name        : "Chris Rodier"
   bio         : "I didn't say all the bananas were free for everyone. - J.Acaster"
-  avatar      : "/assets/images/bio-photo-2.jpg"
+  avatar      : "/assets/images/bio-photo-circle.jpeg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:chris@forcesoftware.org"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://crodier.github.io/software-blog/"
+      url: "https://rodier.co/"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/chrisrodier"
