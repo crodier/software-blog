@@ -2,6 +2,7 @@
 # theme: jekyll-theme-hacker
 locale: "en-US"
 title: Tricks of the Trade
+name: "Chris Rodier"
 description: Homepage for Tricks of the Trade coding site.
 remote_theme: "mmistakes/minimal-mistakes"
 # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
@@ -18,6 +19,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+      author:  "Chris Rodier"
       read_time: true
       comments: true
       share: true
