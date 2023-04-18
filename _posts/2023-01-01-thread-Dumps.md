@@ -367,11 +367,13 @@ with the name of the thread in quotes,
 and we can see "main" is the first
 thread dumped to output.
 
-Start by scanning the output quickly.
-Do not try to understand the entire output, which
-we will review later in this article.
+Search from here for **org.example** as if this
+is the primary package for your company.
 
-{% highlight text linenos mark_lines="1 2"  %}
+You will observe three threads below, which are the main
+and the two threads kicked off by main.
+
+{% highlight text mark_lines="1 5"  %}
 
 2023-01-01 13:27:32
 Full thread dump OpenJDK 64-Bit Server VM (11.0.16+8-post-Ubuntu-0ubuntu118.04 mixed mode, sharing):
