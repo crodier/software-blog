@@ -2,7 +2,7 @@
 
 Chris Rodier:
   name        : "Chris Rodier"
-  bio         : "I didn't say all the bananas were free for everyone. - J.Acaster"
+  bio         : "When debugging production problems, don't guess."
   avatar      : "/assets/images/bio-photo-circle.jpeg"
   links:
     - label: "Email"
