@@ -674,18 +674,27 @@ Second, the catch block **must
 always catch unchecked exceptions** (java.lang.Exception should be caught.)
 This advice contradicts much writing and "conventional wisdom."  
 For example, [InfoWorld tip 134](https://www.infoworld.com/article/2077500/java-tip-134--when-catching-exceptions--don-t-cast-your-net-too-wide.html) 
-talks extensively about reasons to not catch
-uncaught exceptions, but mentions, "perhaps in 
+talks about reasons to not catch
+uncaught exceptions, and mentions, "perhaps in 
 general error handling you could do this, but only then."
-This is too weak a statement from the InfoWorld author.
-Instead, the article should add, you must always
+This is too weak a statement.
+Instead, you must always
 name your threads when you start them, and log them
 if they exit abnormally by catching java.lang.Exception
 where the thread was started.
-If your colleagues call this code bloat, you can
-direct them back to this article, and the specific
-ANTLR example which took down a large multi-thousand
-node financial system for many hours in production recently.
+This may be called code bloat; however, this is a trade-off.
+
+I strongly recommend trading off observability as it can be critical
+for your business success.  From a cost/value perspective, you 
+are trading a fat tailed distribution of time lost debugging,
+vs. a tiny fixed cost of reading the try-catch block.
+Meaning, if once in your life, you spend three hours 
+debugging, looking for a dead thread which may have died
+without any logging of the thread death, you have already lost
+more time than you would have spent in several lifetimes, reading
+the try-catch block.  If you structure your code, the try catch
+could be a standard annotation, which you write once, and costs
+almost nothing as a "code reading concern."
 
 Recounting this example also makes me think ANTLR should force
 developers to catch a specific sub-class itself of 
@@ -749,11 +758,15 @@ CPU situations with relative easy, in a matter of
 minutes.  These same problems without using this 
 specific approach
 can take days or weeks, or go totally unsolved.
+
+
 With your enhanced Java knowledge, you can now
 solve these toughest of all outages in production,
-and extremely quickly compared to other engineers.
-This is one critical skill, as otherwise the reputational
-risk to the business of outages can be enormous.
+and extremely quickly (particularly, compared to other engineers
+who are unfamiliar with this technique.)
+This is a truly critical skill, due to the
+enormous reputational
+risk to the business created by major, and long, outages.
 Examples of this include running major cloud
 services, or major financial systems in the cloud,
 where minutes of outages are measured in millions
