@@ -1,12 +1,13 @@
 ## TLDR;
 
-During an outage, thread dumps
-are one of the most effective tools you can use towards resolution.
+Thread dumps are one of the most effective tools 
+you can use towards resolution of a production software outage.
+
 First you take three successive thread dumps
 with five second pause.  Capture, share and review them with your team.
 Now you can quickly develop a reasonable picture
 of what your application is doing.  Search the thread dumps
-for the name of you company to find threads specific to 
+for your java code package name to find threads specific to 
 your own application code, like 'com.company.util.'
 
 Next review any threads with state BLOCKED,
@@ -19,8 +20,7 @@ The most typical problems to look for:
 1.  A thread is slow due to writing or reading from a disk drive.
 1.  The CPU is being exhausted by a section of code.
 
-By taking thread dumps and reviewing the output of a few of them,
-looking first at application threads from code from your team authored,
+By taking thread dumps and reviewing the output of a few of them
 you can quickly pinpoint most production problems.
 
 This article teaches you how to take thread dumps and 
@@ -64,11 +64,12 @@ as there are cores on your machine.  You are
 free to start as many threads as you want.  Once
 you exceed the number of cores on your system,
 the operating system scheduler gives each thread
-a slice of time to run on a core.  The operating
+a slice of time to run on a core.  When a core becomes
+avaialable, the operating
 system code does the heavy lifting of 
 recording where the thread was last running,
-and then continuing exactly where the thread
-has been running, when a core becomes available.
+and then continuing exactly where the thread had bee
+de-scheduled.
 
 ## Anatomy of a thread
 
@@ -104,8 +105,8 @@ The most valuable piece of information returned is
 knowing exactly which line in the code every 
 thread is running, which is the top of each call stack returned.
 
-This is followed by the complete call stack,
-which is the chain of calls through the software
+The complete call stack is the entire 
+chain of calls through the software
 system which led to the line of code being run
 in each thread.  Java makes these easy to read,
 and provides two summary lines above this 
@@ -128,20 +129,25 @@ here is a thread dump generated on my linux machine.
 First let us review one small 
 chunk of the overall thread dump command output.
 
-In this one snippet, we can quickly observe that
-a thread named "fastWorkerA"
-is RUNNABLE and running line 34 of ThreadingExample.java.
+We can quickly observe 
+a thread named "fastWorkerA" is RUNNABLE 
+and running source code line 34 of ThreadingExample.java.
 ```
 "fastWorkerA" #14 prio=5 os_prio=0 cpu=54071.49ms elapsed=54.12s tid=0x00007f6b2c301800 nid=0x306e runnable  [0x00007f6b001e5000]
 java.lang.Thread.State: RUNNABLE
 at org.example.ThreadingExample$FastWorker.run(ThreadingExample.java:34)
 at java.lang.Thread.run(java.base@11.0.16/Thread.java:829)
 ```
-Notably this line 34 in the sample java program 
-is testing if a counter has exceeded "MAX_VALUE".
+Line 34 in the sample java program 
+is testing if a counter has exceeded "MAX_VALUE" (as seen in the example code.)
+
 When we take more thread dumps, fastWorkerA is almost always on this
-specific line.  Testing the counter is the slowest line
-executed in every loop, the other being incrementing the counter.
+specific line.  The reason this line is always active because
+it takes the most CPU time in the sample program; testing the counter is the slowest line
+executed in every loop.  This short but 
+signifigant comparison time makes it highly probably
+if you repeat the exercise, your thread dump will be on
+the same exact line.
 
 ```java
 if (counter == Integer.MAX_VALUE) {
@@ -149,13 +155,13 @@ if (counter == Integer.MAX_VALUE) {
 
 ## VisualVM display of a thread dump
 
-#### What is VisualVM ?
+### What is VisualVM ?
 VisualVM is a graphic system for reviewing the JVM, which is
 free
 and open source from Oracle.  We will install
 it now and briefly review it in the context of threading.
 
-#### Installing VisualVM
+### Installing VisualVM
 
 On Linux Mint and Ubuntu systems, you can install visualvm with apt-get.
 ```shell
@@ -190,7 +196,7 @@ is available.
 
 ![JVisualVM Threading Tab]({{ site.url }}{{ site.baseurl }}/assets/images/jvisualVmThreadingExampleWArrow.png)
 
-#### What threads are running?
+### What threads are running?
 
 Two types of threads run in the JVM.
 *Application threads* are threads the application itself
@@ -201,7 +207,7 @@ The ThreadingExample.java program has three
 application threads
 running.  
 
-#### (1) The "main" thread
+### (1) The "main" thread
 The first application thread is "main", which is
 the convention the JVM uses for the main method
 which is kicked off when you start the program.
@@ -211,7 +217,7 @@ can not be changed by Java programmers.
 The main thread of our ThreadingExample.java starts
 two more application threads.
 
-#### (2) The "Thread-0" thread
+### (2) The "Thread-0" thread
 
 To show an example of what not to do, ThreadingExample.java
 creates an unnamed application thread.  While
@@ -234,7 +240,7 @@ for the thread, by using a counter, and names it: **"Thread-0."**
 There is a static counter in the JVM, which simply counts upwards
 any time an unnamed thread is started.
 
-#### (3) The "fastWorkerA" thread
+### (3) The "fastWorkerA" thread
 
 The second application thread is created 
 in ThreadingExample.java
@@ -248,7 +254,7 @@ and name it **fastWorkerA**
 Thread threadB = new Thread(null, fastWorker, "fastWorkerA");
 ```
 
-### Review the threads in VisualVM
+## Review the threads in VisualVM
 
 We can see the third row in the VisualVM thread
 output shows "fastWorkerA", as a green bar.
@@ -257,7 +263,7 @@ The green bar means the thread is in RUNNING state.
 Two rows are highlighted purple in the VisualVM
 tab, the 6th and 13th rows in the "Threads" window.
 
-#### Main thread
+### Main thread
 
 The first purple and green row is "main".  
 Purple means sleeping thread state in VisualVM.
@@ -273,7 +279,7 @@ three second sleeps.  The shorter green blocks on the "main" thread
 bar shows where the main thread 
 woke up and was counting to a billion, taking about a second.
 
-#### Slow worker thread
+### Slow worker thread
 
 The second purple row is running "slowWorker", 
 the unnamed "Thread-0"
@@ -286,12 +292,14 @@ well as the current state which is also sleeping.
 The state of the threads is actually "TIMED_WAIT",
 which VisualVM displays as sleeping.
 
-### Power of JVM instrumentation
+## Power of JVM instrumentation
+*(if you only knew the power... of the Dark Side.)*
 
 As you can see, the JVM provides an enormous amount
 of information regarding internal state of the JVM and
 the threads running within it.  
-The advantage of using 
+
+Star Wars references aside, the advantage of using 
 Java as a server side software language can not 
 be understated.  There has never been a language
 with this much power while at the same time
@@ -308,7 +316,7 @@ since the late 1990s.
 
 # Java Thread Dump:  Full review
 
-### Entire thread dump output, followed by discussion
+## Entire thread dump output, followed by discussion
 Next let us review the complete thread dump output for this
 three thread java program "ThreadingExample.java".
 
@@ -607,6 +615,10 @@ JNI global refs: 17, weak refs: 0
 
 ## Information gleaned from a thread dump
 
+While it seems like an overwhelming amount of information
+it is not difficult to find your particular application 
+code and isolate it from the other JVM system threads.
+
 ### Are your application threads alive?
 
 If you name your threads, it is trivial to check if
@@ -615,15 +627,17 @@ name in the thread dump.  If the threads are not listed,
 then they have exited.
 
 Without naming every thread, other approaches must be used,
-which can be error prone during an emergency.
+which can be error-prone during an emergency.
 You can for example look for lines of code which 
-must be in the stack for a particular thread to be running.  
+**must** be in the stack for a particular thread to be running.  
+But at this point you must be able to draw (correct) observations once 
+removed through inference.
 
-For this to work, you must have
+Furthermore, you must have
 the exact release of the code checked out and be reviewing
 this exact commit.  During an emergency this can be challenging
-and is additional wasted time you want to avoid by 
-naming all your threads.
+and is additional wasted time.  You can avoid this
+difficulty by simply naming all your threads.
 
 ### Example 'from the field'
 
@@ -653,7 +667,7 @@ infer from the code itself and by reviewing
 certain methods and line numbers,
 that this thread had exited, which we did.
 
-#### Catch Unchecked Exception when kicking off threads
+### Catch Unchecked Exception when kicking off threads
 
 Still, we could not know for sure, but 
 decided it must have been an unchecked exception.
@@ -705,7 +719,7 @@ to happen or would reasonably unit test, yet it
 is not too difficult to occur
 "in the field" with a large expression.
 
-#### Summary
+### Summary
 
 Writing a few lines around any code which
 starts threads, and catching and logging if they exit,
@@ -736,7 +750,7 @@ This is most useful if there is high CPU.  For
 each thread which is in RUNNING state across more than
 one or all of the thread dumps, you should first 
 review what the code is doing, and if the code
-could be in an infinite or long running and CPU
+could be in an infinite or long-running and CPU
 expensive loop without any other IO operations.
 It is usually very likely that these threads 
 are the cause of high CPU, and you can guess
@@ -753,7 +767,7 @@ if any recent inputs would result in higher
 than expected CPU usage of the code you are reviewing.
 CPU usage outages are one of if not the most challenging
 outages you can solve.  Using this technique
-of thread dumps, you will be able to sovle high
+of thread dumps, you will be able to solve high
 CPU situations with relative easy, in a matter of
 minutes.  These same problems without using this 
 specific approach
@@ -772,7 +786,7 @@ services, or major financial systems in the cloud,
 where minutes of outages are measured in millions
 of dollars in lost revenue.
 
-#### Field example, high CPU usage
+### 2nd 'from the field' example: high CPU usage
 
 Pagination code for an authorization system
 was incapable of handling more than thousands
