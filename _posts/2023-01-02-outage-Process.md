@@ -1,11 +1,11 @@
 # Outage Process
 This chapter is about a consistent set of steps any team will use during an outage.
-The steps and the timing are important, becuase they let teams in both the softare and business organzation
+The steps and the timing are important, because they let teams in both the softare and business organzation
 observe exactly what is happening and who is doing what, and see if they can get more help for the situation.
 Once the exact details are agreed upon, a published version and a meeting shoud be held company wide
 where the documentation is reviewed and an example incident run through, either recent or a fictitious event during the training.
 This can be recorded on the Zoom call, and connected to the wiki.  Once this is recorded, any new joiner to the 
-organziation shoudl review the outage procedure.
+organization should review the outage procedure.
 
 
 ## Why process it is important?
@@ -23,13 +23,13 @@ Another benefit is by having the process in place, you don't need to discuss, wh
 regarding the outage, and how often to provide updates, as the standard is already known prior to the outage occuring.
 You would not want to show up to a fire and not know how who was communicating the progress of the fire and how and when.
 
-## How other organzanizations handle communications during emergencies
+## How other organizations handle communications during emergencies
 
-TODO:  How do firefirghers and surgeons communicate during emergencies, and how does the military.
+TODO:  How do firefighters and surgeons communicate during emergencies, and how does the military.
 
 ## Communication channels and timing
 
-Slack is used by many organziations.  We will use the messaging chat app named Slack here as a placeholder for whatever enterprise messaging chat system you have.  Slack is used by many organzizations and is excellent for wide scale immediate and targeted communication.  The features 
+Slack is used by many organizations.  We will use the messaging chat app named Slack here as a placeholder for whatever enterprise messaging chat system you have.  Slack is used by many organzizations and is excellent for wide scale immediate and targeted communication.  The features 
 are also available in most open source chat apps like Mattermost.
 
 The Slack system has an extremely useful feature called a channel.  One channel should exist for each major business group, as their "outage" channel.
@@ -43,7 +43,7 @@ At the start of an event, it should be determined if it is potentially a large s
 ## Determining Large Scale Outage
 
 A large scale outage has different criteria for every organization.  Divisions may have their own criteria for large scale outages.  It is possible that 
-an outage meets the criteria for a division or company wide outage, the communcation should be used on the outage channels.  Not every outage will 
+an outage meets the criteria for a division or company-wide outage, the communcation should be used on the outage channels.  Not every outage will 
 impact the entire company.  For a large dot-com, an outage will typically impact only application offered by the company.  Outages which impact
 an entire dot com are much rarer.
 
