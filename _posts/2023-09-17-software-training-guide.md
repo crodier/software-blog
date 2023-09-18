@@ -125,4 +125,4 @@ you become a much stronger programmer.
 ### Other interesting (have not taken these myself)
 
 1.  PBS:  https://www.youtube.com/watch?v=O5nskjZ_GoI
-2. 
+2.  Socio-Software methods:  [Socio-software](https://www.amazon.com/Architecture-Modernization-Socio-technical-alignment-structure/dp/1633438155/ref=sr_1_30?crid=1NKB20LONGQ4Z&keywords=domain+driven+design&qid=1695003284&s=books&sprefix=domain+driven+%2Cstripbooks%2C600&sr=1-30)
