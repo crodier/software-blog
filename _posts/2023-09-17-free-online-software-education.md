@@ -1,4 +1,4 @@
-# Software training guide
+# A free online, software education
 
 As a professional Java(!!) software engineer for 25 years
 I thought it would be a good idea to try to pass on
@@ -8,7 +8,25 @@ to my children when they were young.
 I have been of the belief that software takes too long to learn.
 I am still learning it and often think I am not good at it.
 
-Here is a quick summary done for a friend.  Most of this 
+### Goal of this guide
+
+To help people on their journey here is a curated list of free software
+courses in exactly the order I recommend studying software to effectively come up
+the learning curve quickly, targeted toward making anyone effective in the field.
+The list assumes zero prior software experience or understanding.  It should be
+I think anyone could follow this guide and have a rewarding and high
+paying software career as there are still not enough strong engineers
+to meet demand; particularly not in New York.
+
+### What is here
+
+Here is a quick summary done for a friend (in an hour.)
+But I remember this well and hold it dear to me as a system
+I developed and continue to develop for becoming an expert
+at CS without having studied enough in undergraduate, or
+understood the importance of the education at that young age.
+
+Most of this 
 applies for non-CS graduates who wish to be expert
 enough in software to be considered strong.  Without
 the complete set of these courses completed you can not
@@ -20,6 +38,8 @@ Importantly you don't need to be *strong* to work in software.
 You only need to be proficient enough for the task at hand.
 *Strong* implies a mid to senior level engineer which is
 a hard level to reach and rare in the field.
+
+### My experience with the materials
 
 My dear son took most of these courses from age 12 to 16.
 This required important concentration on his part and
@@ -43,7 +63,7 @@ Everything on this list is free.
 
 ## Professional entry level
 
-1. **"Scratch":**  
+1. **"Scratch":**  The best early beginning
    1.  Learn "Scratch" the MIT language for kids programming; videos on YouTube.
    1.  Tutorials explanation:  [Tutorails link](https://sip.scratch.mit.edu/tutorials/)
    1.  *Tutorials* lightbulb on this page:  [Scratch Editor](https://scratch.mit.edu/projects/editor/?tutorial=getStarted)
