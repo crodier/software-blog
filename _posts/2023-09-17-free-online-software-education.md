@@ -88,8 +88,12 @@ You can very likely get an entry level job at this stage.
 
 To become strong you must be an expert at these courses 
 and materials.  Completion of all of these and
-the ability to teach each of these courses should
+the ability to *teach* each of these courses should
 be a requirement to be a senior software engineer.
+
+This is different from taking the courses; it means
+relative mastery of the material at an A+ level and
+the ability to TA or teach any of these courses.
 
 1. **University of Brown: Threading**
    1. Threading is important for Java server side and life.
