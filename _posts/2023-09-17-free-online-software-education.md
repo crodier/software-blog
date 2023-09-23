@@ -6,28 +6,23 @@ the only thing I will claim to know reasonably well
 to my children when they were young.
 
 I have been of the belief that software takes too long to learn.
-I am still learning it and often think I am not good at it.
+I am still learning; often think I am not good at it!
 
 ### Goal of this guide
 
 To help people on their journey here is a curated list of free software
-courses in exactly the order I recommend studying software to effectively come up
-the learning curve quickly, targeted toward making anyone effective in the field.
-The list assumes zero prior software experience or understanding.  It should be
-I think anyone could follow this guide and have a rewarding and high
+courses in exactly the order I recommend studying software to effectively.  
+This guide is targeted toward making anyone effective in the field
+with a particular emphasis on children.
+
+The list assumes zero prior software experience or understanding.  
+Anyone could follow this guide and have a rewarding and high
 paying software career as there are still not enough strong engineers
-to meet demand; particularly not in New York.
+to meet demand.
 
 ### What is here
 
-Here is a quick summary done for a friend (in an hour.)
-But I remember this well and hold it dear to me as a system
-I developed and continue to develop for becoming an expert
-at CS without having studied enough in undergraduate, or
-understood the importance of the education at that young age.
-
-Most of this 
-applies for non-CS graduates who wish to be expert
+Most of this applies for non-CS graduates who wish to be expert
 enough in software to be considered strong.  Without
 the complete set of these courses completed you can not
 be considered a strong software engineer as all of 
@@ -37,19 +32,19 @@ many important practical applications of software.
 Importantly you don't need to be *strong* to work in software.
 You only need to be proficient enough for the task at hand.
 *Strong* implies a mid to senior level engineer which is
-a hard level to reach and rare in the field.
+a higher level.
 
 ### My experience with the materials
 
-My dear son took most of these courses from age 12 to 16.
+My son (eldest, Chris) took most of these courses from age 12 to 16.
 This required important concentration on his part and
 at a young age to be doing software.  I think twelve
 and thirteen is the most important time to start.  This way
 by age 22 any student of engineering will also be proficient
-in coding; which is basically a necessity to be effective.
-I took great care to curate this list for him at that time,
-as I wanted it to be as effective usage of both our time as possible.
-If there are any suggestions for improvement please reach out.
+in coding; which is basically a necessity to be any kind of effective engineer.
+
+I took great care to curate this list
+as I wanted it to be effective usage of both our time as possible.
 
 The courses here are entirely free and self-paced.
 
@@ -73,7 +68,8 @@ Everything on this list is free.
    1. Sign up for Coursera and take those 5 classes for free.
    1. After this you can almost get a job.
 1. **CS 50**:  Harvard Freshman Seminar
-   1. Take the venerable CS50 for free on Coursera or online Harvard.
+   1. [CS 50 on EdX link](https://www.edx.org/learn/computer-science/harvard-university-cs50-s-introduction-to-computer-science)
+   1. Take the venerable CS50 for free on EdX or online Harvard.
 1. **Stamford Java:  Freshman year**
    1. CS106a: Freshman year Stamford Java [See.stamford.edu](https://see.stanford.edu/Course/CS106A)
    1. This course gives you a solid intro to Java and good practical foundations.
@@ -82,7 +78,7 @@ Everything on this list is free.
    1. Second semester freshman year Stamford
    1. [Abstractions at see.stamford.edu](https://see.stanford.edu/Course/CS106B)
 
-You can very likely get an entry level job at this stage.
+You will be able to find an entry level job at this stage.
 
 ### Senior level software education
 
@@ -130,8 +126,6 @@ the ability to TA or teach any of these courses.
    5. Study Apache Druid and what is better at than a database, and why
 6. **MIT operating systems online**
    7. MIT offers operating systems for free; it is worth taking online.
-
-
 
 ## Practical knowledge and application
 
