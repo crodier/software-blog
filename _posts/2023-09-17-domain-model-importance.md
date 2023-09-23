@@ -277,109 +277,108 @@ message Record {
 ```
 
 The result of this not useful and false marketing of Cereal
-for C++ is that engineers, even senior ones, are found
-arguing for points which are patently false.  When you are
-under pressure to deliver and you make a decision it can
-seem like the only and the correct decision to you.  But
-if you make the wrong decision about a domain model format
-you can end up paying up to millions of dollars for the mistake.
-How is this?  You now need to translate between one domain 
-model using Protobufs in one group and Cereal used by another 
-group.  It will cost you at least $100,000 in software time
-to first author the translation layer, and it will be 
-many times this to debug and maintain it.  With the adaption 
-of AI these costs will be made lower but they will never
+for C++ is that engineers, even senior ones, are often found
+arguing for points that are patently false. When you are
+under pressure to deliver, and you make a decision, it can
+seem like the only and correct decision to you. But
+if you make the wrong decision about a domain model format,
+you can end up paying millions of dollars for the mistake.
+How is this? You now need to translate between one domain
+model using Protobufs in one group and Cereal used by another
+group. It will cost you at least $100,000 in software time
+to first author the translation layer, and it will be
+many times this to debug and maintain it. With the adoption
+of AI, these costs will be reduced, but they will never
 make up for the lack of a correct and accurate design discussion.
 
-I myself am *often wrong*; times I have been way wrong
+I myself am often wrong; times I have been way wrong
 are cataloged forever in my mind as things to avoid, particularly the big ones.
 
-The scary part of design is once you know you may be wrong 
-but you believe you are right in a conversation about design.  
+The scary part of design is once you know you may be wrong,
+but you believe you are right in a conversation about design.
 
-Once this happens you 
-enter the realm of philosophy about software, cost, and
-the fundamental truth.  Then you dig deeper and deeper
-until you hit what one friend calls bedrock truth.  
+Once this happens, you enter the realm of philosophy about
+software, cost, and the fundamental truth. Then you dig
+deeper and deeper until you hit what one friend calls bedrock truth.
 
 The fundamental truth here is that Cereal puts every field,
-null or not, on the wire.  If you have a domain model
-with half null fields you lost more than all the time
-you have gained on cereal messages which are fully populated.
-Without this understanding or a cursory understanding of
-nulls on messages you have cost your company real engineering
-money, defects, and a major time cost to your project.  
+null or not, on the wire. If you have a domain model
+with half-null fields, you lose more than all the time
+you have gained on cereal messages that are fully populated.
+Without this understanding or even a cursory understanding of
+nulls in messages, you have cost your company real engineering
+money, defects, and a major time cost to your project.
 
-These kinds of debates and decisions which can lead to
+These kinds of debates and decisions that can lead to
 millions in software mistakes are common and can be seen
-in all software shops, along with their outcome, costs
+in all software shops, along with their outcomes, costs,
 and benefits, which become obvious over time.
 
 ### Debates about software
 
-In conversations of other developers it helps to have the
-same foundations.  Otherwise, you have repeated discussions
-about facts which are truths of the software formats
-and often general engineering truths.  There
+In conversations with other developers, it helps to have the
+same foundations. Otherwise, you have repeated discussions
+about facts that are truths of the software formats
+and often general engineering truths. There
 is little less fulfilling activity than convincing someone
-else of a truth they can learn without you; and you are
-willing to direct them but they are not willing to do the
+else of a truth they can learn without you, and you are
+willing to direct them, but they are not willing to do the
 work to learn what you know.
 
 Principal Engineers are asked to write papers to "convince"
-others of what they know as bedrock truth.  This turns 
+others of what they know as bedrock truth. This turns
 the art of software development into one of authoring
-your fundamental truth in a paper which is consumable
-by both business people and engineers.  This has become
-standard practice in large dot coms.  It works sometimes
-in major dot coms.  This is because they can afford
-to have ethereal conversations about the art of software 
+your fundamental truth in a paper that is consumable
+by both business people and engineers. This has become
+standard practice in large dot coms. It works sometimes
+in major dot coms. This is because they can afford
+to have ethereal conversations about the art of software
 development and write papers about why things should
-be done a certain way.  Most businesses do not have this
+be done a certain way. Most businesses do not have this
 luxury and need to trust the instincts of their most senior
-engineer and take their word for it.  This is frustrating
+engineer and take their word for it. This is frustrating,
 and also if you do not have a senior enough engineer at the
-helm your entire software effort can go sideways.  But
-you can not expect this engineer to write down the bedrock
+helm, your entire software effort can go sideways. But
+you cannot expect this engineer to write down the bedrock
 truth of why all beliefs are practiced; this is the equivalent
 of boiling down every experience and every project on the subject
-into a digestible summary document.  This can be a pleasant
-exercise if one is writing a book, or a blog on the weekends;
+into a digestible summary document. This can be a pleasant
+exercise if one is writing a book or a blog on the weekends;
 but to do this with the pressure of business competition
 is a senseless exercise for any small or medium business.
 
 ## How hard is Domain Model
 
-To build a domain model you first need to know what 
-the cost and difference is between using Protobufs, its
+To build a domain model, you first need to know what
+the cost and difference are between using Protobufs, its
 close cousin Flatbuffers, and what binary vs. non-binary
 formats like JSON give you in cost and benefit.
-This is only the beginning.  To say that Protobuffers has
+This is only the beginning. To say that Protobuffers have
 too high a cost is to lack an understanding of the problems
-you can face with JSON on the wire and in general which are many.
-Problems with JSON include the lack of schema and an expensive
-non-binary wire format.  Wihle JSON can be compressed and
-then compressed it is the same size; guess what, you must 
-then compress and decompress it.  This involves turning on gzip
-compression for JSON, which is, let us say not a big deal,
-but it is a cost.  The bigger cost is the CPUs; now you must
+you can face with JSON on the wire and in general, which are many.
+Problems with JSON include the lack of a schema and an expensive
+non-binary wire format. While JSON can be compressed and
+then compressed, it is the same size; guess what, you must
+then compress and decompress it. This involves turning on gzip
+compression for JSON, which is, let us say, not a big deal,
+but it is a cost. The bigger cost is the CPUs; now you must
 run CPUs hot and take the time to compress and decompress every
-message.  While this is very fast, once you have even a
-moderately interesting amount of messages like 1,000,000, the
-cost can become 10s of seconds of CPU time to compress the
-data, costing you tens of seconds of CPU time, and slowing 
-down your data pipeline by up to ten seconds.  With many 
-finance data pipelines needing to be sub 5 seconds for 
-effective real time reporting, you are now already 
-over your latency budget; time to start over.  This need
- to start over when you have not properly allocated for
+message. While this is very fast, once you have even a
+moderately interesting number of messages; for example 1,000,000, the
+cost can become tens of seconds of CPU time to compress the
+data, costing you tens of seconds of CPU time and slowing
+down your data pipeline by up to ten seconds. With many
+finance data pipelines needing to be sub 5 seconds for
+effective real-time reporting, you are now already
+over your latency budget; time to start over. This need
+to start over when you have not properly allocated for
 performance is being referred to as shift-left performance,
 where you account for the non-functional latency and cost
-of a system at the earliest point possible.  The reason 
-for doing this is because of the extreme cost of u
+of a system at the earliest point possible. The reason
+for doing this is because of the extreme cost of
 underestimating this cost later in the software development
 cycle, which in some cases would be a complete re-engineering
-at the cost which during design time can be a two-hour 
+at the cost, which during design time can be a two-hour
 conversation and research process, usually leading to
 using protobufs to avoid the risk of needing it later!
 
