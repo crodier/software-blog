@@ -4,16 +4,17 @@ At Layer 4 (Transport) in the OSI model
 you first choose TCP or UDP
 as one important choice for messaging; but this is almost
 always TCP due to error correction (along with de minimus
-gains of using UDP over TCP and added complexity.)
+gains of using UDP over TCP and added complexity cost.)
 
-At Layer 7 (Application) is a critical decision 
+Layer 7 (Application) is a critical decision 
 of message format.  For any reasonably large messaging
 system this decision can determine millions of dollars
 of CPU and engineering time wasted vs. a better approach.
 
 The results and reasons seem to be poorly understood
-and the choice these days is for the ubiquitous JSON
-but this decision for JSON be costly and troublesome for many
+and the choice these days is for the ubiquitous JSON.
+
+This decision for JSON be costly and troublesome for many
 businesses.
 
 # Intro:  Binary vs. JSON
@@ -327,26 +328,26 @@ of mixing and matching message formats.  This is
 a high cost to the engineers who may maintain two alternate
 types of messaging systems and formats.
 
-Worst is that then the messages will need to be
-translated across the formats and this is a new
-problem you will have added for your business 
-and a new cost which can be avoided by choosing one.
+Worse, with two message formats in use, the messages will need to be
+translated across the formats.  This is a new
+problem you will have *invented* for your own business,
+along with the associated costs.
+
 You do not want any time spent by engineers in 
 translating in between formats as this is 
 your highest cost, but also your highest **opportunity cost**
 of what else those programmers could be doing for you,
 as a scarce resource for your business.
 
-This kind of message trasnlation layer is generally
+This kind of message translation layer is generally
 not something a programmer will be eager to author
-or maintian.  With AI this has become eaiser
+or maintain.  With AI, maintenance has become easier
 but there is still costs to doing it this way 
-in complexity and the need to maintain this mapping code,
-in the event you choose more than one format.
+in complexity and the need to maintain this mapping code.
 
-These mapping layers often become the system itself;
-most systems are mostly sending data around
-and in and out of databases and data systems.
+These mapping layers often become the most complicated 
+parts of the system;
+most systems are primarily message middleware.
 
 ### Protobuf preferred
 
@@ -537,7 +538,7 @@ Here's a comparison of Cap'n Proto and protobufs in terms of zero-copy serializa
 
 **Protocol Buffers:** Protocol Buffers are also efficient but may involve some memory copying, which can introduce a small performance overhead compared to Cap'n Proto, especially in scenarios where data serialization and deserialization are frequent.
 
-Ease of Use and Ecosystem:
+#### Ease of Use and Ecosystem:
 
 **Cap'n Proto**: Cap'n Proto is designed to be efficient and low-level, which can be a double-edged sword. While it offers excellent performance and zero-copy capabilities, it may require more manual memory management and lower-level code.
 
@@ -563,13 +564,15 @@ which may not have been understood.
 Fewer developers know CapNProto and there is marginally
 less support.  CapNProto lacks gRPC to define remote 
 IDL interfaces and generate servers; this is a big one.
-To do businesses with gRPC from an engineering cost
-perspective vs. doing it without could be 30-50%
-more engineering cost.  In almost every situation
-there is no discussion; you need  to save the engineering
-costs against a small performance win.
 
-### The observation: Is there a performance win to begin with?
+To do businesses with gRPC from an engineering cost
+perspective vs. doing it without could be 30% or
+more overall engineering cost.  In almost every situation
+there is no discussion; you need to save the engineering
+costs against a small performance win, and use 
+Protobufs because of the gRPC cost win.
+
+### The observation: What is the performance win of CapNProto?
 
 You may believe that because the CapNProto will be faster
 due to the marketing.  It has zero-copy, therefore, it must
@@ -577,7 +580,7 @@ be faster right?  We want the fastest!
 
 This would be totally incorrect as a belief.
 
-How could this be, when it is zero-copy vs. one copy?
+How could this be, when it is zero-copy vs. one copy for Protobuf?
 
 #### Null treatment in CapNProto and other zero-copy
 
@@ -586,11 +589,16 @@ fields, these nulls are sent for the fields **on the wire.**
 
 Therefore, when you are sending sparsely populated messaging
 the CapNProto messages will be larger than the Protofuf messages,
-**because** protobuf messages will not send nulls on the wire
+**because** protobuf messages will *not* send nulls on the wire
 and instead the wire will have fewer bytes.  With a smaller
-network message the cost of the small zero-copy win will 
-almost always be eliminated by using zero-copy frameworks
-like CapNProto (Aeron being the other major competitor.)
+network message the win of zero-copy is almost always
+eliminated due to the higher message size with the nulls
+serialized.  Having every field defined makes the zero-copy
+able to chop up the byte buffer into a struct without any
+instructions other than offsets, the fastest possible way.
+The cost is that null fields must also be represented.
+For any scarcely populated message this additional network overhead in CapNProto
+offsets any performance gained by zero copy.
 
 If you choose CapNProto thinking you will be faster, 
 you will have actually incurred 50% more engineering cost
@@ -604,22 +612,12 @@ this mistake at any organization which reads this.
 I would like it in Red.
 ---
 
+---
+
 Hopefully after this reading, you understand and can actually debate the binary message
 format discussion with your team with an informed understanding
 and perspective, and the tradeoffs.  You will not be subjected
 to some smarty-pants engineer who says "we should use CapNProto, because it is faster."
-
-This is not in any marketing or in any other comparison I am aware of.
-
-This reminds me of a famous video in my programing circles about
-newer technology vs. using tried and true techniques. 
-
-(NS4W)
-[MongoDB is WebScale](https://www.youtube.com/watch?v=b2F-DItXtZs)
-
-Still it is an important perspective to take on new technology;
-to be critical and cautious and understand why technology is 
-selected and used, and why newer is not always better (although it often is.)
 
 This brings us to Aeron in conclusion, for completeness.
 
@@ -642,16 +640,16 @@ if the messages are not sparsely populated, there is
 an opportunity to save a considerable amount of CPU cost
 which is energy savings and is Earth friendly.  You get 
 to both go much faster for your clients, and save some Earth.
-We call this a win-win (as long as you can pay the expert Aeron message engineers.)
+We call this a win-win (as long as you can pay the expert Aeron message engineers,
+and they cost less than the CPU savings.)
 
-## Flatbuffers
-
-If you use protobufs you can translate to another wire format
-called flatbuffers using the same format but different tech.
+## Flatbuffers (also Google)
 
 Flatbuffers is zero-copy but requires much more overhead
-to program in than protobufers.  It is much less elegant
-to use but where latency is important it has become a standard.
+to program in than protobuffers.  Flatbuffers is much less elegant
+to use.  Yet where performance is paramount, Flatbuffers has become a standard,
+due to the balance between engineering cost and latency benefits
+being in a sweet spot.
 
 What stands out to me was the use of Flatbuffers for Android
 messaging in the Facebook (Meta) apps.  This article has
@@ -659,29 +657,37 @@ excellent treatment of the advantages of Flatbuffers:
 
 [Flatbuffers for Android at Facebook](https://engineering.fb.com/2015/07/31/android/improving-facebook-s-performance-on-android-with-flatbuffers/)
 
-Flatbuffers notably does not serialize nulls.  This means
-that the wire format will be more efficient than CapNProto.
-This comes at a small cost of deserializing the messages; however,
-this is the right tradeoff to make for a small penalty in
+Flatbuffers notably *does not* serialize nulls.  
+The flatbuffer wire format will be more efficient than CapNProto.
+Avodinging nulls on the wire comes at a small cost 
+during deserializing the messages; which is to use virtual
+pointers in the messages.  
+
+This is the right trade-off to make. In
 a world where most messages are sparsely populated and contain
-many nulls.  In real world applications this will make
-Flatbuffers faster in practice than CapNProto.
+many nulls, you want the benefit of smaller network messages.  
 
-Combined with the fact that Flatbuffers can use Protobuf schema
-makes this a good choice for an organization where generally
-being very fast with protobuffers is preferred but still allowing
-you to tune it up to zero-copy with Flatbuffers when and if
-there is a cost benefit.  The Facebook app speed is one place
+In real world applications with sparely populated messages, 
+Flatbuffers will be faster in practice than CapNProto, due to 
+avoiding null seraliztion on the wire.
+
+Flatbuffers uses the familiar Protobuf schema.
+This makes flatbuffers an ideal choice for an organization where generally,
+being very fast with protobuffers is preferred. Yet flatbuffers allows
+you to tune it up to 11 (zero-copy) with Flatbuffers when and if
+there is a cost benefit.  The Facebook Android app speed is one place
 where a few million in engineering costs were worth the latency win
-for Facebook on their Androdi app, as an example.  Flatbuffers
-are not difficult to use but are far more cumbersome than Protobuffers.
+for Facebook on their Android app, as an example. Not because
+it is better or cool tech; because they make more money
+when the system is X faster at Y engineering cost, and X > Y.
 
-But compared to Aeron I would call Flatbuffers highly-usable
+Flatbuffers are not difficult to use but are far more cumbersome than Protobuffers.
+
+Compared to Aeron I would call Flatbuffers highly-usable
 and a sweet spot for super high performance with reasonable
 engineering costs.  My belief is that Flatbuffers are a sweet
-spot for low latency trading; short of HFT cases where Aeron
-would be necessary to do business (despite the much higher
-engineering costs for programming with Aeron.)
+spot for low latency trading in finance; short of HFT cases where Aeron
+would be necessary to do business.
 
 # Conclusion
 
@@ -705,22 +711,28 @@ Domain Model being enforced across all systems is one
 important factor in the overall success of Google.
 
 To handle this problem well outside of Google
-we must read and appreciate these concerns as a group
-and there are many subtleties which are difficult to 
+we must read and appreciate these concerns.
+There are many subtleties which are difficult to 
 grok at face value.  The hope is this article has
-cleared up the conversation and the important pieces.
+cleared up the conversation and the important pieces,
+and highlighted the critical subtleties.
 
 The combination of these two discussions is a powerful
-organization technique for enterprise software systems, from
-both a message efficiency format but more importantly
+organization technique for building enterprise software systems, 
+from both a message efficiency format but more importantly
 an engineering cost and productivity perspective.
 
-# Don't know what to do?
+You get compile time safety and much faster system performance
+when using Protobufs; which are free as in beer to use.
+
+Why would you *not* use them?
+
+## Don't know what to do?
 
 If you don't know where to begin:
 1. Make a repository for only ".proto" fies.
 2. Define your business domain in there
-3. Build your serices with gRPC
+3. Build your services with gRPC
 4. Use [gRPC Gateway](https://github.com/grpc-ecosystem/grpc-gateway) to offer JSON to your front end ... or...
 5. better.. [Use Protobufs Directly in the Browser](https://protobufjs.github.io/protobuf.js/)
 
@@ -728,29 +740,17 @@ If you don't know where to begin:
 
 If you already have a JSON based system but want to 
 slowly pivot to doing things one better (safer at compile time,
-also, faster at runtime) then OpenAPI is a good one to review.
+also, faster at runtime) then OpenAPI YAML and Generator
+are an interesting alternative.
 
 Using OpenAPI and the [OpenAPI Generator](https://openapi-generator.tech/) project, you can
-define APIs in YAML and then render them in either protobufs,
+define APIs in YAML and then compile them in either protobufs,
 Avro or others.  OpenAPI has the advantage that you
 can use it for your Public facing API, directly without translation, 
-if you need a public API.
+if you need a public API in JSON.
 
 But it seems to me we should prefer to offer a protobuf API
-for our business as it makes generating clients in any
-language trivial.  Protobufs also eliminates a major
-class of Ambiguity which is the entire world of defining
-APIs in REST; HTTP was not meant for microservices!
-(rather to get in and out of Web Servers; not everything
-need be based on web serving and HTTP.)
-
-
-
-
-
-
-
-
-
-
-
+for a business as it makes generating clients in any
+language trivial.  gRPC/Protobufs also eliminates a major
+class of Ambiguity which is the challenge of defining
+APIs in REST; HTTP and JSON, was not meant for all messages!
