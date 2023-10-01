@@ -1,18 +1,17 @@
 # Zero-Copy vs. Binary vs. JSON: A Comparative Analysis of Efficient Message Formats
 
 At Layer 4 (Transport) in the OSI model 
-you first choose TCP or UDP
-as one important choice for messaging; but this is almost
+you first choose TCP or UDP; but this is almost
 always TCP due to error correction (along with de minimus
 gains of using UDP over TCP coming at a high complexity cost.)
 
-Layer 7 (Application) is a critical decision 
-of message format.  For any reasonably large messaging
+Message Format is a critical Layer 7 (Application) decision.  
+For any reasonably large messaging
 system this decision can determine millions of dollars
 of CPU and engineering time.
 
 The results and reasons seem to be poorly understood
-and the choice these days is for the ubiquitous JSON.
+making the primary choice the ubiquitous JSON.
 
 This decision for JSON be costly and troublesome for many
 businesses.
