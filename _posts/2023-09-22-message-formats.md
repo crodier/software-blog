@@ -4,7 +4,7 @@ At Layer 4 (Transport) in the OSI model
 you first choose TCP or UDP
 as one important choice for messaging; but this is almost
 always TCP due to error correction (along with de minimus
-gains of using UDP over TCP at a high complexity cost.)
+gains of using UDP over TCP coming at a high complexity cost.)
 
 Layer 7 (Application) is a critical decision 
 of message format.  For any reasonably large messaging
