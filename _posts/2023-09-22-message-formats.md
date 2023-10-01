@@ -575,45 +575,44 @@ You may believe that because the CapNProto will be faster
 due to the marketing.  It has zero-copy, therefore, it must
 be faster right?  We want the fastest!  
 
-This would be totally incorrect as a belief.
+But it may not always be quicker; and it is always more expensive to use
+from a programming time perspective.
 
-How could this be, when it is zero-copy vs. one copy for Protobuf?
+How could Cap-N-Proto be slower when it is zero-copy vs. one copy for Protobuf?
 
 #### Null treatment in CapNProto and other zero-copy
 
-When you are doing zero-copy in CapNProto and you have null 
-fields.  These nulls are sent for the fields **on the wire.**
+The zero-copy ability of Cap'n Proto 
+comes at the cost of representing nulls.
 
-Therefore, when you are sending sparsely populated messaging
-the CapNProto messages will be larger than the Protofuf messages,
+CapNProto messages can be larger than the Protofuf messages,
 **because** protobuf messages will *not* send nulls on the wire
-and instead the wire will have fewer bytes.  
-
-**With a smaller network message in protobuf, the win of zero-copy 
-is almost always eliminated due to the higher message 
-size with the nulls serialized.**
+and the wire may have fewer bytes.  
 
 Having every field defined gives zero-copy
 the ability to chop up the byte buffer into a struct without any
-instructions other than offsets, the fastest possible way.
+instructions other than offsets; this is the fastest possible way.
 The cost is that null fields must also be represented.
 
 *For any scarcely populated message this additional 
-network overhead in CapNProto
-offsets any performance gained by zero copy.*
+network overhead of representing nulls in CapNProto
+may offset any performance gained by zero copy.*
 
 If you choose CapNProto thinking you will be faster, 
-you will have actually incurred 50% more engineering cost
+you may have actually incurred 50% more engineering cost
 due to the 1) lack of gRPC and 2) less easy to use CapNProto.
+
 50% time across a decent size engineering staff amounts to 
 *millions of dollars.*
 
----
+Note: Recently Cap-N-Proto has introduced Cap-N-RPC but
+this is less mature and widely known than gRPC.
 
-Hopefully after this reading, you understand and can 
-debate the binary message format discussion 
-with your team with an informed understanding
-and perspective, and the tradeoffs.
+Only by testing your specific message cases and with careful
+analysis of sparsely populated messages could you know
+if Cap'N'Proto will be faster or easier to use than Protobufs.
+If there is any debate, protobufs should be favored due to 
+engineering time as an additional cost to use Cap'N'Proto.
 
 ## Aeron (Martin Thompson)
 
