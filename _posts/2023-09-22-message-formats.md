@@ -450,23 +450,6 @@ real rollback plan.  Therefore, while a neat feature of Avro
 in practice you will never be able to use backwards
 incompatible schema evolution.
 
-### Thrift: Not really a contender
-
-While I have reviewed and performance tested Thrift
-I have never observed it in finance or any of the 
-many companies I have worked at, or across any
-of my friends and the companies they have collectively
-worked across.  Looking at Thrift releases, the frequency
-is not as extensive and it looks to be less maintained.
-
-We can see 60k stars for Protobuf on GitHub and
-13k stars for Thrift.  Ultimately they are similar
-with more people having used gRPC and more major projects
-using gRPC for example HashCorp using it as part
-of their core cloud products and other notable major
-open source projects taking a dependency.  gRPC
-is by far the most familiar and often used in industry.
-
 # Zero-Copy frameworks
 
 ## CapN Proto vs. Protobufs (and Flatbuffers)
