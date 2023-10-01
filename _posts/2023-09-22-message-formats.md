@@ -4,12 +4,12 @@ At Layer 4 (Transport) in the OSI model
 you first choose TCP or UDP
 as one important choice for messaging; but this is almost
 always TCP due to error correction (along with de minimus
-gains of using UDP over TCP and added complexity cost.)
+gains of using UDP over TCP at a high complexity cost.)
 
 Layer 7 (Application) is a critical decision 
 of message format.  For any reasonably large messaging
 system this decision can determine millions of dollars
-of CPU and engineering time wasted vs. a better approach.
+of CPU and engineering time.
 
 The results and reasons seem to be poorly understood
 and the choice these days is for the ubiquitous JSON.
@@ -34,19 +34,24 @@ A JSON message for a list of Users may look like this:
   }
 ]
 ```
-Each character must be serialized. to put this on the wire.
-In thi example, we are sending more characters for the
-key names than the actual data when we serialized the JSON
-above.  In most message cases this overhead is minor
-when the speed is not important and you will not be
-sending the records over the wire often.  While this
-is the case for many businesses when they start, it
+Each character must be serialized to send this message on the wire.
+When we serialize the JSON above we are 
+sending more characters for the
+JSON key names than the actual data.  
+
+In most message cases this overhead is minor.
+The latency cost may not be critical. We may not be
+sending the records over the wire often.  
+
+While this is the case for many businesses when they start, it
 is **almost never** the case for a mature business that message
 speed and size is unimportant.
 
 We can note that the keys of the JSON are duplicated
-and it will be almost twice as expensive to send along
-with each set of user data.  What if we replace
+for each record in their entirety (first, last, Birthday.)
+
+It will be almost twice as expensive to send along
+these long keys with each set of user data.  What if we replace
 them with ```a,b,c``` as the keys, and store 
 in some kind of key dictionary config
 file we could distribute?
@@ -67,8 +72,8 @@ file we could distribute?
 ```
 
 This will be smaller.  But it would be major engineering
-work and complexity to manage this format; and we 
-would have invented something 
+work and complexity to manage this format.  
+Already this trivial encoding is something 
 similar to [Message Pack](https://msgpack.org/)
 
 ## Message Pack
@@ -83,11 +88,11 @@ For example, our message as Message Pack serialized:
 ```
 \x92\x83\xa5first\xa5Chris\xa4Last\xa6Rodier\xa8Birthday\xb41/1/1900\x83\xa5first\xa3foo\xa4Last\xa3bar\xa8Birthday\xb412/31/2022
 ```
-For this one problem, MessagePack is effective.  
-The keys have been compressed
-by sending only once for a list of the same messages.  
+MessagePack is effective for this one problem.
+The keys have been compressed by sending 
+only once for a list of the same messages.  
 
-But for sending one message it is almost identical:
+But for sending one message the size is almost identical:
 ```
 import msgpack
 import json
@@ -137,25 +142,24 @@ we want to achieve; at least for wire formats.
 ### GZIP Compression
 
 Instead of using another
-library across the code, we can enable GZIP compression
-for messages going between services and even to a browser.
+library across the code, it is simpler to enable GZIP compression.
+GZIP is baked into most service frameworks and also modern browsers.
 This can be turned on as a feature of a Java server
 and the browser will interpret and decompress the GZIP
 for you without even changing the JavaScript code.
-This use of compression is a much easier win than
+This use of compression is an easier win than
 using MessagePack.
 
 ### Cost of GZIP = CPU
 The cost of the GZIP compression is CPU cost.  
-GZIP is incredible, or you could experiment with Snappy.
+You could also experiment with Snappy.
 Both of these are efficient and the CPU cost is tiny
 for a small number of messages and the CPU compresses
 small messages almost instantly.  Sending smaller messages
 is always faster.  A question exists and is unique
 to your network and CPUs; is compressing and sending
 fewer bytes faster or slower than sending the bytes
-without compression?  Given the fast speed of networks
-and if systems are in the cloud the network is generally
+without compression?  In the cloud the network is generally
 fast enough where it is a small win to compress but
 not significant enough for small messaging cases.
 The CPU speed at 4GHZ though makes it typically a win
@@ -259,7 +263,9 @@ b'\n\x05Chris\x12\x06Rodier\x1a\x081/1/1900'
 ```
 
 ### Python Code
-You must download and install protoc in your path.
+You must download and install `protoc` in your path
+for the next example.
+
 This is a trivial download and unzip from the protobuffers
 site..
 [Protobuf Releases for Protoc](https://github.com/protocolbuffers/protobuf/releases)
@@ -268,7 +274,7 @@ Next compile the protobuf from earlier `User.proto`
 ```shell
 ~/coding/protoc/bin/protoc --python_out=. User.proto
 ```
-This generates User_pb2.py which should be in the same
+This generates User_pb2.py appears in the same
 folder as this file.  (I am using PyCharm.)
 ```python
 import User_pb2
@@ -301,22 +307,23 @@ only **25** bytes.
 
 From our original **60** bytes
 we are now down to 25 bytes.  This is clearly is
-savings on the wire of more than 50%.  
+savings on the wire of more than 50%.
 
 Importantly beyond the wire
-savings, we have also avoided any CPU compression of GZIP.
+savings, we also avoided any CPU compression of GZIP.
 
 The binary wire format for protobuf is like the GZIP
-data without needing to zip the keys.  We do not need
-to run the compression which saves CPU cost of compressing.
+data without needing to zip the keys.  Protobufs avoids
+the compression which saves CPU cost of compressing keys.
 
 ## Binary alternatives
 
-There are many binary message libraries available including:
+There are many binary message libraries available.
+
+The four most relevant to examine are:
 1. Protobuf:  Most widely used and integrated in gRPC
-2. Avro:  From the Hadoop community; used in big data java systems
-3. Thrift:  Similar to protobuf but from Meta
-4. CapNProto:  From the author of Protobuf, a kind of "2nd protobuf developed outside google."
+1. Avro:  From the Hadoop community; used in big data java systems
+1. CapNProto:  From the author of Protobuf, a kind of "2nd protobuf developed outside google."
 
 Above formats use trivial schema like protobuf to define messages
 and are ultimately similar.
@@ -342,7 +349,7 @@ as a scarce resource for your business.
 This kind of message translation layer is generally
 not something a programmer will be eager to author
 or maintain.  With AI, maintenance has become easier
-but there is still costs to doing it this way 
+but there are still high costs  
 in complexity and the need to maintain this mapping code.
 
 These mapping layers often become the most complicated 
@@ -351,7 +358,7 @@ most systems are primarily message middleware.
 
 ### Protobuf preferred
 
-Comparing to above, Protobuf is generally preferred for a few key reasons:
+Protobuf is generally preferred for a few key reasons:
 1. **gRPC** exists for Proto and is powerful for making fast messaging systems
 1. Google supports gRPC and Protobuf; also uses Protobuf internally along with the pre-cursor to gRPC
 
@@ -360,11 +367,11 @@ When you use protobuf you can be confident that every major and minor
 language you may ever want to use in your organization is supported 
 is one advantage.  Usually the maintainer of the system
 in the major languages like Java and C++ is Google itself which 
-leads to an overall high quality experience with the tech.
+leads to a high quality developer experience.
 
 ### Avro comparison
 
-Avro is one with strong Java community support.
+Avro enjoys strong Java community support.
 Avro until recently lacked anything to compete with gRPC
 and therefore was not a serious candidate for most 
 businesses.  Avro was chosen by Confluent as the first
@@ -383,9 +390,10 @@ defining the calls in gRPC IDL.
 
 ### gRPC IDL
 
-This kind of gRPC idl is authored and then passed
-to the gRPC compiler in Java, C++, every major 
-and almost every minor language in use.
+gRPC makes a service interface IDL available.
+
+The interface IDL is authored and passed
+to the gRPC compiler in any major language.
 
 ```protobuf
 syntax = "proto3";
@@ -413,24 +421,28 @@ and servers.
 This approach of gRPC directly between microservices
 is generally preferred for the consideration of 
 cost benefits of the alternatives for generating
-binary message servers; primarly cost.  There is
+binary message servers; primarily cost.  There is
 no other system like gRPC and Protobufs with this
-degree of support, well documentd and easy to use.
+degree of support.  
+
+gRPC is well documented and easy to use.
 
 ### Additional benefits of Protos
 
-Another key benefit of Protos is the compile time 
-safety.  The code generated forces any compile safe
+Another key benefit of Protos is the compile time safety.  
+
+The code generated forces any compile safe
 language to use field names which are known to exist
 and work *at compile time*.  When you give up this 
 compile (or in other languages **lint** time safety)
-you are losing a key build time verification and pushing
-it to runtime.  Advocates of unit testing may claim
+you are losing a key build time verification step, 
+and delaying it to runtime.  
+
+Advocates of unit testing may claim
 that you should anyway have 100% test coverage.
 Suffice it to say, making this claim is not reasonable 
 in a startup or most business environments, and is
-more of a hypothetical than practical argument without
-any regard for the reality of costs of unit testing.
+more of a hypothetical than practical argument.
 
 Anyone who has observed the relative cost and complexity
 of a very large distributed python system vs. the same 
@@ -454,11 +466,14 @@ incompatible schema evolution.
 
 ## CapN Proto vs. Protobufs (and Flatbuffers)
 
-CapN Proto seems to be developed by the original
-protobuf author.  CapNProto notably has implemented
+CapN Proto is developed by the original
+protobuf author (post Google.)  
+
+CapNProto notably has implemented
 *'zero-copy'* messaging.  In summary, CapN Proto
 can be slightly faster because it was designed with
-'zero-copy' from the ground up.
+'zero-copy' from the ground up; however, zero-copy
+is not always faster.
 
 ## What is zero-copy
 
@@ -476,33 +491,30 @@ one of these ad-impressions coming from the internet
 must be understood by Java or other code.  CapNProto
 and Aeron will use the original network bytes without
 creating additional buffers, saving time and CPU cost
-to "read" these messages into Java objects or C++
+to read and then copy these messages into Java objects or C++
 structs which then understand the message and can 
-operate on it; for example reading my last name
-and looking up my purchase history to decide what Ad
-to show me.  To do this the system must read my name
-and compare it to other names in a cache in memory.
+operate on it.  
+
 CapNProto will not copy the name bytes "Rodier" into
 a Java object field "lastName"; instead it will define
 bytes and then mark the existing memory buffer as the last name
 field.  In Protobuf and other formats, a Java object
 like "User" is created, and then the fields last name
 and first name.  These fields are then *populated* from
-the bytes coming off the network; instead of using 
+the bytes coming off the network via copying; instead of using 
 the original bytes.  This is a copy.  This means 
 Protobuf can be thought of as a **"one copy"** messaging
 framework using binary messages. 
 
-If we ask AI, ChatGPT provides a nice overview as well.
+ChatGPT provides a nice overview as well.
 
 But if you have read this far, I have an important
-observation which AI will not tell you... and
-this is a critical and not often considered observation...
+observation which AI will not tell you... first let us see 
+what ChatGPT thinks.
 
 ### ChatGPT on CapNProto vs Protobufs
 
-ChatGPT provided a nice summary, saving me some typing here.  
-It is a detailed topic and this was good treatment:
+It is a detailed topic and this was good treatment from ChatGPT.
 
 ---
 Yes, Cap'n Proto is designed to be a zero-copy data serialization protocol, much like Protocol Buffers (protobufs). Both Cap'n Proto and protobufs aim to efficiently serialize and deserialize data with minimal memory allocation and copying.
@@ -533,27 +545,29 @@ In summary, both Cap'n Proto and Protocol Buffers are capable of efficient seria
 
 ## The Field Observation: CapNProto vs. Proto
 
-In some organizations CapN proto will be chosen and 
-the developers will say, we have read the marketing
-and CapNProto is faster.  You can read the docs on
-why it is faster.  And you may read the docs and think,
-why does everyone not use CapNProto if it is faster?
+In some organizations Cap-N-proto will be chosen due to marketing.
+You can read the docs on Cap-N-Proto and see it is faster.  
 
-There are two minor reasons and one key major reason
-which may not have been understood.
+And you may read the docs and think,
+why does everyone not use Cap-N-Proto if it is faster?
+
+There are two minor reasons and one key major reason.
 
 ### Lack of gRPC for CapNProto
 
-Fewer developers know CapNProto and there is marginally
-less support.  CapNProto lacks gRPC to define remote 
-IDL interfaces and generate servers; this is a big one.
+Fewer developers know Cap-N-Proto and there is marginally
+less support.  Cap-N-Proto lacks gRPC to define remote 
+IDL interfaces and generate servers; this is one major reason.
 
 To do businesses with gRPC from an engineering cost
 perspective vs. doing it without could be 30% or
-more overall engineering cost.  In almost every situation
+more.  In almost every situation
 there is no discussion; you need to save the engineering
 costs against a small performance win, and use 
-Protobufs because of the gRPC cost win.
+Protobufs because of the gRPC cost win.  Before you 
+incur a 30% overhead on development time you must
+understand if there is even a win in CapNProto, and,
+how big a win?
 
 ### The observation: What is the performance win of CapNProto?
 
@@ -568,41 +582,38 @@ How could this be, when it is zero-copy vs. one copy for Protobuf?
 #### Null treatment in CapNProto and other zero-copy
 
 When you are doing zero-copy in CapNProto and you have null 
-fields, these nulls are sent for the fields **on the wire.**
+fields.  These nulls are sent for the fields **on the wire.**
 
 Therefore, when you are sending sparsely populated messaging
 the CapNProto messages will be larger than the Protofuf messages,
 **because** protobuf messages will *not* send nulls on the wire
-and instead the wire will have fewer bytes.  With a smaller
-network message the win of zero-copy is almost always
-eliminated due to the higher message size with the nulls
-serialized.  Having every field defined makes the zero-copy
-able to chop up the byte buffer into a struct without any
+and instead the wire will have fewer bytes.  
+
+**With a smaller network message in protobuf, the win of zero-copy 
+is almost always eliminated due to the higher message 
+size with the nulls serialized.**
+
+Having every field defined gives zero-copy
+the ability to chop up the byte buffer into a struct without any
 instructions other than offsets, the fastest possible way.
 The cost is that null fields must also be represented.
-For any scarcely populated message this additional network overhead in CapNProto
-offsets any performance gained by zero copy.
+
+*For any scarcely populated message this additional 
+network overhead in CapNProto
+offsets any performance gained by zero copy.*
 
 If you choose CapNProto thinking you will be faster, 
 you will have actually incurred 50% more engineering cost
 due to the 1) lack of gRPC and 2) less easy to use CapNProto.
 50% time across a decent size engineering staff amounts to 
-millions of dollars.  
-
-You may buy me a Ferarri now for preventing
-this mistake at any organization which reads this.  
-
-I would like it in Red.
----
+*millions of dollars.*
 
 ---
 
-Hopefully after this reading, you understand and can actually debate the binary message
-format discussion with your team with an informed understanding
-and perspective, and the tradeoffs.  You will not be subjected
-to some smarty-pants engineer who says "we should use CapNProto, because it is faster."
-
-This brings us to Aeron in conclusion, for completeness.
+Hopefully after this reading, you understand and can 
+debate the binary message format discussion 
+with your team with an informed understanding
+and perspective, and the tradeoffs.
 
 ## Aeron (Martin Thompson)
 
@@ -613,7 +624,7 @@ to send messages between two systems or batches of messages.
 Aeron is used in High Frequency Trading (HFT) and other
 highly speed sensitive environments.  The cost of programming
 in Aeron to Protobufs is about 2-3x as expensive from
-an engineering cost perspective.  It is appropriate only
+an engineering cost perspective.  Aeron is appropriate only
 if your business success depends on it.  It may also be
 appropriate for connecting systems where tens of millions 
 may be saved in CPU vs. the engineering cost of five million
@@ -626,7 +637,7 @@ to both go much faster for your clients, and save some Earth.
 We call this a win-win (as long as you can pay the expert Aeron message engineers,
 and they cost less than the CPU savings.)
 
-## Flatbuffers (also Google)
+## Flatbuffers (also Google, cousin of Protobuffers)
 
 Flatbuffers is zero-copy but requires much more overhead
 to program in than protobuffers.  Flatbuffers is much less elegant
@@ -642,7 +653,8 @@ excellent treatment of the advantages of Flatbuffers:
 
 Flatbuffers notably *does not* serialize nulls.  
 The flatbuffer wire format will be more efficient than CapNProto.
-Avodinging nulls on the wire comes at a small cost 
+
+Avoiding nulls on the wire comes at a small cost 
 during deserializing the messages; which is to use virtual
 pointers in the messages.  
 
@@ -656,21 +668,25 @@ avoiding null seraliztion on the wire.
 
 Flatbuffers uses the familiar Protobuf schema.
 This makes flatbuffers an ideal choice for an organization where generally,
-being very fast with protobuffers is preferred. Yet flatbuffers allows
-you to tune it up to 11 (zero-copy) with Flatbuffers when and if
-there is a cost benefit.  The Facebook Android app speed is one place
-where a few million in engineering costs were worth the latency win
-for Facebook on their Android app, as an example. Not because
-it is better or cool tech; because they make more money
-when the system is X faster at Y engineering cost, and X > Y.
+being very fast with protobuffers is preferred. 
 
-Flatbuffers are not difficult to use but are far more cumbersome than Protobuffers.
+Yet flatbuffers allows you to use zero-copy when and if
+there is a cost benefit.  
+
+The Facebook Android app speed is one place
+where a few million in engineering costs were worth the latency win
+for Facebook on their Android app, as an example. Facebook are 
+X more successful when the system is 
+Y faster at Z engineering cost, and X > Z.
+
+Flatbuffers are not difficult to use but 
+are far more cumbersome than Protobuffers.
 
 Compared to Aeron I would call Flatbuffers highly-usable
-and a sweet spot for super high performance with reasonable
+and a sweet spot for high performance with reasonable
 engineering costs.  My belief is that Flatbuffers are a sweet
-spot for low latency trading in finance; short of HFT cases where Aeron
-would be necessary to do business.
+spot for low latency trading in finance; 
+short of HFT cases where Aeron would be necessary to do business.
 
 # Conclusion
 
@@ -688,12 +704,14 @@ invent Protobufs and to also mandate that
 it be the primary message format.  Further, there is
 one project of Protobufs where one set of messages are defined.
 This makes it easy to add a field or change the domain model
-as your business evolved, a topic I cover in [Domain Model](2023-09-17-domain-model-importance.md)
+as your business evolves. 
+
+I discuss this importance in [Domain Model](2023-09-17-domain-model-importance.md)
 The combination of using Protobufs for everything along with
 Domain Model being enforced across all systems is one 
 important factor in the overall success of Google.
 
-To handle this problem well outside of Google
+To handle this problem outside of Google
 we must read and appreciate these concerns.
 There are many subtleties which are difficult to 
 grok at face value.  The hope is this article has
@@ -706,11 +724,11 @@ from both a message efficiency format but more importantly
 an engineering cost and productivity perspective.
 
 You get compile time safety and much faster system performance
-when using Protobufs; which are free as in beer to use.
+when using Protobufs; both are free.
 
 Why would you *not* use them?
 
-## Don't know what to do?
+## What to do?
 
 If you don't know where to begin:
 1. Make a repository for only ".proto" fies.
@@ -719,7 +737,7 @@ If you don't know where to begin:
 4. Use [gRPC Gateway](https://github.com/grpc-ecosystem/grpc-gateway) to offer JSON to your front end ... or...
 5. better.. [Use Protobufs Directly in the Browser](https://protobufjs.github.io/protobuf.js/)
 
-# What about retro-fitting?
+## What about retro-fitting?
 
 If you already have a JSON based system but want to 
 slowly pivot to doing things one better (safer at compile time,
@@ -735,5 +753,7 @@ if you need a public API in JSON.
 But it seems to me we should prefer to offer a protobuf API
 for a business as it makes generating clients in any
 language trivial.  gRPC/Protobufs also eliminates a major
-class of Ambiguity which is the challenge of defining
-APIs in REST; HTTP and JSON, was not meant for all messages!
+class of ambiguity which is the challenge of defining
+APIs in REST.
+
+HTTP and JSON, was not meant for all messages!
