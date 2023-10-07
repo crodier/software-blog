@@ -342,14 +342,15 @@ any manager out of town if they were to stand up and say, we have failed with ou
 microservices approach to coding.  It would be going against the existing success
 which was achieved; how can you be critical when you didn't write this software they may say?
 
-I can be critical because I have written 10x the software at 1/10th the cost, making careful
+It can be difficult to go against the grain; and would not lead to a good review.
+
+I can be critical because I have a history of making careful
 cost-benefit judgements along the way, like these.  
-Good friends of mine in manamgement roles, consistely seek me out to be successful in cost-constrained environments, even at my premium.  
+Good friends of mine in management roles, who seek me out to be successful in cost-constrained 
+and high velocity software environments.
 
 I take joy in the craft, but I am in software to be successful first and foremost 
 fo the business and teams I am on.
-
-It can be difficult to go against the grain; and would not lead to a good review.
 
 # Conclusion
 
