@@ -351,6 +351,34 @@ fo the business and teams I am on.
 
 It can be difficult to go against the grain; and would not lead to a good review.
 
+# Conclusion
+
+When faced with the decision of should this be one service or two, or many, the 
+most important question is cost.  To achieve savings you must have better than 60% 
+cost savings when running a microservices approach, per microservice created.
+
+There are times when you must scale one component to a degree where it must be isolated
+and turned into a microservice.  These scalability challenges are rare but they do exist.
+In these rare cases where a microservice is manated, it must be employed; **despite the enormous cost.**
+
+You can say to yourself, this is unfortunate but we must employ microservices here.  There is indeed
+a time and a place.  But unless you are compelled to, there is rarely a case when you should use
+microservices, with the enormous 60% tax.  When you do, the tradeoff should be carefully examined
+and justified the business owners, should ask repeatedly, are you sure?
+
+## Are you sure?
+
+Are you sure you understand, the cost-benefits?  And are you sure we need to take on the enormous cost?
+
+When you do go down this road, more important context:
+1. [Domain Mode](./2023-09-17-domain-model-importance.md)
+1. [Message formats](./2023-09-22-message-formats.md)
+
+If those two decisions are not done nearly perfectly, you will have undone any benefit
+you may have achieved from microservices, and created a latency or productivity nightmare.
+
+_Be warned!_
+
 # Appendix
 
 ## The right ship for the job:  How big shops wage war
