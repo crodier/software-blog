@@ -408,5 +408,8 @@ has seen Top-Gun and wants to be Tom Cruise.  But this is not the movies, and yo
 
 #### Amazon Prime move to monolith
 
+https://blog.devgenius.io/amazon-prime-video-reduced-costs-by-90-by-ditching-microservices-a9f80591f96a?gi=721c00f381db
+
 ### Web-scale YouTube Video
 
+NSFW; search for "Web Scale Mongo" on YouTube.
