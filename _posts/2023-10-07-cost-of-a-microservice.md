@@ -29,8 +29,8 @@ you consider microservices, and not before.
 ## **"You are only as good as your worst microservice."**
 
 What does this mean?  Every microservice you author needs to be hardened.  If any one of them stops
-responding you experience a customer facing outage.  Customers won't stick around to use a flaky system
-as they expect always on service from any software system.  How do you combat this risk of outages
+responding you experience a customer facing outage.  Customers won't stick around to use a flaky system.  
+How do you combat this risk of outages
 in any software environment?  It takes a tremendous amount of investment to do this reasonably well.
 This effort is rarely cataloged.  In theory the cloud or a large software team makes it easier with
 economies of scale but this has not been the case.  Technology has reached a point in the curve
@@ -43,8 +43,8 @@ into microservices which you don't need, you don't want, **and you can't afford.
 
 ### Why programmers favor microservices?  Why do we pay this heavy microservices tax?
 
-Any MBA, or account would tell you that you should not spend 60% more when you can get the same
-outcome for half.  The adoption of microservices for most programmers is akin to socialism for programmers.
+Any MBA, or accountant would tell you that you should not spend 60% more when you can get the same
+outcome for half.  The adoption of microservices for most programmers is akin to socialism or idealism.
 Where did they come from, and why do programmers often make them today, when they carry this overhead?
 
 #### Be like Amazon
@@ -52,7 +52,9 @@ Where did they come from, and why do programmers often make them today, when the
 Microservice are allegedly invented or were adopted heavily at Amazon.  But Amazon first started and
 was highly **successful with a monolith** after which they transitioned to microservices due to 
 their incredible size.  If you want to be like Amazon; then this is exactly what you should do - build
-a highly successful and inexpensive monolith.  Once you are a success you can examine the cost/benefits
+a highly successful and inexpensive monolith.  
+
+Once you are a success you can examine the cost/benefits
 of breaking it up into microservices - but not before you are a big success.  Some programmers are 
 reading this and thinking I am blaspheming as I write this.  Even the naive interpretation of 
 the statement *start monolithic* is not false; but do not interpret it as naive.  When you build the 
@@ -70,7 +72,7 @@ must be released as one unit.  If your programmers have unit tested and generall
 meaning the interfaces perform as expected, then the assembly of the libraries into a system is a
 non-event, and the code can be shipped at least as quickly as any microservices stack.
 
-The benefits of libraries go beyond here; way beyond the immediate observable cost of not running the microservice.
+The benefits of libraries go beyond here; way beyond the immediate observable cost of **not** running the microservice.
 
 You actually save 5x by using this approach.  Here is why.
 
@@ -79,7 +81,7 @@ For each service you build, you also need to build at least
 1. Production
 1. One-Box / Pre-Prod - a slow rollout area for a portion of traffic
 1. QA - where you test (assuming you want to review your system before production)
-1. Dev - where you take a look before you push to QA
+1. Dev - where you integrate and review, before you push to QA
 1. Local - **The most important of all** a workstation where a developer will run the system.
 
 Now you begin to understand - with **5 working deployments**, the cost of a microservice is not 5% or 10%.
@@ -109,7 +111,7 @@ and think about digging tunnels under the microservice fences.
 
 ### Programmer mindset
 
-Programmers have tremendous power in organizations.  Executives can't survive without some strong ones.
+Programmers have tremendous power in organizations.  Executives can't survive without some strong and senior engineers.
 Given the explosion and continued strength of the software industry there has been an approach of
 keep the programmers happy as "we don't want to lose them."  Beyond this, software executives today
 don't understand the economics of code and producing code.  They would have needed to spend
@@ -119,17 +121,23 @@ engineers who may never have reflected on the cost benefit of code from an owner
 their part of the puzzle.  These programmers will always favor microservices.  Always.  Why would 
 they always favor microservices given this enormous cost?  It makes no sense; yet, it happens repeatedly.
 
-#### Lack of understanding of the cost
+#### Lack of understanding of the cost (along with lack of analysis.)
 
 Software costs are notoriously difficult to estimate.  It involves such a human element in the design 
 and coding and across various pieces of a team ranging from UX to backend and to data; to name a few,
-and is usually a combination of these people and skills as very few developers are expert in all of these.
+and is usually a combination of these people and skills.
 
-Most developers have never started or built their own successful software business; they are working
-in a corporation with other developers and lack the "macro view" necessary to make these kinds of
+Most developers have not built their own successful software business.  
+They are working in a corporation with other developers 
+and lack the "macro view" necessary to make these kinds of
 cost benefit decisions.  This lack of perspective is coupled with the industry having a fad
-where microservices are 1) cool and 2) practiced by the big shops 3) more fun to work on due to isolation.
-These factors lead to the incorrect adoption of microservices at the wrong time in a business evolution, and for the wrong reasons.
+where microservices 
+are 1) considered advanced 2) practiced by the big shops 
+and 3) more fun to work on due to isolation.
+
+These factors lead to the incorrect adoption of 
+microservices at the wrong time in a business evolution, 
+and for the wrong reasons.
 
 ### What are these costs? (x5 for each environment)
 
@@ -138,26 +146,28 @@ Earlier we mentioned the importance in software lifecycle terms, of having FIVE 
 It may seem that each of these are merely a copy of the same system running somewhere else, but 
 this is not nearly the case in practice.
 
-The key areas which are additional costs to every microservice:
+The key additional costs to every microservice:
 1.  Maintenance and patching (upgrades to system, language, frameworks)
-1.  Deployment configuration
+1.  Deployment configuration (and auto-rollbacks etc)
 1.  Monitoring / Metrics
-1.  Alarms
-1.  Logging and log rotation
-1.  Security and Permissions (can't get hacked)
+1.  Alarms and Canaries
+1.  Logging, log rotation, and log search
+1.  Security and Permissions
 1.  Cloud infra; provisioning, costs of cloud
-1.  Documentation (the often neglected docs.)
+1.  Documentation (the oft neglected docs.)
 
-In summary when you take the costs of running a service *properly*, 
-because you are only as good as your worst microservice, you experience cost
-explosion and experience the costs as low velocity software teams; the time 
-it takes to implement features (as time is money.)  
+When you review the costs of running a service *properly*,
+(because you are only as good as your worst microservice), 
+you experience cost explosion in the form of 
+low velocity software teams; the time and people 
+it takes to implement features.
 
-Your team are paid by the day and software takes a long time.
-Given these realities you do not want to invent a cost-explosion for yourself, yet most shops today do this,
-and then wonder "why did we do this, this doesn't seem to be working."  
+Even without these new microservices problems, good software takes a long time.
+Given these realities you do not want to invent a cost-explosion,
+for yourself.  Yet most shops today do this,
+and then wonder "why did we do this, this doesn't seem to be working."
 
-This is most experienced by the business (CEO, investors) when they become dissatisfied with progress.
+This is felt the most by the business (CEO, investors) when they become dissatisfied with progress.
 Your system takes a virtual eternity to update due to the software design and the microservices fad.
 But without deep foundations in software costs these become extremely hard to measure and would require
 and entire team of software velocity measurement experts; observing the software team, against another
@@ -165,22 +175,25 @@ software team.  As you will always lack this "control experiment", you will neve
 *journeyman* infrastructure generalist, you will need to take my word for it; but you can observe this
 for yourself, if only via anecdotal evidence which confirms this hypothesis.  Here is where
 the *data driven* folks would ask for proof that microservices are more expensive.  This is the wrong
-question to ask.  Microservices are clearly more expensive; 2 > 1, by mere counting, if you want data.
+question to ask.  Microservices are clearly more expensive; 2 > 1, by mere counting.
 The proof which is necessary to justify doing something 2x, and mandating your business incur this 
-cost, is to PROVE THAT YOU NEED THIS COST.
+cost, is instead, to prove you need this additional 2x, 60%+ tax.
 
 This document gives you the outline; how much more effective must we be?  **You must be 60% more effective
 with the microservices split, to justify using microservices over libraries.**  You can come up with
 your own number if you wish, but if it is < 60%, you are probably lying to yourself, or having a 
 programmer lie to you because they prefer microservices.  Those programmers don't care about the costs though,
-as they are not incentivized properly to cut costs.  In fact, higher complexity _favors_ the programmers.  
+as they are not incentivized properly to cut costs.  
+
+In fact, higher complexity _favors_ the programmers.  Not only
+because of job security through code obscurity.
 
 There is a clear reason this happens, repeatedly, 
-and this is an obvious outcome of corporate interaction... get ready here it is....
+and this is an obvious outcome of corporate interaction... 
 
 ## The argument: Microservices deploy quicker
 
-**The argument:**  A junior programmer will tell you there is **obvious** cost savings to microservices.  We don't need to 
+**The argument:**  A programmer will tell you there is **obvious** cost savings to microservices.  We don't need to 
 wait for team Y to deploy and we are team X.  This is a clear savings.  There are some costs, but 
 nothing in comparison to the cost of waiting a week, or a month, to ship my software.  This is frustrating and
 we don't like it, and for this reason, we need to do microservices (or micro-frontends!)  Micro-front ends
@@ -189,26 +202,37 @@ will have another dedicated article debunking the myths there; however, the disc
 Armed with 1) this **obvious** deploy time argument, 
 and 2) wanting to keep our programmers happy (we do not want unhappy programmers, they may quit.) and 
 also knowing 3) Big dot-coms build microservices, we can see there are now **three strong arguments**
-for microservices.  Only an idiot would go against this enormous evidence in favor of microservices; 
-and in addition, many programmers have said "we prefer microservices."  We don't need to analyze the
-costs because we know this has worked for the big shops and it will work for us.  
-
+for microservices.  How could we be so bold as to 
+go against this enormous evidence in favor of microservices.
+Many programmers on the team may have said 
+"we prefer microservices."  We don't need to analyze the
+costs because we know this has worked for the big shops, therefore, it will work for us.  
+--
 
 This ends the surface level arguments.  These are all 
-surface level arguments without any understanding or questioning of **Why We Care** about any of these arguments,
-or the opposite approach.
+surface level arguments without any understanding or questioning of **Why We Care** 
+about any of these arguments, or the alternatives.
 
-But, you are busy, and don't want to go against engineering.  Going against the fad obsessed junior programmer
-requires effort, and causes conflict.  Will you be rewarded by saving the company 2x in software velocity,
-by taking a very public stand against microservices or microfrontends?  You will not.
+But as a manager you must be busy, and don't want to go against engineering.  Going against the fad obsessed junior programmer
+requires effort, and causes conflict.  
+
+Will you be rewarded by saving the company 2x in software velocity,
+by taking a very public stand against microservices or microfrontends?  
+Unless you are in charge, it is unlikely this conflict 
+will advance your corporate career.
 
 Conflict is not rewarded in corporations.  Software engineers are a sensitive bunch, usually introverts
 who don't mind spending long days with no human interaction and mostly on a computer.  Upsetting the 
 programmers can cause people to quit, and in an environment where tech talent is hard to find,
-why would anyone disagree with a star, enthusiastic, junior programmer?  This will not make a manager
-look good in their 360 review; and they may not even understand the arguments involved.  Only with
-deep technical chops can one debunk "the need for microservices."  It is such a nuanced and deep topic
-as to the beneifts, and there are clearly surface arguments (without any depth), in favor of microservices.
+why would anyone disagree with a star, enthusiastic, programmer?  This will not make a manager
+look good in their 360 review, and, the manager not be equipped to make the counter-arugments.
+
+Only with deep technical chops can one debunk 
+"the need for microservices."  
+It is such a nuanced and deep topic
+as to the benefits, 
+and there are clearly surface arguments which can be quoted
+in favor of microservices.
 
 This and the herd mentality (don't upset the herd) will lead to microservices being adopted.
 
@@ -216,35 +240,35 @@ Finally, those arguing for microservices may be *passionte engineers.*  They may
 engineers on the team.  
 
 The question is, why would the programmers want the microservices; why would anyone be passionite
-about something which costs 60% more with no perceivable value?
+about something which costs 60% more with no perceivable additional value?
 
 #### Two-pizza teams
 
-As an aside, the microservices also favors "going fast" and working in small teams.  If Amazon Retail
-was successful this way, and this is culturally favored, why should all teams not favor this dogma?
-This is yet another argument (at Amazon), as to, the question **"why microservices?"**
+As an aside, the microservices argument favors "going fast" and working in small teams.  If Amazon Retail
+was successful this way why should all teams not favor this dogma?
+This is yet another Amazon argument, as to, the question **"why microservices?"**
 
-It could be said that this approach to employ the dogma from the success of Retail across all business lines
+It could be said that employing this dogma from 
+the success of Retail across all business lines
 is leading to very demise of Amazon; the adoption of a "best practice", without though any data to support 
-the belief that microservces are better *for the task at hand.*  This is where **cost data** would win the argument
-but there is no control experiment, therefore, there is no compartive cost data; and the dogma is followed.
+the belief that microservces are better *for the task at hand.*  
+
+**Cost data** would win the argument
+but there is no control experiment, therefore, there is no comparative cost data; and the dogma is followed.
 
 ## Why the programmers prefer Microservices
 
-Programmers are introverts.  And code and the quality of code is relative to the task at hand.
-Most code can be written and solve a small problem multiple ways.  In React, you could be using
-web-hooks, or you could prefer React before WebHooks.  In Java you could be using Lambda expressions with streams;
-or you might prefer using a collection with a for loop.  This comes down to mostly taste.  Except when it 
-does not come down to taste, and is actually important.
+Programmers are introverts.  And code and the quality of code is relative to the task at hand,
+along with business pressure to deliver. Most code can be written and solve a small problem multiple ways. In 
+React, you could be using web-hooks, 
+or you could prefer React before WebHooks. In Java you could be using Lambda expressions with streams;
+or you might prefer using a collection with a for loop.  This comes down to mostly taste.
 
 More important than taste is time to market.  When pressed with a deadline; if your job is on the line,
-any working code will do.  I have been in a situation where if we did not release on a current day
-our team was going to be let go, in a horrific hedge fund where another team had accused us of being
-incompetent.  After making our deadline, the other team was let go, which sounds and is unfortunate.
-But they did indeed say we were idiots and that we would never finish; much less in six weeks, but we did.
-While this is an extreme circumstance, any business relies on the programmers being efficient with their 
-time.  Programmers are one of the most scare resources for any business.  It takes the large majority
-of humans ten years professionally to become a strong programmer, and another ten to become an expert.
+any working code will do.  
+
+Programmers are also one of the most scare resources for any business.  It takes most people
+ten years professionally to become a strong programmer, and another ten to become an expert.
 There are not enough working 20+ year hands-on programmers.  Most move into management long before
 the 20 year mark.  This is another symptom of the problem of programming style; and problem of the cost-value 
 of writing code.  Code can always be better, and a system can always be better.  Any code can 
@@ -254,20 +278,22 @@ The question which should be asked before shipping code, is this code good enoug
 is the correct question to ask yourself.  The interfaces are more important than the implementation,
 and the implementation is important but it rarely is perfect and it rarely needs to be perfect.
 
-Given the above situation with deadlines, and code perfection, we now come to the crux of 
+Given the business deadlines, and code perfection, 
+we now come to the crux of 
 one true benefit of microservices; and it is not deployment frequency.
 
-### The real benefit of microservices:  judgment calls
+### The real benefit of microservices:  judgment calls in isolation
 
-The benefit of microservices is the situational awareness and the cost-benefit analysis in the 
-time spent on the code and the relative risk taken in the decisions.  
+The benefit of microservices is the situational awareness and the cost-benefit analysis.
+This is where programmers make a relative value judgement on the code and the relative risk taken in the decisions.  
 
-When you work in a microservices environment, the programmers can make those judgement calls in 
+When you work in a microservices environment, programmers make those judgement calls in 
 isolation.  Libraries also afford a similar independence though, at 1/10th the cost of the microservices.
 
 When you move to a shared code base there is an opportunity for **organizational dysfunction and 
-distress.**  Programmers don't like this and leads to low job satisfaction scores, which 
-have become severely overvalued in business today.  How does this dysfunction arise?
+distress.**  Programmers don't like this and leads to low job satisfaction scores.  
+
+How does this dysfunction arise?
 
 #### Code reviews, and release cycles
 
@@ -282,7 +308,8 @@ this environment the uptime team is focused on code quality and long term owners
 and maintenance.  The feature team needs to release asap.  These are two competing priorities.  
 How the code looks and how well it performs is largely a judgement decision.
 
-Now you have two groups of people who are largely disconnected, with competing incentives.
+Now you have two groups of people who are largely disconnected, 
+but with competing incentives, working on the same system.
 It is often the case they may have different management teams and in the worst case
 different entire organizations.  If they can't agree it leads to friction in an organization.
 There are two ways to view friction.  A wise man said to me if there is no friction
