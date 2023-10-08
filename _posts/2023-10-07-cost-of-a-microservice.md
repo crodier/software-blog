@@ -1,6 +1,30 @@
-# 60% of your code is deployment
+# 60% tax per microservice; where is the value?
 
-Most of your code is deployment and monitoring; operational excellence features.  Why is this?
+Every time you split a service into two microservices you increase your project cost by 60%.
+If you thought government taxes were high, think carefully before you 
+take something done simply in one service and split it into two
+or more microservices.  You pay a 60% or higher cost to do 
+the work of one service in two microservices.
+
+Why is this?
+
+1.  Much of your code is deployment and monitoring; operational excellence features.
+2.  5 or more environments are necessary to run an effective software practice
+3.  Complexity and latency go way up when moving to microservices
+
+Prefer libraries and if you must use the service locator pattern
+as a hedge for a future time when you may need microservices.
+
+Do not blindly tax your organization 60% for a fad (which
+is already failing and being replaced in many shops.)
+
+Start _without_ microservices.  Only take the huge tax when
+it becomes absolutely necessary, and then document and review
+why you can't get by with libraries of code.  Libraries
+has worked forever; if you have not learned to be effective
+with libraries, do this first, until you are an expert
+user of libraries, and CI/CD.  Only then should
+you consider microservices, and not before.
 
 ## **"You are only as good as your worst microservice."**
 
