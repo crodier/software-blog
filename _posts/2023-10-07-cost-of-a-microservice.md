@@ -433,7 +433,7 @@ _Be warned!_
 
 # Appendix
 
-## The right ship for the job:  How big shops wage war
+## The right ship for the job
 
 Another note on cost; you can think of Microservices as the aircraft carrier of the software navy.
 They are used by major armies to win naval software battles.  They are impressive engineering feats
