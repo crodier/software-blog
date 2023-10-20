@@ -15,3 +15,9 @@
 5. Chapter on intelliJ hot keys
 6. Chapter on AI with Cody and Git Hub Co-pilot
 
+# Title of the Book
+- Hedge Fund Java
+- Java Journeyman
+- Java survival guide
+- SRE cookbook
+
