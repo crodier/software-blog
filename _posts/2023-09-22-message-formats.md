@@ -1,11 +1,6 @@
 # Zero-Copy vs. Binary vs. JSON: A Comparative Analysis of Efficient Message Formats
 
-At Layer 4 (Transport) in the OSI model 
-you first choose TCP or UDP; but this is almost
-always TCP due to error correction (along with de minimus
-gains of using UDP over TCP coming at a high complexity cost.)
-
-Message Format is a critical Layer 7 (Application) decision.  
+Message Format is a critical OSI Layer 7 (Application) decision.  
 For any reasonably large messaging
 system this decision can determine millions of dollars
 of CPU and engineering time.
@@ -43,7 +38,7 @@ The latency cost may not be critical. We may not be
 sending the records over the wire often.  
 
 While this is the case for many businesses when they start, it
-is **almost never** the case for a mature business that message
+is rarely the case for a mature business that message
 speed and size is unimportant.
 
 We can note that the keys of the JSON are duplicated
@@ -72,14 +67,16 @@ file we could distribute?
 
 This will be smaller.  But it would be major engineering
 work and complexity to manage this format.  
+
 Already this trivial encoding is something 
 similar to [Message Pack](https://msgpack.org/)
 
 ## Message Pack
-If we take the original JSON array and were to use
-a library called Message Pack to serialize it; the wire
+We can take the original JSON array use
+a library called Message Pack to serialize it.  The wire
 format is something like our `a,b,c` compression.
-Message pack will put the keys first and then use
+
+Message Pack will put the keys first and then use
 tokens for the keys to avoid copying the entire strings
 for every message in a form of message compression.
 
@@ -114,7 +111,7 @@ print(f"JSON Size: {json_size} bytes")
 print(f"MessagePack Size: {messagepack_size} bytes")
 ```
 
-### What have we saved with Message Pack? Not much!
+### What have we saved with Message Pack? (Not much!)
 
 This python code prints:
 ```
@@ -124,19 +121,18 @@ MessagePack Size: 43 bytes
 This experiment revealed we use **60** bytes with message pack
 vs. **43** bytes for JSON.  
 
-With a minor **29%** improvement on size and **17** bytes saved,
+With a **29%** improvement on size and **17** bytes saved,
 we have though used an additional library across our code; this
 does not seem to be worth complexity cost.
 
-Indeed, MessagePack is a case where *the
-squeeze is not worth the juice.*  This squeeze is
-the engineering cost to introduce MessagePack everywhere
+Indeed, MessagePack is a case where the benefits are not worth the investment.  
+The engineering cost to introduce MessagePack everywhere
 in your system.
 
 MessagePack also lacks other
 critical and helpful messaging features which we will now explore.
 MessagePack gives a good idea of the type of optimization
-we want to achieve; at least for wire formats.
+we want to achieve.
 
 ### GZIP Compression
 
@@ -163,8 +159,9 @@ fast enough where it is a small win to compress but
 not significant enough for small messaging cases.
 The CPU speed at 4GHZ though makes it typically a win
 these days of some small degree although in some cases
-with certain CPUs it will be slower to compress and send
-(think Rasberry Pi.)  The win on any machine
+with certain CPUs it will be slower to compress and send.
+
+The win on any machine
 is small enough that it should be tested first and not 
 assumed it will be faster compressed as it varies
 for the messages and the compression used.  Furthermore,
@@ -173,9 +170,8 @@ your application.  While compression takes very small
 CPU for small messages, for large messages and large
 arrays of large messages it is measured in tens of 
 seconds to compress and decompress the messages, and 
-at a high CPU cost.  CPUs are not yet infinitely fast;
-quantum may change this but until then there is a 
-clear cost-benefit to using compression.
+at a high CPU cost.  There is an important 
+cost-benefit to using or avoiding compression.
 
 What if this cost could be eliminated.  What if we 
 could pre-agree on the message keys in an elegant way?  
@@ -213,7 +209,7 @@ print(f"Compressed Size: {compressed_size} bytes")
 
 ### Output
 The message has now grown due to the GZIP headers size.
-We have now spent CPU compressing but the message is larger!
+We have now spent CPU compressing but the message is... larger!
 ```
 Original Size: 60 bytes
 Compressed Size: 70 bytes
@@ -243,9 +239,9 @@ message User {
 This schema is then loaded by both programs and
 used to serialize and de-serialize the messages.
 
-In doing so the wire format is much more compact
-by avoiding sending the keys and instead sending
-the integer values from the schema file to identify
+In doing so the wire format is much more compact.
+It is more compact in not sending the string keys.
+Protobuf sends the integer values from the schema file to identify
 the fields of the User.
 
 ### Binary wire format for Protobuf
@@ -253,8 +249,8 @@ When using protocol buffers (protobufs)
 the wire format is binary.  
 
 Protobuf Binary will use UTF-8 to 
-encode the characters for our user Chris
-when put on the wire but use the schema and 
+encode the characters for our user
+object "on the wire" but use the schema and 
 numbers in the schema to achieve the minimum
 size of data sent; for example:
 ```
@@ -306,10 +302,10 @@ only **25** bytes.
 
 From our original **60** bytes
 we are now down to 25 bytes.  This is clearly is
-savings on the wire of more than 50%.
+savings on the wire of **58%**.
 
-Importantly beyond the wire
-savings, we also avoided any CPU compression of GZIP.
+Beyond the wire
+savings, we also avoided any CPU compression of GZIP!
 
 The binary wire format for protobuf is like the GZIP
 data without needing to zip the keys.  Protobufs avoids
@@ -327,7 +323,7 @@ The four most relevant to examine are:
 Above formats use trivial schema like protobuf to define messages
 and are ultimately similar.
 
-### Pick one
+### Pick one ?
 
 For your business you do not want to be paying the cost
 of mixing and matching message formats.  This is 
@@ -336,14 +332,8 @@ types of messaging systems and formats.
 
 Worse, with two message formats in use, the messages will need to be
 translated across the formats.  This is a new
-problem you will have *invented* for your own business,
-along with the associated costs.
-
-You do not want any time spent by engineers in 
-translating in between formats as this is 
-your highest cost, but also your highest **opportunity cost**
-of what else those programmers could be doing for you,
-as a scarce resource for your business.
+problem with the associated costs which is avoided by using only one
+technology.
 
 This kind of message translation layer is generally
 not something a programmer will be eager to author
@@ -353,7 +343,7 @@ in complexity and the need to maintain this mapping code.
 
 These mapping layers often become the most complicated 
 parts of the system;
-most systems are primarily message middleware.
+and most systems are primarily message middleware!
 
 ### Protobuf preferred
 
@@ -437,19 +427,12 @@ compile (or in other languages **lint** time safety)
 you are losing a key build time verification step, 
 and delaying it to runtime.  
 
-Advocates of unit testing may claim
-that you should anyway have 100% test coverage.
-Suffice it to say, making this claim is not reasonable 
-in a startup or most business environments, and is
-more of a hypothetical than practical argument.
-
 Anyone who has observed the relative cost and complexity
 of a very large distributed python system vs. the same 
 in Java can note; while difficult to measure, once
 a system becomes large the Java system is measurably
 easier and cheaper to maintain and operate due to compile
-time safety.  Like the [**Tao Te Ching**](https://en.wikipedia.org/wiki/Tao_Te_Ching) says; the value of compile time
-safety can not be properly communicated with words, it can only be *experienced.*
+time safety.
 
 ### Cons of Protos
 
@@ -755,3 +738,10 @@ class of ambiguity which is the challenge of defining
 APIs in REST.
 
 HTTP and JSON, was not meant for all messages!
+
+## Appendix
+
+At Layer 4 (Transport) in the OSI model
+you first choose TCP or UDP; but this is almost
+always TCP due to error correction (along with de minimus
+gains of using UDP over TCP coming at a high complexity cost.)
