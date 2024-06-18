@@ -449,7 +449,7 @@ incompatible schema evolution.
 ## CapN Proto vs. Protobufs (and Flatbuffers)
 
 CapN Proto is developed by the original
-protobuf author (post Google.)  
+protobuf author (post Google.)
 
 CapNProto notably has implemented
 *'zero-copy'* messaging.  In summary, CapN Proto
