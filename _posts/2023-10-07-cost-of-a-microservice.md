@@ -1,31 +1,44 @@
 # 60% tax per microservice; where is the value?
 
-Every time you split a service into two microservices you increase your project cost by 60%.
-If you thought government taxes were high, think carefully before you 
+Before reading this article it is useful to review the typical 
+view of a reasonably large microservces deployment from a 
+product perspective:
+
+[Microservices (KRAZAM) ](https://youtu.be/y8OnoxKotPQ?si=FQbN1gwR8M9rvvNj)
+
+By splitting a service into microservices you increase your project cost by 60%.
+
+Think carefully before you 
 take something done simply in one service and split it into two
 or more microservices.  You pay a 60% or higher cost to do 
 the work of one service in two microservices.
 
 Why is this?
 
-1.  Much of your code is deployment and monitoring; operational excellence features.
-2.  Five or more environments are necessary to run an effective software practice
+1.  A large tax for deployment and monitoring; operational excellence features.
+2.  Five environments are necessary to run an effective software practice
 3.  Complexity and latency increase considerably when moving to microservices
 
 Prefer libraries, and use the "service locator" pattern
 as a insurance for a future time when you may need microservices.
 
-Do not blindly tax your organization 60% for what may be a microservices fad.
+Do not blindly tax your organization 60%.
 
-Start _without_ microservices.  Only pay the microservices tax when
-it becomes absolutely necessary, and then document and review:
-1) the cost benefits of the microservice approach
-2) how libraries will not work similarly, at a much lower cost
+Start without microservices.  
 
-Libraries as an approach has worked forever; if you have not learned to be effective
-with libraries, do this first, until you are an expert
-user of libraries, and CI/CD.  Only then should
-you consider microservices, and not before.
+Only pay the microservices tax when
+it becomes absolutely necessary.  
+
+Be sure to first document and review:
+1) cost benefits of the microservice approach
+2) what the cost of assembling libraries into a service would be; to achieve the same gaol.
+
+Libraries are a tried and true approach with well known benefits.
+Prefer to rely solely on libraries and dependency injection 
+until you are an expert
+user of libraries, and CI/CD with those libraries.  
+
+Only then should you consider microservices, and not before.
 
 ## **"You are only as good as your worst microservice."**
 
@@ -33,34 +46,34 @@ What does this mean?
 Every microservice you author needs to be completely "hardened".  
 If any microservice stops
 responding you experience a customer facing outage.  
-Customers won't stick around to use a flaky system.  
-How do you always combat this risk of outages
-in any software environment?  
 
 It takes a tremendous amount of investment to do uptime reasonably well.
-This effort is rarely cataloged.  In theory the cloud or a large software team makes it easier with
+This effort needs to be cataloged before moving into microservces, and slimmed down.  
+
+In theory the cloud or a large software team makes it easier with
 economies of scale but this has not been the case.  Technology has reached a point in the curve
 where it has become more expensive than ever to run a high uptime service with a massive skill set needed
-to do it correctly.  This typically requires senior engineering time.
-Senior engineering time is typically better spent on the 
-business facing customer needs, as one of the scarcest resources in business today.
+to do it correctly.  High uptime services requires senior engineering time.
+Senior engineering time is scarce and expensive.
 
-We will explore here why each microservice comes with a 60% overhead of 
+Next we explore why each microservice comes with a 60% overhead of 
 operational excellence.  This cost overhead number may be as low as 40%; however 60% is a better reference number
 to use as a starting metric.
 
-This metric will prevent you from splitting up your system 
-into microservices which you don't need, you don't want, and you may not be able to afford
+This metric is a useful warning label.
 
-### Why programmers favor microservices?  Why do we pay this heavy microservices tax?
+### Why do programmers tend to favor microservices? 
 
-Any MBA would tell you that you should not spend 60% more when you can get the same
-outcome for half.  The adoption of microservices for most programmers is akin to idealism.
+Clearly we should avoid an additional 60% more when you can get the same
+outcome for half.  Despite the cost, microserves are adopted 
+as a form of idealism.
+
 Where did they come from, and why do programmers often make them today, when they carry an enormous overhead?
 
 #### Be like Amazon
 
-Microservice are allegedly invented or were adopted heavily at Amazon.  But Amazon first started and
+Microservice were adopted heavily at Amazon.  
+But Amazon first started and
 was highly successful with a monolith, after which they transitioned to microservices due to 
 their incredible size.  If you want to be like Amazon 
 then perhaps follow their footsteps; first, build
@@ -70,49 +83,55 @@ Once you are a success you can examine the cost/benefits
 of breaking it up into microservices - but not before you 
 are a big success.  
 
-Even the naive interpretation of 
-the statement *start monolithic* is a good approach; 
-however, do not interpret it as naive.  
+When building the monolith, *use interfaces liberally* 
+to separate responsibility.
 
-When you build the monolith, *use interfaces liberally* to separate responsibility.
-Then use libraries, and dynamic loading to provide these
-interfaces to the monolith.  
+Next, use libraries, along with depencey injection and dynamic loading to provide these
+interfaces to the monolith.
+
+The libraries are then versio ncontrolled.
 
 Version those libraries and let them contribute to one overall code base.
-Using this simple approach you can gain 99% of any benefit of microservices at 1% of the cost.  How is this
+Using this simple approach you can gain 99% of any benefit of microservices at 1% of the cost.  
+
+How is this
 accomplished?  Through interface driven design; the same interface driven design you would use when 
 designing the microservices.  Treat the internal components of the system as internal microservices; define 
 boundaries and separate the code into libraries behind interfaces, and into modules of a larger project
 which make those libraries.  This allows developers to iterate quickly on the libraries, in the same
 exact manner they would iterate on microservices.  
 
-It is true that this so-called monolith of libraries project (*mono-library-service ?*)
+It is true that this so-called monolith of libraries approach
 must be released as one unit.  If your programmers have unit tested and generally tested properly, 
 meaning the interfaces perform as expected, then the assembly of the libraries into a system is a
-non-event!  The code can be shipped at least as quickly as any microservices stack.
+non-event.  
+
+The code can be shipped at least as quickly as any microservices stack.
 
 The benefits of libraries go beyond here; way beyond the immediate observable cost of avoiding the microservice.
 
-You can actually increase productivity 5x by using this approach.  
+You can actually increase productivity dramatically using this approach.
 
-Here is why.
+Why is productivty improved?
 
 For each service you build, you also need to build at least
-*FIVE* more environments to deploy any service:
+five more environments to deploy any service:
 1. Production
 1. One-Box / Pre-Prod - a slow rollout area for a portion of traffic
 1. QA - where you test (assuming you want to review your system before production)
 1. Dev - where you integrate and review, before you push to QA
-1. Local - **The most important of all** a workstation where a developer will run the system.
+1. Local - a workstation where a developer will run the system.
 
-With **5 working deployments**, the cost of a a microservice approach is not 5% or 10% more
+With 5 working deployments, 
+the cost of a a microservice approach is not 5% or 10% more
 than a monolith.
 
 The ability to run five working copies of your system is where the real cost of microservices arrives.
 
 With five environments to maintain, we can begin to appreciate the accuracy of a 60% estimate.
 
-If there is even a 10% tax on deploying and running one copy of the system (which is a low figure),
+If there is even a 10% tax on deploying 
+and running one copy of the system (which is a low figure),
 this number quickly increases to a more than 50% tax per service.
 
 ### Note on avoiding hygiene
@@ -129,35 +148,18 @@ make even minor changes.
 
 This is a productivity prison, created by microservices.  
 
-### Programmer mindset
-
-Programmers have tremendous power in organizations.  
-Executives can't survive without some strong and senior engineers.
-Given the explosion and continued strength of the software industry there has been an approach of
-keep the programmers happy as "we don't want to lose them."  Beyond this, software executives today
-don't understand the economics of code and producing code.  They would have needed to spend
-a career in software to appreciate these cost benefit concerns; not the same skill set and with
-a small union of overlapping skills.  Therefore, you are typically faced with a group of software
-engineers who may never have reflected on the cost benefit of code from an ownership level; only from
-their part of the puzzle.  These programmers will always favor microservices.  Always.  Why would 
-they always favor microservices given this enormous cost?  It makes no sense; yet, it happens repeatedly.
+The productivity loss is the subject of the video, which is
+not an inaccurate picture of reality 
+with a large microserices system.
 
 ### Lack of cost analysis
 
-Software costs are notoriously difficult to estimate.  It involves such a human element in the design 
-and coding and across various pieces of a team ranging from UX to backend and to data; to name a few,
-and is usually a combination of these people and skills.
+Software costs are notoriously difficult to estimate.  
+Software engineering. is a notoriously difficult activity to measure.
 
-Many developers have not built their own successful software business.  
-They are working in a corporation with other developers 
-and lack the "macro view" experience necessary to make important cost benefit decisions.  This lack of perspective is coupled with the industry having a fad
-where microservices 
-are 1) considered advanced 2) practiced by the big shops 
-and most importantly 3) more fun to work on due to isolation.
+A macro view of the impact on software velocity is necessary to evaluate the impact
+over a time horizon of quarters or years.
 
-These factors lead to the incorrect adoption of 
-microservices at the wrong time in a business evolution, 
-and for the wrong reasons.
 
 ### What are these costs?
 
@@ -167,6 +169,7 @@ It may seem that each of these are merely a copy of the same system running some
 this is not nearly the case in practice.
 
 The key additional costs to every microservice:
+1.  Latency measurement with remote calls
 1.  Maintenance and patching (upgrades to system, language, frameworks)
 1.  Deployment configuration (and auto-rollbacks etc)
 1.  Monitoring / Metrics
@@ -181,25 +184,18 @@ you experience cost explosion in the form of
 low velocity software teams; the time and people 
 it takes to implement features.
 
-Good software takes a long time.
-Given these realities you do not want to invent a cost-explosion,
-for yourself.  Yet most shops today do this,
-and then wonder "why did we do this?  This doesn't seem to be working."
+The data driven crowd 
+would ask for proof that microservices are more expensive.  
+This is the wrong
+question to ask.  
+Microservices are clearly more expensive.  
+Two high uptime services to operate in production, are clearly more than one service to run.
 
-This is felt the most by the business (CEO, investors) when they become dissatisfied with progress.
-Your system takes a too long to update due to the software design and the microservices fad.
-But without deep foundations in software costs these become extremely hard to measure.  
-(for examlple teams of software velocity measurement experts; observing the software team, against another
-software teams.)  
+If cost is being measured a-prori someone simply need list and reasonably
+esitmate the overhead, and why, as I have done above,
+before you venture down the microservices path.  
 
-Generally you will always lack this "control experiment" and you will never know.  As a
-journeyman infrastructure generalist, please take my word for it; but you can observe this
-for yourself, if only via anecdotal evidence which confirms this hypothesis.  Here is where
-the data driven folks would ask for proof that microservices are more expensive.  This is the wrong
-question to ask.  Microservices are clearly more expensive.  Two high uptime services to operate in production, are clearly more than one service to run.
-
-Instead, seek to prove you need this additional 2x, 60%+ tax, and why, 
-before you venture down this path.  How will you make up for the 60% overhead, and,
+How will you make up for the 60% overhead, and,
 what cheaper alternatives exist to accomplish the same goal?
 
 How much more effective must we be?  You must be 60% more effective
@@ -207,10 +203,11 @@ with the microservices split, to justify using microservices over libraries.
 
 Other figures can be chosen, but if it is < 60%, you are likely not measuring properly.
 
-There is a clear reason this happens, repeatedly, 
-and this is an obvious outcome of corporate interaction... 
-
 ## The arguments for Microservices
+
+Strong arguments can be made and are indeed true about microservices; however,
+they respresent a fractional value compared to the overall cost, in all
+but the largest software deployments.
 
 **Argument 1 - deployment isolation:**  With microservices teams may not need to wait for each other to deploy.
 This can be a savings.
@@ -318,13 +315,13 @@ And you need more of them to do it.
 Instead of needing one programmer, you now need a team of programmers to maintain the microservice.
 
 You may need a DevOps team to manage the microservices in addition to the team you are on.
-You probably invented the need for a _latency investigation team._  This is how you 
-know you have been taken to the cleaners by your software contractors.  
+You probably invented the need for a _latency investigation team._
+
 Programmers will be happy, but a business may be unproductie as a result.
 
 I also take great joy in the software craft.
 
-I am in software to be successful first and foremost 
+But I am in software to be successful first and foremost 
 for the business and teams I am on.
 
 # Conclusion
