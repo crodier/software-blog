@@ -1,75 +1,38 @@
-## TLDR;
+## Busy Executive Summary
 
 Thread dumps are one of the most effective tools 
 you can use towards resolution of a production software outage.
 
 First you take three successive thread dumps
-with five second pause.  Capture, share and review them with your team.
-Now you can quickly develop a reasonable picture
-of what your application is doing.  Search the thread dumps
+with five second pause.  
+
+By reviewing the position of threads in the output, 
+you can quickly develop a reasonable picture
+of what your application is doing. 
+
+Search the thread dumps
 for your java code package name to find threads specific to 
-your own application code, like 'com.company.util.'
+your own application code, like 'com.company.'
 
 Next review any threads with state BLOCKED,
 RUNNING, and WAITING.  Start with the BLOCKED threads.
 What are they blocking on?
 
 The most typical problems to look for:
-1.  A thread is waiting for the results of a database query,
-    in JDBC network driver code, after making the remote call.
-1.  A thread is slow due to writing or reading from a disk drive.
-1.  The CPU is being exhausted by a section of code.
+1.  Waiting in JDBC network driver code for a query result.
+1.  Slow threads writing or reading from a disk drive.
+1.  The CPU being exhausted by a section of code.
 
 By taking thread dumps and reviewing the output of a few of them
 you can quickly pinpoint most production problems.
 
 This article teaches you how to take thread dumps and 
 use them efficiently during an outage.  This is a critical
-skill which any engineer should be adept at.  Without this capability, you may be
+skill.  
+
+Without this capability, you may be
 unable to diagnose production problem which 
 can cause extended disruptions for your business.
-
-## What is a thread?
-
-We assume
-readers are well versed in concurrency and 
-threading in software systems.  If not,
-some background may be reviewed here. 
-
-[Educative.io blog on threading](https://www.educative.io/blog/multithreading-and-concurrency-fundamentals
-)
-
-#### Quick summary of threading
-
-Everything you run on any software system
-is done by a thread.  The primary thread
-of any program is the main thread.
-
-You start additional threads other than the main 
-thread when you  
-do work in parallel.
-
-Threads usually interact with each other
-by passing information to other threads
-using memory.
-
-Languages like Java, C++, Rust
-and others support threading and will
-run the software using parallel threads of execution, when asked.
-The operating system schedules the threads to run 
-using a part of the kernel called a scheduler.
-
-Generally you can run at least as many threads
-as there are cores on your machine.  You are
-free to start as many threads as you want.  Once
-you exceed the number of cores on your system,
-the operating system scheduler gives each thread
-a slice of time to run on a core.  When a core becomes
-avaialable, the operating
-system code does the heavy lifting of 
-recording where the thread was last running,
-and then continuing exactly where the thread had bee
-de-scheduled.
 
 ## Anatomy of a thread
 
@@ -113,23 +76,17 @@ and provides two summary lines above this
 important thread information.  Any thread has a 
 "state" which it is in.  Java reports 
 these states for example, RUNNABLE,
-WAITING, TIMED_WAITING (as a result of "sleep"),
+WAITING, TIMED_WAITING ("sleep"),
 and a few others.  The thread name and other
 key thread statistics are also listed by the JVM
 when a thread dump is generated.
-
-We will review a Java thread dump, and 
-then use the concepts to review C++ and others.
 
 ## Examples of a Java thread dump
 
 For the "Threading Example" linked above,
 here is a thread dump generated on my linux machine.
 
-First let us review one small 
-chunk of the overall thread dump command output.
-
-We can quickly observe 
+We observe 
 a thread named "fastWorkerA" is RUNNABLE 
 and running source code line 34 of ThreadingExample.java.
 ```
@@ -142,10 +99,13 @@ Line 34 in the sample java program
 is testing if a counter has exceeded "MAX_VALUE" (as seen in the example code.)
 
 When we take more thread dumps, fastWorkerA is almost always on this
-specific line.  The reason this line is always active because
+specific line.  
+
+This line is always active because
 it takes the most CPU time in the sample program; testing the counter is the slowest line
-executed in every loop.  This short but 
-signifigant comparison time makes it highly probably
+executed in every loop.  
+
+This short but significant comparison time makes it highly probably
 if you repeat the exercise, your thread dump will be on
 the same exact line.
 
@@ -156,10 +116,7 @@ if (counter == Integer.MAX_VALUE) {
 ## VisualVM display of a thread dump
 
 ### What is VisualVM ?
-VisualVM is a graphic system for reviewing the JVM, which is
-free
-and open source from Oracle.  We will install
-it now and briefly review it in the context of threading.
+VisualVM is a free user interface for reviewing JVM state.
 
 ### Installing VisualVM
 
@@ -168,8 +125,8 @@ On Linux Mint and Ubuntu systems, you can install visualvm with apt-get.
 sudo apt-get install visualvm
 ```
 VisualVM is itself a Java program written in Swing.
-VisualVM is trivial to download and run, if you don't
-wish to install it.
+
+VisualVM is trivial to download and run even without an install.
 
 ### VisualVM Threading Display Tab
 VisualVM has a tab to display the threads in the JVM.
@@ -293,21 +250,19 @@ The state of the threads is actually "TIMED_WAIT",
 which VisualVM displays as sleeping.
 
 ## Power of JVM instrumentation
-*(if you only knew the power... of the Dark Side.)*
 
 As you can see, the JVM provides an enormous amount
 of information regarding internal state of the JVM and
 the threads running within it.  
 
-Star Wars references aside, the advantage of using 
-Java as a server side software language can not 
-be understated.  There has never been a language
+The advantage of using Java as a server side software language can not 
+be understated.  
+
+There has never been a language
 with this much power while at the same time
-easy to author, and given the wealth of instrumentation,
-nearly trivial to observe and debug at runtime 
-(including of course using thread dumps, 
-in production itself.)  The instrumentation
-is one of the major advantages of the JVM over 
+easy to author, with similar wealth of instrumentation.
+
+The instrumentation is one of the major advantages of the JVM over 
 competing languages.  While others offer similar,
 none are as elegant or powerful as the JVM today
 still in 2023.  This same power has existed in the JVM
@@ -842,3 +797,47 @@ to show you if you have a deadlock?
 
 Follow up - Review the best tools available for thread 
 dump analysis, and which is recommended.
+
+## Threads Basic Review
+
+### What is a thread?
+
+We assume
+readers are well versed in concurrency and
+threading in software systems.  If not,
+some background may be reviewed here.
+
+[Educative.io blog on threading](https://www.educative.io/blog/multithreading-and-concurrency-fundamentals
+)
+
+#### Quick summary of threading
+
+Everything you run on any software system
+is done by a thread.  The primary thread
+of any program is the main thread.
+
+You start additional threads other than the main
+thread when you  
+do work in parallel.
+
+Threads usually interact with each other
+by passing information to other threads
+using memory.
+
+Languages like Java, C++, Rust
+and others support threading and will
+run the software using parallel threads of execution, when asked.
+The operating system schedules the threads to run
+using a part of the kernel called a scheduler.
+
+Generally you can run at least as many threads
+as there are cores on your machine.  You are
+free to start as many threads as you want.  Once
+you exceed the number of cores on your system,
+the operating system scheduler gives each thread
+a slice of time to run on a core.  When a core becomes
+avaialable, the operating
+system code does the heavy lifting of
+recording where the thread was last running,
+and then continuing exactly where the thread had bee
+de-scheduled.
