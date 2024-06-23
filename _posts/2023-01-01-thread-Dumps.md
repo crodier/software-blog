@@ -679,9 +679,7 @@ is not too difficult to occur
 Writing a few lines around any code which
 starts threads, and catching and logging if they exit,
 can someday save you hours of confusion during an outage,
-despite the overhead in code bloat.  The most important
-thing about code is for it to be useful, not how it looks
-or if your co-workers think it is elegant.
+despite the overhead in code bloat.
 
 ## What state are your threads in?
 
@@ -728,18 +726,9 @@ minutes.  These same problems without using this
 specific approach
 can take days or weeks, or go totally unsolved.
 
-
 With your enhanced Java knowledge, you can now
 solve these toughest of all outages in production,
-and extremely quickly (particularly, compared to other engineers
-who are unfamiliar with this technique.)
-This is a truly critical skill, due to the
-enormous reputational
-risk to the business created by major, and long, outages.
-Examples of this include running major cloud
-services, or major financial systems in the cloud,
-where minutes of outages are measured in millions
-of dollars in lost revenue.
+and extremely quickly.
 
 ### 2nd 'from the field' example: high CPU usage
 
@@ -760,17 +749,27 @@ some time to occur, as not every request had this
 unhandled exception.  Over a period of tens of 
 minutes the cluster would become unstable.
 As authorization is at the core of all systems,
-this kind of defect can be catastrophic for 
-a major billion dollar cloud financial institution.
-If you can quickly identify this problem and solve it
-using these techniques, you will be identified
-as a star engineer, particularly if you have
-practiced the techniques in this chapter beforehand
-in a simulated emergency environment, for example,
-by running the ThreadingExample.java on a Linux system,
-and practicing.
+this kind of defect can be catastrophic.
+
+If you are ready using these techniques, you can be a hero.
 
 # APPENDIX
+
+In the Java slim containers, java is always PID 1.
+Here is how you can send a thread dump into a Docker container.
+The thread dump will be in the docker logs
+```
+# Find the PID of the process you want to kill. 
+Replace 'process_name' with the actual process name or criteria
+docker exec my_container sh -c 'ps aux | grep java'
+
+# Use the PID obtained from the previous step. 
+# Replace 'PID' with the actual PID
+docker exec my_container sh -c 'kill -3 PID' `
+
+# Get the logs with the Thread Dump
+docker logs my_container --tail 10000 > jvm_thread.out
+```
 
 ## VisualVM in Production
 
