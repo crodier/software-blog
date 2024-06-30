@@ -52,7 +52,7 @@ then there is a flaw in the design.
 
 ## Accuracy of the Domain Model
 
-The domain model accuracy is ultra-critical to your success.
+The domain model accuracy is critical to your success.
 
 The question of inheritance vs. composition is one of the
 most critical. Often times inheritance is used when
@@ -61,7 +61,7 @@ should "have" something else on it, like audit information.
 
 This type of mistake can make the software much more
 cumbersome to work with and is often unnecessary.
-Composition should always be preferred. It is ultra-rare
+Composition should always be preferred. It is rare
 you actually have a situation where "a Truck is a type of
 Vehicle" (inheritance), or where this relationship is
 important enough that it should dictate the shape of your
