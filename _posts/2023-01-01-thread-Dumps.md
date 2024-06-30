@@ -5,10 +5,9 @@ you can use towards resolution of a production software outage.
 
 First you take three successive thread dumps
 with five second pause.  
-
-By reviewing the position of threads in the output, 
-you can quickly develop a reasonable picture
-of what your application is doing. 
+ 
+You can quickly develop a reasonable picture
+of your application by reviewing the thread activity in these dumps.
 
 Search the thread dumps
 for your java code package name to find threads specific to 
