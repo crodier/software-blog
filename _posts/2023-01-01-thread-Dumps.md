@@ -171,7 +171,7 @@ The name is always "main".  The name of this thread
 can not be changed by Java programmers.
 
 The main thread of our ThreadingExample.java starts
-two more application threads.
+two application threads.
 
 ### (2) The "Thread-0" thread
 
