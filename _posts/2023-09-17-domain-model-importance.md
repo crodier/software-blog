@@ -1,7 +1,7 @@
 # Domain Model: Your Business Blueprint
 
-A domain model is a package of classes and interfaces that
-represents your business domain in code. This software model
+A domain model is a package of classes and interfaces to
+represent your business domain in code. This software model
 of your business domain becomes a custom language by which
 your systems communicate and store information.
 
