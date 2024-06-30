@@ -1,19 +1,18 @@
 # A free online, software education
 
-As a professional Java(!!) software engineer for 25 years
-I thought it would be a good idea to try to pass on
-the only thing I will claim to know reasonably well 
-to my children when they were young.
-
 I have been of the belief that software takes too long to learn.
-I am still learning; often think I am not good at it!
+I am still learning, and often think I am not good at it!
 
 ### Goal of this guide
 
-To help people on their journey here is a curated list of free software
+This is a curated list of free software
 courses in exactly the order I recommend studying software to effectively.  
-This guide is targeted toward making anyone effective in the field
-with a particular emphasis on children.
+
+This guide is targeted toward making anyone effective in the field.
+This list can be used starting as early as 12 years old.
+
+1. 10 years old is appropriate for Scratch.
+2. Python for Everybody can be started at 12 years old
 
 The list assumes zero prior software experience or understanding.  
 Anyone could follow this guide and have a rewarding and high
@@ -22,35 +21,14 @@ to meet demand.
 
 ### What is here
 
-Most of this applies for non-CS graduates who wish to be expert
-enough in software to be considered strong.  Without
-the complete set of these courses completed you can not
+Most of this applies for non-CS graduates who wish to be experts.
+
+Without the complete set of these courses completed you can not
 be considered a strong software engineer as all of 
 these are undergraduate courses and don't cover 
 many important practical applications of software.
 
-Importantly you don't need to be *strong* to work in software.
-You only need to be proficient enough for the task at hand.
-*Strong* implies a mid to senior level engineer which is
-a higher level.
-
-### My experience with the materials
-
-My son (eldest, Chris) took most of these courses from age 12 to 16.
-This required important concentration on his part and
-at a young age to be doing software.  I think twelve
-and thirteen is the most important time to start.  This way
-by age 22 any student of engineering will also be proficient
-in coding; which is basically a necessity to be any kind of effective engineer.
-
-I took great care to curate this list
-as I wanted it to be effective usage of both our time as possible.
-
-The courses here are entirely free and self-paced.
-
-I have taken the advanced class and "TAed" the first 
-set of courses with my first son who is studying CS now
-in college.
+To work in software, one only needs to be proficient enough for the task at hand.
 
 # The List
 
