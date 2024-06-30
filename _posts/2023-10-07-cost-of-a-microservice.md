@@ -30,28 +30,31 @@ Only pay the microservices tax when
 it becomes absolutely necessary.  
 
 Be sure to first document and review:
-1) cost benefits of the microservice approach
-2) what the cost of assembling libraries into a service would be; to achieve the same gaol.
+1) Cost benefits of the microservice approach; what is gained?
+2) The cost difference of assembling libraries into a service; overhead costs?
 
 Libraries are a tried and true approach with well known benefits.
 Prefer to rely solely on libraries and dependency injection 
 until you are an expert
 user of libraries, and CI/CD with those libraries.  
 
-Only then should you consider microservices, and not before.
+Only then should you consider microservices.
 
 ## **"You are only as good as your worst microservice."**
 
-What does this mean?  
+What does this mean?
+
 Every microservice you author needs to be completely "hardened".  
 If any microservice stops
 responding you experience a customer facing outage.  
 
-It takes a tremendous amount of investment to do uptime reasonably well.
-This effort needs to be cataloged before moving into microservces, and slimmed down.  
+It takes a tremendous amount of investment to handle high uptime reasonably well.
+This effort needs to be cataloged before moving into microservces.
 
 In theory the cloud or a large software team makes it easier with
-economies of scale but this has not been the case.  Technology has reached a point in the curve
+economies of scale; however, this has not been the case.  
+
+Technology has reached a point in the curve
 where it has become more expensive than ever to run a high uptime service with a massive skill set needed
 to do it correctly.  High uptime services requires senior engineering time.
 Senior engineering time is scarce and expensive.
@@ -76,8 +79,8 @@ Microservice were adopted heavily at Amazon.
 But Amazon first started and
 was highly successful with a monolith, after which they transitioned to microservices due to 
 their incredible size.  If you want to be like Amazon 
-then perhaps follow their footsteps; first, build
-a highly successful and inexpensive monolith.  
+then perhaps follow their footsteps, by building
+an inexpensive monolith.
 
 Once you are a success you can examine the cost/benefits
 of breaking it up into microservices - but not before you 
@@ -89,7 +92,7 @@ to separate responsibility.
 Next, use libraries, along with depencey injection and dynamic loading to provide these
 interfaces to the monolith.
 
-The libraries are then versio ncontrolled.
+The libraries are then version controlled.
 
 Version those libraries and let them contribute to one overall code base.
 Using this simple approach you can gain 99% of any benefit of microservices at 1% of the cost.  
