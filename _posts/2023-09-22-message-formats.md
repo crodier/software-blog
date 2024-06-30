@@ -272,6 +272,11 @@ Next compile the protobuf from earlier `User.proto`
 ```
 This generates User_pb2.py appears in the same
 folder as this file.  (I am using PyCharm.)
+
+Next we can use the following python program to
+import the generated code
+and send a User with protobufs and Python.
+
 ```python
 import User_pb2
 import sys
@@ -302,8 +307,7 @@ This binary wire format has the same exact data but is
 only **25** bytes.  
 
 From our original **60** bytes
-we are now down to 25 bytes.  This is clearly is
-savings on the wire of **58%**.
+we are now down to 25 bytes.  This saves **58%**.
 
 Beyond the wire
 savings, we also avoided any CPU compression of GZIP!
@@ -311,6 +315,18 @@ savings, we also avoided any CPU compression of GZIP!
 The binary wire format for protobuf is like the GZIP
 data without needing to zip the keys.  Protobufs avoids
 the compression which saves CPU cost of compressing keys.
+
+### Data structure is well known
+
+The schema file will give IntelliJ or PyCharm
+awareness of the structure of the User.  
+With JSON we generally will lack such schema.
+There are major benefits to having a well known 
+sturcutre and format of fields in your code
+with this code awareness.  This in itself is 
+in my view reason enough to use Protobufs for all messaging.
+Combined with the performance benefits, protobufs
+becomes a no-brainer for all but trivial applications.
 
 ## Binary alternatives
 
@@ -321,7 +337,7 @@ The four most relevant to examine are:
 1. Avro:  From the Hadoop community; used in big data java systems
 1. CapNProto:  From the author of Protobuf, a kind of "2nd protobuf developed outside google."
 
-Above formats use trivial schema like protobuf to define messages
+Above formats use similar schema to protobuf for message definition,
 and are ultimately similar.
 
 ### Pick one ?
