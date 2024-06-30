@@ -126,8 +126,9 @@ we have though used an additional library across our code; this
 does not seem to be worth complexity cost.
 
 Indeed, MessagePack is a case where the benefits are not worth the investment.  
-The engineering cost to introduce MessagePack everywhere
-in your system.
+The cost is introducing MessagePack everywhere
+in your system, as a library, upgrades and maintenanc, along
+with the small learning curve for engineers.
 
 MessagePack also lacks other
 critical and helpful messaging features which we will now explore.
