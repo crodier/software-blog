@@ -93,7 +93,11 @@ synthetic primary keys for the size of the storage of the
 In this phase of ERD
 development you are no longer doing domain modeling but
 rather translating your objects into the tables you are
-designing. Temporality and bi-temporality should be
+designing. 
+
+### Temporality in ERD Design
+
+Temporality and bi-temporality should be
 considered when making an ERD; this is typically the
 correct way to approach user data when you model data.
 Without temporality, you must audit the data in a separate
@@ -101,14 +105,7 @@ set of tables you are also authoring at double the cost
 and more than triple the complexity. Now you have invented
 the need for an entire alternate system of data storage
 at double the cost of engineering; and a third system to
-translate between the two. You would be surprised if you
-found this mistake made to the tune of millions of dollars
-of engineering time in many large software shops. But you
-will; temporality of data is not taught in school, nor the
-correct usage for all user-created data artifacts for audit.
-This one software note will save you millions of dollars
-a year in engineering costs. But if you work with me it
-costs you only a beer.
+translate between the two. 
 
 ### Domain Model is life
 
