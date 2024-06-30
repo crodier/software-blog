@@ -84,11 +84,13 @@ When your domain model is persisted in a database it is
 first represented in an ERD; an Entity Relationship Diagram.
 
 The ERD captures specific relationships as data itself.
-The important thing is that audit be added to every table;
+An important concern is having audit on every table;
 who edited the data and when. 2nd is the key on every piece
-of data. When you make this ERD you do typically use
+of data. When you make this ERD you typically use
 synthetic primary keys for the size of the storage of the
-"long" datatype in a database. In this phase of ERD
+"long" datatype in a database. 
+
+In this phase of ERD
 development you are no longer doing domain modeling but
 rather translating your objects into the tables you are
 designing. Temporality and bi-temporality should be
