@@ -372,8 +372,7 @@ Protobuf is generally preferred for a few key reasons:
 For this reason protobuf enjoys the most cross language support.
 When you use protobuf you can be confident that every major and minor
 language you may ever want to use in your organization is supported 
-is one advantage.  Usually the maintainer of the system
-in the major languages like Java and C++ is Google itself which 
+is one advantage.  Google maintenance for the language plugins 
 leads to a high quality developer experience.
 
 ### Avro comparison
