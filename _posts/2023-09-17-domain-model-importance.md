@@ -107,71 +107,76 @@ the need for an entire alternate system of data storage
 at double the cost of engineering; and a third system to
 translate between the two. 
 
-### Domain Model is life
+### Domain Model Management
 
-The hallmark of a strong software system is a project which
-is independent and is exclusively the domain model.
+Separate and version the domain model into a project which is 
+exclusively the domain model.  This is one of the most critical artifacts.
+Never split the domain model into multiple packages, as this is
+unnecessary.  Use the package hierarchites.
 
-The hallmark of a software engineering practice is that
-all domain models are in one well-organized domain model
-project. This takes the single domain model approach to
-the level of an entire organization. Once you do this the
-chances of your organization being dramatically more
-successful than your competitors are high; you will be
-up to 10x faster at making changes to your business at
-up to 1/10th the cost or less. Taken to an extreme is to
-have your entire business domain and all business domains
-in one package. You can then choose a representation which
-is easy to translate into any language and is sent
-rapidly 'on the wire.' This is not only easy to do but
-has already been made trivial.
+Never include any other dependences as the Domain Model is only for 
+the structure of your system.  The domain model must be purely 
+software structures.
 
-### Protobufs
+This project must be versioned carefully.
+
+You will never make backwards incompatible changes,
+as in a distributed environment, any system may be 
+using a prior version of th domain model.
+Make careful additions to the domain model and 
+form a domain model committee between management, business owners,
+and senior engineers who review the stucture and 
+relationships of the model.
+
+### Domain Model Distribution
+
+Every build project in your organization should build the domain 
+model artifacts and check for problems *at build time*.
+
+Create a *main* branch, and make changes to the main branch
+after they have been tested and agreed upon by the domain review board.
+
+Every project in the organization should then reference this *main* branch.
+
+By referencing the main domain model, and building off of it, 
+if there are any concerns or problems, they will be located 
+at build time.  Furthermore and most important, if you add
+a field to a service, the field will instantly see the service
+without any interaction with the team; and sometimes these messages
+are fowarded onto more services.  This way you have a seamless
+upgrade process to add fields to your domain, and this can help
+you when dealing with intermediate message layers followed by
+storage tiers; by adding to the domain model, now the messages 
+are propogated with the additional info.
+
+Another good addition to building in GIT is the 
+Confluent schema registry, which could be run alongside the GIT approach.
+The schema registry should be layered on in addition to the build approach
+on an as needed basis.  This reduces the initial startup cost to 
+practice the domain model properly, but allows for adoption later.
+
+### Protocol Buffers (Protobufs)
 
 The preferred format for a domain model should generally be
-'Protocol Buffers' from Google, which is open source. In my
-view, without ever having worked at Google, one of the key
-reasons Google is almost exponentially more successful at
-software is because of this domain model principle, employed
-"at scale" at Google. And then they open sourced it. Still,
-the principle and value are not understood, despite Google
-using it internally. In a sense, it is the greatest software
-secret of all time, and yet, it is right out in the open.
+'Protocol Buffers' from Google, which is open source. 
 
-It is like knowing the play of chess master yet not being
-able to repeat it when you yourself play. But this is not
-chess, and you can play like a chess master if you
-understand this value. The cost to do it this way is
-minuscule compared to the overall cost savings over the
-life of a software system; a few days of one person
-against years of wasted engineering time. Despite this
-cost value proposition, most engineers would say at the
-start of the project 'protobuf is not worth it.'
+One of the key reasons Google is almost exponentially more successful at
+software is because of this domain model principle, employed
+"at scale" at Google. Now Google have  open sourced it the entire approach.
+
+In a sense, it is the greatest software
+secret of all time, right out in the open.
 
 The lack of usage of proto-buffers in software design
-and organizations is due to the lack of the profundity of
+and organizations is due to the lack of appreciation of
 the Protobuf approach which captures both Domain Model and
 as well a highly efficient binary implementation on the
-wire; combined into one representation. In most
-organizations who do not correctly practice domain model
-or protobuffers, this is the most expensive mistake made;
-not in one organization. It is the most expensive lack of
-understanding in the history of mankind, in terms of
-production software human hours lost. Where it has not
-been used, work harder not smarter is employed at scale by
-engineers who are ignorant to these profound design
-mistakes.
+wire; combined into one representation. 
 
-### Unfixable
-
-The management teams are often left to say "it is too late";
-or not worth fixing it. Once the opportunity to use the
-Domain Model approach is lost you are left with a problem
-of unwinding production messaging systems. While the great
-"Joel On Software" says ["never rewrite"](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/);
-this is one situation where you must consider it. What is
-the cost of maintaining and modifying this software
-*without* a Domain Model in place?
+In organizations who do not correctly practice domain model
+or protobuffers, this is the most expensive mistake made. 
+The decision is often lightly made at the start of a software project
+and the costs are incurred forever by the business.
 
 ### Cost of change
 
@@ -357,12 +362,24 @@ too high a cost is to lack an understanding of the problems
 you can face with JSON on the wire and in general, which are many.
 Problems with JSON include the lack of a schema and an expensive
 non-binary wire format. While JSON can be compressed and
-then compressed, it is the same size; guess what, you must
-then compress and decompress it. This involves turning on gzip
+then compressed, it is the same size; yet, you must
+then compress and decompress it. 
+
+This involves turning on gzip
 compression for JSON, which is, let us say, not a big deal,
 but it is a cost. The bigger cost is the CPUs; now you must
 run CPUs hot and take the time to compress and decompress every
-message. While this is very fast, once you have even a
+message. 
+
+### Latency of Bulk cases
+
+For one message there will not be a difference.
+
+But if your business ever has a need to send bulk messages
+or for example the history of messages between systems,
+you will need as much speed as possible.
+
+Once you have even a
 moderately interesting number of messages; for example 1,000,000, the
 cost can become tens of seconds of CPU time to compress the
 data, costing you tens of seconds of CPU time and slowing
@@ -379,9 +396,39 @@ underestimating this cost later in the software development
 cycle, which in some cases would be a complete re-engineering
 at the cost, which during design time can be a two-hour
 conversation and research process, usually leading to
-using protobufs to avoid the risk of needing it later!
+using protobufs to avoid the risk of needing it later.
 
+## Conclusion 
 
+Domain model is an opportunity at the start of a 
+software project or organization.
+
+A tiny investment in organzied and fast communication
+for domain model can reap benefits for years, putting you
+ahead of many software organizations.  
+
+Here is where you must invest, as it is
+difficult to appreciate the extraordinary benefits, and at a cost 
+of perhaps a day or two for the setup of a proper domain model.
+
+To avoid this is to believe there will be no major batch messaging
+in your system, and few changes to the domain model over time.
+Corners must be cut whenever you start a software system or business.
+Take time and invest in a domain model, as the benefits will more 
+than pay for the small investment.
+
+# Appendix
+
+### Unfixable
+
+The management teams are often left to say "it is too late";
+or not worth fixing it. Once the opportunity to use the
+Domain Model approach is lost you are left with a problem
+of unwinding production messaging systems. While the great
+"Joel On Software" says ["never rewrite"](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/);
+this is one situation where you must consider it. What is
+the cost of maintaining and modifying this software
+*without* a Domain Model in place?
 
 
 
