@@ -46,9 +46,9 @@ when you have zero "synthetic" objects in the software
 representation which are "types" (classes) which have no
 direct mapping to the business domain. This is what is
 considered a 'clean' software model of a business domain.
-Synthetic types should only exist to improve latency; that is
-it. If they exist beyond reducing latency, there is a
-serious design problem.
+Synthetic types should only exist to improve latency. 
+If these object exist beyond improving latency
+then there is a flaw in the design.
 
 ## Accuracy of the Domain Model
 
