@@ -1,23 +1,22 @@
 # Domain Model: Your Business Blueprint
 
-A domain model is a package of classes and interfaces to
+A domain model is a package of classes and interfaces which
 represent your business domain in code. This software model
-of your business domain becomes a custom language by which
-your systems communicate and store information.
+of your business domain is the custom language
+your systems use to both communicate and store data.
 
 As the central representation of your business, your Domain
-Model **IS** your business. The success and health of your
-software practice have a life-or-death dependency on the
-representation of this domain model; both its accuracy and
-how it is implemented.
+Model *is* your business. The success of your
+software practice have a critical dependency on the quality
+and implementation of this domain model.
 
 When done correctly, the representation is in one single
-place, and the format is one that can save compact wire
-format versions, typically binary. It allows for polyglot
+place, and the format allows for compact wire
+communication, typically binary. It allows for polyglot
 development and, in certain cases, is 'zero-copy'.
 
-If you can capture all of the above in one Domain Model,
-you have achieved a kind of nirvana in software which makes
+If you can achieve these qualities in one Domain Model,
+you have achieved a kind of nirvana in software.  The result makes
 modification and ownership inexpensive for the engineers,
 along with simultaneously making the software up to 10x
 faster at runtime than alternatives like JSON.
