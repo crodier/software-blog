@@ -73,8 +73,8 @@ similar to [Message Pack](https://msgpack.org/)
 
 ## Message Pack
 We can take the original JSON array use
-a library called Message Pack to serialize it.  The wire
-format is something like our `a,b,c` compression.
+a library called Message Pack to serialize it.  
+The wire format is like our `a,b,c` compression.
 
 Message Pack will put the keys first and then use
 tokens for the keys to avoid copying the entire strings
@@ -118,22 +118,21 @@ This python code prints:
 JSON Size: 60 bytes
 MessagePack Size: 43 bytes
 ```
-This experiment revealed we use **60** bytes with message pack
-vs. **43** bytes for JSON.  
+This experiment revealed we use **43** bytes with message pack
+vs. **60** bytes for JSON.  
 
-With a **29%** improvement on size and **17** bytes saved,
-we have though used an additional library across our code; this
+We note the **29%** improvement on size and **17** bytes saved.
+But we have though used an additional library across our code - this
 does not seem to be worth complexity cost.
 
-Indeed, MessagePack is a case where the benefits are not worth the investment.  
+MessagePack is a case where the benefits are not worth the investment.  
+
 The cost is introducing MessagePack everywhere
-in your system, as a library, upgrades and maintenanc, along
-with the small learning curve for engineers.
+in your system, as a library, upgrades and maintenance, along
+with the learning curve for engineers.
 
 MessagePack also lacks other
 critical and helpful messaging features which we will now explore.
-MessagePack gives a good idea of the type of optimization
-we want to achieve.
 
 ### GZIP Compression
 
