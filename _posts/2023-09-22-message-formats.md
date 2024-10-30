@@ -230,9 +230,11 @@ own systems and data.
 Many free and open source libraries exist which 
 make it nearly trivial to use this kind of pre-agreed
 messages like our `a,b,c` example, effectively pre-compressing
-the messages.  These message formats accomplish this 
-goal by using a message schema.  The schema is agreed 
-upon and shared between the systems exchanging the
+the messages.  
+
+A pre-defined message schema is used instead of the string keys.
+
+The schema is agreed upon and shared between the systems exchanging the
 messages.
 
 For example if we define the Protobuf Schema for a User
