@@ -136,23 +136,26 @@ critical and helpful messaging features which we will now explore.
 
 ### GZIP Compression
 
-Instead of using another
-library across the code, it is simpler to enable GZIP compression.
+It is simpler to enable GZIP compression compared with  
+an additional library dependency on MessagePack.
+
 GZIP is baked into most service frameworks and also modern browsers.
-This can be turned on as a feature of a Java server
-and the browser will interpret and decompress the GZIP
+GZIP is easily turned on as a feature of a Java server
+where the browser will instantly interpret and decompress the GZIP
 for you without even changing the JavaScript code.
+
 This use of compression is an easier win than
 using MessagePack.
 
 ### Cost of GZIP = CPU
+
 The cost of the GZIP compression is CPU cost.  
 You could also experiment with Snappy.
 Both of these are efficient and the CPU cost is tiny
-for a small number of messages and the CPU compresses
+for a small number of messages. The CPU can compress
 small messages almost instantly.  Sending smaller messages
-is always faster.  A question exists and is unique
-to your network and CPUs; is compressing and sending
+is always faster.  A question exists and could be unique
+to your network, CPU and business case; is compressing and sending
 fewer bytes faster or slower than sending the bytes
 without compression?  In the cloud the network is generally
 fast enough where it is a small win to compress but
@@ -164,16 +167,16 @@ with certain CPUs it will be slower to compress and send.
 The win on any machine
 is small enough that it should be tested first and not 
 assumed it will be faster compressed as it varies
-for the messages and the compression used.  Furthermore,
-when you compress you may be stealing valuable CPU from
-your application.  While compression takes very small
+for the messages and the compression used.  
+
+When you compress you may be stealing valuable CPU from
+your application.  While compression uses very little
 CPU for small messages, for large messages and large
 arrays of large messages it is measured in tens of 
-seconds to compress and decompress the messages, and 
-at a high CPU cost.  There is an important 
-cost-benefit to using or avoiding compression.
+seconds to compress and decompress the messages - a high cost.
+There is an important cost-benefit to using or avoiding compression.
 
-What if this cost could be eliminated.  What if we 
+What if this CPU cost could be eliminated.  What if we 
 could pre-agree on the message keys in an elegant way?  
 
 This is what binary message formats accomplish.
@@ -208,12 +211,19 @@ print(f"Compressed Size: {compressed_size} bytes")
 ```
 
 ### Output
-The message has now grown due to the GZIP headers size.
-We have now spent CPU compressing but the message is... larger!
+
+The output looks deceiving but in fact due to GZIP headers,
+the message has grown larger by 10 bytes.
+
+The larger size also achieved with an additional CPU cost to compress.
 ```
 Original Size: 60 bytes
 Compressed Size: 70 bytes
 ```
+
+For cases which are not contrived the message will be smaller.
+This example illustrates the importance of testing with your 
+own systems and data.
 
 # Intro:  binary message format
 
