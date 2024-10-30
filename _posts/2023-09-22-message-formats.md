@@ -697,14 +697,14 @@ short of HFT cases where Aeron would be necessary to do business.
 
 # Conclusion
 
-You have made it this far on the journey.  
-It is an important one to go on.  Why this important?
+You have made it this far on this important journey!   
 
-Understanding this discussion can help you prevent having
-multiple message formats and technologies in use in your shop;
-and help you standardize on one and only one.  This makes
-the engineering cost much smaller and the code much easier 
-to navigate.
+Understanding this discussion prevents introducing
+multiple message formats and technologies in use in your shop -
+and helps you standardize on one preferred standard.  
+
+Using a standard for messaging in an organziation reduces
+the engineering cost along with improving code.
 
 The importance of this discussion is what led Google to
 invent Protobufs and to also mandate that
