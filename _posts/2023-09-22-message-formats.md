@@ -227,10 +227,9 @@ own systems and data.
 
 # Intro:  binary message format
 
-Many free and open source libraries exist which 
-make it nearly trivial to use this kind of pre-agreed
-messages like our `a,b,c` example, effectively pre-compressing
-the messages.  
+Multiple open source libraries exist for binary message formats.
+
+The most popular binary message format is Protocol Buffers.
 
 A pre-defined message schema is used instead of the string keys.
 
