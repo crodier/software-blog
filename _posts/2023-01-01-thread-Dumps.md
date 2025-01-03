@@ -26,12 +26,10 @@ By taking thread dumps and reviewing the output of a few of them
 you can quickly pinpoint most production problems.
 
 This article teaches you how to take thread dumps and 
-use them efficiently during an outage.  This is a critical
-skill.  
+use them efficiently during an outage.  
 
-Without this capability, you may be
-unable to diagnose production problem which 
-can cause extended disruptions for your business.
+Reading thread dumps is a critical
+skill during production outages!
 
 ## Anatomy of a thread
 
@@ -104,8 +102,8 @@ This line is always active because
 it takes the most CPU time in the sample program; testing the counter is the slowest line
 executed in every loop.  
 
-This short but significant comparison time makes it highly probably
-if you repeat the exercise, your thread dump will be on
+This short but significant comparison CPU time means
+if you repeat the exercise, your thread dump will (almost certainly) be on
 the same exact line.
 
 ```java
@@ -123,18 +121,24 @@ On Linux Mint and Ubuntu systems, you can install visualvm with apt-get.
 ```shell
 sudo apt-get install visualvm
 ```
+
+As a Java engineer, you must have a high degree of comfort with VisualVM.
+
 VisualVM is itself a Java program written in Swing.
 
-VisualVM is trivial to download and run even without an install.
+VisualVM is trivial to download, run and use.
 
 ### VisualVM Threading Display Tab
-VisualVM has a tab to display the threads in the JVM.
-The tab is named "Threads", which is not the first tab
-you see when you start VisualVM.  When you click the "Threads" tab,
-you can observe how VisualVM views threads
-while they are running.  
 
-To generate this "Threads" tab, Visual VM interrogates
+VisualVM has a tab to display the threads in the JVM.
+The tab is named "Threads".  ("Overview"  is the first tab
+you see when you start VisualVM.)  
+
+This "Threads" tab,
+shows the VisualVM thread information
+while threads are running.  
+
+Visual VM interrogates
 the state of the threads once every second using 
 [JMX (Java Management Extensions)](https://www.oracle.com/technical-resources/articles/javase/jmx.html)
 Using the information from the JMX calls, VisualVM
@@ -145,10 +149,10 @@ understanding the threading information provided by the JVM.
 
 VisualVM retrieves this information by polling using JMX; however,
 the same exact information is presented in a thread dump
-of the JVM, along with more.   We will first review
-the VisualVM "Threads" tab, and then later we review
-the thread dump itself to see the same information
-is available.
+of the JVM.
+
+Later we review
+the thread dump itself to see the same information is available, and more.
 
 ![JVisualVM Threading Tab]({{ site.url }}{{ site.baseurl }}/assets/images/jvisualVmThreadingExampleWArrow.png)
 
@@ -250,12 +254,12 @@ which VisualVM displays as sleeping.
 
 ## Power of JVM instrumentation
 
-As you can see, the JVM provides an enormous amount
-of information regarding internal state of the JVM and
+We can see the JVM provides detailed
+ information regarding internal state of the JVM and
 the threads running within it.  
 
 The advantage of using Java as a server side software language can not 
-be understated.  
+be understated.
 
 There has never been a language
 with this much power while at the same time
