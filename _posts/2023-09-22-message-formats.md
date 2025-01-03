@@ -710,7 +710,7 @@ Using a standard for messaging reduces
 the engineering cost along with improving code.
 
 The importance of this discussion led Google to
-invent Protobufs and mandate
+ author Protobufs and mandate
 it as the primary message format.  
 
 Importantly across Google, 
