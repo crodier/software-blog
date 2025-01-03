@@ -700,7 +700,7 @@ single digit microsecond performance (mics, not millis.)
 
 # Conclusion
 
-You have made it this far on this important journey!   
+You have made it far on an important journey!   
 
 Understanding this discussion prevents introducing
 multiple message formats and technologies in use in your shop -
