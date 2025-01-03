@@ -742,7 +742,7 @@ an engineering cost and productivity perspective.
 You get compile time safety and much faster system performance
 when using Protobufs; both are free.
 
-Why would you *not* use them?
+Why would you *not* use Protobufs (or their cousin, Flatbuffers?)
 
 ## What to do?
 
