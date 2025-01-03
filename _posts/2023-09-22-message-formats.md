@@ -748,7 +748,7 @@ Why would you *not* use Protobufs (or their cousin, Flatbuffers?)
 
 If you don't know where to begin:
 1. Make a repository for only ".proto" fies.
-2. Define your business domain in there
+2. Define your business domain in this project only; version and distribute it to other projects.
 3. Build your services with gRPC
 4. Use [gRPC Gateway](https://github.com/grpc-ecosystem/grpc-gateway) to offer JSON to your front end ... or...
 5. better.. [Use Protobufs Directly in the Browser](https://protobufjs.github.io/protobuf.js/)
