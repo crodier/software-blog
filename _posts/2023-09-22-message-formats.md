@@ -692,9 +692,11 @@ are far more cumbersome than Protobuffers.
 
 Compared to Aeron I would call Flatbuffers highly-usable
 and a sweet spot for high performance with reasonable
-engineering costs.  My belief is that Flatbuffers are a sweet
-spot for low latency trading in finance; 
-short of HFT cases where Aeron would be necessary to do business.
+engineering costs.  
+
+Flatbuffers are a sweet spot for low latency trading in finance; 
+short of HFT cases where Aeron is strictly necessary for 
+single digit microsecond performance (mics, not millis.)
 
 # Conclusion
 
@@ -704,31 +706,37 @@ Understanding this discussion prevents introducing
 multiple message formats and technologies in use in your shop -
 and helps you standardize on one preferred standard.  
 
-Using a standard for messaging in an organziation reduces
+Using a standard for messaging reduces
 the engineering cost along with improving code.
 
-The importance of this discussion is what led Google to
-invent Protobufs and to also mandate that
-it be the primary message format.  Further, there is
-one project of Protobufs where one set of messages are defined.
-This makes it easy to add a field or change the domain model
-as your business evolves. 
+The importance of this discussion led Google to
+invent Protobufs and mandate
+it as the primary message format.  
+
+Importantly across Google, 
+a single project of Protobufs defines the business domain.
+
+This centralization allows engineers to field or change the domain model
+as your business evolves, and *it changes in only one place.*
 
 I discuss this importance in [Domain Model](2023-09-17-domain-model-importance.md)
-The combination of using Protobufs for everything along with
-Domain Model being enforced across all systems is one 
-important factor in the overall success of Google.
+
+One could argue (one does) 
+.. this combination of approaches is critical to Google's success;
+of 1) using Protobufs for everything, along with 2)
+Domain Model being enforced across all systems.
 
 To handle this problem outside of Google
 we must read and appreciate these concerns.
-There are many subtleties which are difficult to 
-grok at face value.  The hope is this article has
-cleared up the conversation and the important pieces,
-and highlighted the critical subtleties.
 
-The combination of these two discussions is a powerful
-organization technique for building enterprise software systems, 
-from both a message efficiency format but more importantly
+There are many subtleties which are difficult to 
+grok at face value.
+
+The combination of these domain model along with the correct message format is paramount
+to an expert software engineering practice. 
+
+Together they solve two key problems having an exponential effect;
+ both a message efficiency format but more importantly
 an engineering cost and productivity perspective.
 
 You get compile time safety and much faster system performance
