@@ -1,5 +1,7 @@
 # Zero-Copy vs. Binary vs. JSON: A Comparative Analysis of Efficient Message Formats
 
+# Background
+
 Message Format is a critical OSI Layer 7 (Application) decision.  
 For any reasonably large messaging
 system this decision can determine millions of dollars
@@ -11,7 +13,17 @@ making the primary choice the ubiquitous JSON.
 This decision for JSON be costly and troublesome for many
 businesses.
 
-# Intro:  Binary vs. JSON
+## Case studies
+
+### Uber - migration from Thrift and JSON to gRPC
+
+https://www.uber.com/blog/ubers-next-gen-push-platform-on-grpc/
+
+Ultimately a multi-year effort.  
+
+Note: gRPC being used for QUIC and binary proto3 messages.
+
+## Intro:  Binary vs. JSON
 
 A JSON message for a list of Users may look like this:
 ```json
