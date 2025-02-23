@@ -370,7 +370,7 @@ engineering staff - making you wildly unpopular.  This will
 lead to you  not being satisfied, as you are now a wildly 
 unpopular politician.  You won't go far, given you are a politician,
 if you are not popular.  This means, challenging the status-quo 
-can only be something which is absolutly necessary or revolutionary
+can only be something which is absolutely necessary or revolutionary
 for the system you are working on - it can not be in any way tirivial,
 and you must completely prove it.  Only do so if you are asked to 
 do this, and then, ask for a major proper commitment to do this,
@@ -420,6 +420,22 @@ TODO
 #### 
 
 ## Appendix
+
+### Best leadership books
+
+1. [Crucial conversations](https://www.amazon.com/Crucial-Conversations-Talking-Stakes-Second/dp/1469266822)
+   2. Note - every conversation in business is crucial - particularly senior positions
+2. [Leadership and Self-Deception](https://www.amazon.com/Leadership-Self-Deception-Getting-Out-Box/dp/1576759776)
+   3. A book about caring for co-workers, and their well-being.
+   4. Trying too hard at your job, or adding noise - is a form of not caring enough, and a difficult one.
+5. [The Innovators Solution](https://www.amazon.com/Innovators-Solution-Creating-Sustaining-Successful/dp/1422196577)
+   6. An important book about how to focus on ideas, and filter out ideas for value proposition.
+7. [Emotional Intellgence](https://www.amazon.com/Emotional-Intelligence-Matter-More-Than/dp/055338371X/ref=sr_1_1?dib=eyJ2IjoiMSJ9.i4ryxCCDjXfnjNajCoD6GgqN5rXzP_1bRPjlDrjmz7oJmPGCecgjhGp0HyORvmYd5HBpFIoyprjYejkvvDcBfAc0JAKWYWvNzXO3HrrcchqkOUuYlMyi6YM1TjoEF3kfDpnm_l8T8HtpWzUc7CtXCez1zpTU3Wq1Jz9PPCG6qAjHFDvA3vZZUqfUkpovQ2oyvjZdFwUT_VQKmMbkQJyfyzoO8WaaW1Q6p1ReZZi9Kpizx1unhtto6wG8k299CMi2_puvZlcrPQHouPMNoaqJOeoXKqOvWVxnkLepUhivcNNPWjO9pgc0LE6ycnOz7znXLosBkHJPkV8NZb4jZhNlQhIiE5BnHtyPCiiOs54otHkDPeHdKKnkJCBpFv1T91GTbgoF3Bcn-LF6lBHWvq0T79INE3QV_QtjxuP556zymsTb9ZOtsVO8xqdZ9WbLRn6y.Nl3lQlJn-HRSGoxa0lS6vaL-9Ti9SdGWAK7nlwib718&dib_tag=se&hvadid=694976373049&hvdev=c&hvexpln=67&hvlocphy=9004247&hvnetw=g&hvocijid=14515719104192794327--&hvqmt=b&hvrand=14515719104192794327&hvtargid=kwd-300889487269&hydadcr=15520_13517368&keywords=daniel+goleman+books&qid=1740352552&sr=8-1)
+   8. This should be a business bible.  Outside of business (or software business), emotions don't run as high
+   9. No where is there as much artistry and ambiguity, combined, in the software field
+      10. No where is the intersection more profound of these skills than politics, and senior software roles
+
+### Software is necesarly messy - don't fix it
 
 Software is a mess,
 everywhere, necessarily.
