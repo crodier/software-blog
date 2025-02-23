@@ -435,7 +435,7 @@ TODO
    9. No where is there as much artistry and ambiguity, combined, in the software field
       10. No where is the intersection more profound of these skills than politics, and senior software roles
 
-### Software is necesarly messy - don't fix it
+### Software is necessarily messy - don't fix it
 
 Software is a mess,
 everywhere, necessarily.
