@@ -387,7 +387,7 @@ and most systems are primarily message middleware!
 ### Protobuf preferred
 
 Protobuf is generally preferred for a few key reasons:
-1. **gRPC** exists for Proto and is powerful for making fast messaging systems
+1. **gRPC** exists for Proto and is a powerful and efficient remote messaging framework
 1. Google supports gRPC and Protobuf
 2. Google uses Protobuf and a flavor of gRPC internally for all messaging
 
