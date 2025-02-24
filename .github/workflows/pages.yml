@@ -82,6 +82,17 @@ jobs:
             exit 1;
           fi
 
+      - name: List all files and check for symlinks
+        run: |
+          find ./_site -exec ls -lah {} \;
+          find ./_site -type l -exec echo "Symbolic link found: {} -> $(readlink {})" \;
+
+      - name: Remove Target Lock File
+        run: rm target/doc/.lock
+
+      - name: Change Permissions in ./site
+        run: chmod -R a+rX ./site
+
       # Step 4: Deploy the site to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
