@@ -326,18 +326,19 @@ and rewarding yourself for not making it emotional.
 
 Unless absolutely necessary, do not challenge the status-quo.
 If you do need to challenge it, do it in the following manner.
-1) Privately
-2) Documented value, documented approach
-3) Tested completely
-4) Fully scoped cost wise
-3) Peer reviewed privately
-4) Reviewed with every senior principal privately - and ready to discard
+1. Privately
+2. Documented value, documented approach
+1. Tested completely 
+2. Fully scoped cost wise
+3. Peer reviewed privately 
+4. Reviewed with every senior principal privately 
+   5. (and ready to discard your work, when you realize why things were done a certain way.)
 
 When you challenge the status quo, you may be adding tremendous value.
 It may be in some way you know about from your experience, and people
 may not see it.  You may also be wrong, either in that your approach
 does not work, or better, is that it is not a priority, or 
-cost effective use of programmer resources.  Finally, it may have 
+cost-effective use of programmer resources.  Finally, it may have 
 risks to change, or risks to churn or burnout for the team to handle it.
 There is very little reason to challenge the status-quo, if things
 are working.  Usually, there are opportunities to make money which
