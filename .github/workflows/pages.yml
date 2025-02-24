@@ -52,6 +52,9 @@ jobs:
         with:
           name: github-pages
           path: ./_site
+          overwrite: true
+          if-no-files-found: ignore
+
 
   # Deployment job to upload the site to GitHub Pages
   deploy:
@@ -91,7 +94,12 @@ jobs:
         run: rm  -f target/doc/.lock
 
       - name: Change Permissions in ./site
-        run: chmod -R a+rX ./site
+        run: |
+          if [ -d ./site ]; then
+            chmod -R a+rX ./site
+          else
+            echo "Directory './site' does not exist. Skipping chmod."
+          fi
 
       # Step 4: Deploy the site to GitHub Pages
       - name: Deploy to GitHub Pages
