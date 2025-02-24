@@ -88,40 +88,46 @@ on things, but they may not want to get your input.
 
 When you give feedback, the easiest way to suggest something
 is to say "I like to do." statements, about how you like to do things.
-Then you are not saying anyting negative. You are merely saying,
+Then you are not saying anything negative. You are merely saying,
 this is how I like to do it.  Not that the current way is wrong,
 and also you are not saying that your way is better, just that
-you like to do it this way.  If you want to be slightly more forceful,
-you can then ask to "could we try it once my way, and compare." 
+you like to do it this way.  
+
+If you want to be slightly more forceful,
+you can then ask "could we try it once my way, and compare." 
 This second push can be saved for times when you are certain something
 needs to be re-done.  Again you are not saying the current way is bad,
 only that your approach has certain merits.  You can mention the merits,
-maybe briefly.  Sometimes you can say it, but then leave it to the
-engineer if they want to try it your way.  You leave it as an 
-opportunity for them.  This is the only way to give feedback
-as a principal.  As a manager, you can be a bit stronger and say
+maybe briefly.  
+
+Other times you may mention how you prefer things, 
+but then leave it to the engineer if they want to try it your way.  
+You leave it as an opportunity for them.  
+This is the only way to give feedback as a principal.  
+
+As a manager, you can be a bit stronger and say
 that you prefer things be done a certain way; but again you are
-not saying it is necessarily better, but that it is what you know
-and you have this preference.
+not saying it is necessarily better, but it is what you know - you have this preference.
 
 Every conversation you have, and every bit of feedback
 you give is this exact act happening repeatedly.
 The most difficult thing about Principal Engineering is
 that every day, every conversation you have is a "Crucial Conversation."
 It is like you are a congress person, an elected official,
-elected by the management team to vote on decisions
+elected by the management team to give opinions on much of the work
 (where management co-owns the decisions, and then they 
 have their ownership chain, and are making the same
 recommendations upwards.)
 
-As a principal engineer or manager, 
-you are not going to
+In contrast to pre-principal engineering work, you are not going to
 lunch with your crew of four programmers every day, and 
 can reflect back tomorrow on something which happened recently, 
 or months ago and laugh, retract what you said.
-You may not speak to the engineer you talk with today for months,
-(and you may not remember what you said.)  You need to 
-use extreme care for these conversations, for this reason.
+As a principal, you may not speak to the engineer
+you talk with today for months,
+(and you may not remember what you said.)  
+
+You need to use extreme care for these conversations, for this reason.
 You are in this way like a Priest or a public figure.
 People have very little time to get to know you.
 Despite the focus of your life being technical, you are now
@@ -134,61 +140,70 @@ There is clearly competition to lead in any business.
 The major job of the leaders is to make decisions.
 There will be though hundreds of these two be made,
 and leaders will not always be right, including you.
-This is a part of why Amazon has the leaderhsip principle
+This is a part of why Amazon has the leadership principle
 ["Right A Lot."](https://www.aboutamazon.com/about-us/leadership-principles)
 
-Being "right a lot" means having the ability to change your view.
+Being "right a lot" means having the ability to change your view
+before investments in software are made.
 The difficulty is once you have published ideas in a large
 public forum, you've made a public recommendation.
 It is better to avoid making a public recommendation,
-when you can keep it privat and circulate it with leadership.
-If you can do this with peers and stakeholdres,
+when you can keep it private and circulate it with leadership.
+If you can do this with peers and stakeholders,
 you are better off than once you've published a recommendation
 to management.  In this sense you are keeping your cards
 to yourself until you have collected diverse opinions.
 This has the impact of delivering messages as a united
 front of principal engineers, instead of you alone,
 perhaps against another principal engineer.
+
 As I write this, I think cross-system engineering decisions
 should be reviewed by all principal engineers whose
-systems will be touched by any decision, in private.
+systems will be touched by any given decision, in private.
 This gives the other principal engineers a chance
-to take a look before you distribute an idea to a much
+to take a look before you distribute an idea to a
 winder audience, most importantly up the chain where 
 leadership are very busy.  If you create noise and
 reverse decisions or opinions, you are creating more
 churn in their leadership process.  This also can 
 reduce trust in your recommendations, which is not good
-for you yourself.  Look to confirm any decisions with
+for you yourself, or the org later, after you have lost trust.
+
+Look to confirm any decisions with
 as many principal engineers as possible around you,
 before publishing them; even if in a draft phase, and 
 a quick 15 or 30-minute meeting.  As principals,
 they likely will understand the initiative quickly,
 and can give you feedback, also raising it with them.
 They may think about it off-line and get back to you.
-It keeps them in the loop, this way they are not suprised
+It keeps them in the loop, this way they are not surprised
 about decisions which impact their area.
 
 By confirming first with other Principal Engineers,
 when you to the management team or your manager,
-you are showing them a complete analysis.
+you are showing them a well-formed, and completed analysis.
 It may feel like you are cheating by asking other
 principal engineers, and then taking their feedback 
 and running with it if it is better.  But you are not;
-as there is a decision you are making if it is better.
-If it is not the best way, you should get back to them 
+as there is a decision you are making to incorporate their inputs.
+
+If their approach is not your favorite, you should get back to them 
 offline, and see if you can work it out.  If you do
 agree with them, then you can simply thank them 
 in the document for the idea, and also let them know
 you used it.  Either way, they understand where
 you are coming from, as their systems and interfaces
-are being impacted by your decision.  
+are being impacted by your decision.  And better you use
+their approach, than to contradict them; they will be happy you
+consulted them first, and used their approach!
+
 As a principal, almost everything you touch may be
 across principals, and it is better to involve more of them.
 They may not be able to attend the meeting, but they 
 may do a quick 10 minute grok of the document you attach
 to the meeting invite.  This gives more visibility
-and helps you not only be viewed as, but also actually be  **a team player.**
+and helps you not only be viewed as, 
+but also actually be  **a team player.**
 
 ### Long term relationships over software
 
