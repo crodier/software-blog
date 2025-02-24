@@ -3,7 +3,7 @@
 Leadership is the art of being the bigger person.
 A few examples and quotes capture this most beautifully.
 My son Patrick said to me "the Ying and the Yang of life
-is one person bing nice and one being mean.
+is one person being nice and one being mean.
 This should be expected, and not an aberration."
 Wise words from my 17-year-old son.
 
