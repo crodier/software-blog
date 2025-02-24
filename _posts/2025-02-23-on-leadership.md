@@ -180,7 +180,7 @@ It keeps them in the loop, this way they are not surprised
 about decisions which impact their area.
 
 By confirming first with other Principal Engineers,
-when you to the management team or your manager,
+when you approach the management team,
 you are showing them a well-formed, and completed analysis.
 It may feel like you are cheating by asking other
 principal engineers, and then taking their feedback 
