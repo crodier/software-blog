@@ -45,9 +45,12 @@ They may be profoundly impacted by your feedback,
 and it could discourage them from their hard work.
 
 To do this well, you need to be complimentary and 
-encourage people do try their hardest.  The easiest 
+encourage people to try their hardest.  The easiest 
 way to do this, is point out the good things you find
-in any work.  This won't be easy, but you get used to it.  
+in any work.  This won't be easy, but you get used to it.
+Take off your critical thinking, problem-solving hat.
+Start by noting everything positive you find, and thanking
+everyone for their hard work on the effort.
 
 Your goal is to encourage what is well done first of all.
 This will make for an environment of support for the team
