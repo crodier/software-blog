@@ -30,8 +30,8 @@ The most important thing to note about a Principal Engineer role,
 The book explains how to conduct safe and productive conversations
 when important or sensitive decisions are being made.
 
-As a Principal Engineer, every conversation you have
-is a crucial conversation.  You will have limited interactions
+As a Principal Engineer, **every conversation you have
+is a crucial conversation.**  You will have limited interactions
 with hundreds of people as a Principal Engineer.  
 Very few of them will understand you or your point of view,
 or experience and view of technology, until they have known you
