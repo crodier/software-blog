@@ -33,9 +33,9 @@ when important or sensitive decisions are being made.
 As a Principal Engineer, **every conversation you have
 is a crucial conversation.**  You will have limited interactions
 with hundreds of people as a Principal Engineer.  
-Very few of them will understand you or your point of view,
-or experience and view of technology, until they have known you
-for a year or more.  These are important conversations
+Few people may understand you or your point of view,
+ until they have known you for a year or more.  
+These interactions will be important conversations
 for the people interacting with you, either confirming
 or denying their beliefs on a decision.  Along with 
 whatever decision you are contributing to, you are 
