@@ -369,6 +369,7 @@ to let your manager know you are being asked to do this, and the
 risks involved in doing this kind of anlaysis.  Do not volunteer
 for these, unless they are critical to the very survival of the
 business unit you are in, or the livelihood of everyone around you.
+
 As Marvin Gaye said, "We are all sensitive people.".  
 Working in senior positions in software is stressful.
 By challenging the status-quo, you are causing more stress than
@@ -377,35 +378,53 @@ on the senior engineering team (Senior Principals + Principals),
 the executive team, and the management team.   No one will 
 understand or appreciate your challenge to the status-quo.
 People are challenging it constantly, as this is natural for
-problem solvers to do - programmers.  It is part of your muscles
+problem solvers to do - programmers.  
+
+It is part of your muscles
 you use to move code every day, to want to improve the house you live in.
 But you must avoid house improvements and renovations at all costs 
 here.  It causes undue stress and can create rifts in the software
-team.  If you must do it, it must be invested in very heavily in
+team.  If you must do it, you must invest very heavily using
 your own time and research - and your manager must commit to 
-this fully before you begin.  If you don't, it will create
+this fully before you begin.  
+
+If you don't invest privately, it will create
 major rifts with you and the management team, and the entire 
 engineering staff - making you wildly unpopular.  This will 
 lead to you  not being satisfied, as you are now a wildly 
 unpopular politician.  You won't go far, given you are a politician,
 if you are not popular.  This means, challenging the status-quo 
 can only be something which is absolutely necessary or revolutionary
-for the system you are working on - it can not be in any way tirivial,
+for the system you are working on - it can not be in any way trivial,
 and you must completely prove it.  Only do so if you are asked to 
 do this, and then, ask for a major proper commitment to do this,
 with the understanding you will need to move to another project or
 area after it is done, with this transition plan made well in advance
-of your critique.  This is work normally done by expensive mangement
-consultants, because at the end of the engagement, they 
+of your critique.  
+
+Due to the risks of challenging prior decisions, 
+this is work typically done by expensive, outside management
+consultants (McKinsey etc.), because at the end of the engagement, they 
 can no longer work with the existing team, as they may have had to 
 recommend their removal, or an entirely different software strategy
-than was employed.  Leave this to a management consulting team if
+than was employed, making them look bad.  
+Leave this awful task to a management consulting team if
 can, or make sure you will be recognized for the extreme career
 risk you are taking on.
 
-In doing so, you are also respecting the Senior Principals around
+By avoiding unnecessary challenges to the status-quo, 
+you are also respecting the Senior Principals around
 you, and they are constantly being bombarded with questions for
 improvements they could or should be making to the software.
+
+Amazon Principal Engineers have a value called
+["Respect what came before."](https://amazon.jobs/content/en/teams/principal-engineering/tenets)
+In this blog, I've presented a more elaborate explanation of this,
+in terms of what it feels like to be challenged, after
+you have written a software system (usually under some duress.)
+Avoid these challnges unless they are well-thought-out, prepared,
+and absolutely necessary (and also - more valuable than anything else you 
+can be doing for the business!)
 
 ### Ruthless respect for other Principals
 
