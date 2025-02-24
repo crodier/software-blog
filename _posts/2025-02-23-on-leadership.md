@@ -494,7 +494,7 @@ text in one or more files of different types and kinds.
 Soon much of it may be written by AI.  The important thing
 in business, and also in life, is to build useful tools
 which have a value - not beautiful software.  This overriding
-principle will always be - as it should - expressed in the majority
+value objective will always be (correctly) expressed in the majority
 of software development.  As I like to say,
 "The software is never finished."  I also have yet to work
 on a perfect software system.  We are still in the early days
@@ -503,13 +503,14 @@ These systems are essentially the first ever
 widely adopted, iterations of expression of software
 as code.  There are more coming, like Rust and WASM,
 and there will likely be more.  Your job
-as principle is to see what is good, and to steer
+as principal is to see what is good, and to steer
 the group towards completing projects, while keeping
 productivity high.  Making perfect software would
 require unlimited resources.  You have a finite resource
-and certain goals.  You need to make choices which
-support the current set of goals, and which will also
+and certain value goals.  You need to make choices which
+support the current set of value goals, and which will also
 support the future goals with an overall strategy
-which can be built upon, software hygine and otherwise.
-What your job is, is ambiguous and difficult, but
+which can be built upon, software hygiene and otherwise.
+
+Your job is ambiguous and difficult, but
 in the sense of leadership, it is not perfect software.
