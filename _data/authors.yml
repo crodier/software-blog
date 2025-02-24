@@ -3,7 +3,7 @@
 Chris Rodier:
   name        : "Chris Rodier"
   bio         : "When debugging production problems, don't guess."
-  avatar      : "/assets/images/bio-photo-circle.jpeg"
+  avatar      : "/assets/images/bio-photo-new.jpeg"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
