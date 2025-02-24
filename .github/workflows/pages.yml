@@ -37,11 +37,9 @@ jobs:
       - name: Clean up unnecessary files
         run: rm -rf ./_site/.git ./_site/.jekyll-cache ./_site/vendor
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
           path: ./_site/
-          include-hidden-files: true
 
   # Deployment job
   deploy:
