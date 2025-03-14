@@ -4,23 +4,22 @@
 
 Ian Cooper, says it best (Bravo!)
 
-https://www.youtube.com/watch?v=d8NDgwOllaI
+[Microservices, what went wrong?](https://www.youtube.com/watch?v=d8NDgwOllaI)
 
 Note that AWS already moved Amazon Prime to a Monolith, with great
 results. (out of Microservices, and into a Monolith.)
 
 [AWS Move from Microservices to a Monolith](https://medium.com/@anshita.bhasin/exploring-amazon-prime-videos-architecture-migrating-from-microservices-to-monolith-for-aacbf9fabc73)
 
-Defintion of Modular Monolith:  https://www.milanjovanovic.tech/blog/what-is-a-modular-monolith
+Definition of ["Modular Monolith](https://www.milanjovanovic.tech/blog/what-is-a-modular-monolith)
 
-Google moving to Modular Monoliths:  
-
-https://dl.acm.org/doi/pdf/10.1145/3593856.3595909
+Google moving to [Modular Monoliths](https://dl.acm.org/doi/pdf/10.1145/3593856.3595909):  
 
 ### Executive summary
 
 Use ["Modular Monolith"](https://www.milanjovanovic.tech/blog/what-is-a-modular-monolith)
 , and modules of code.  Avoid microservices as a method of last resort.
+
 
 If you need to improve on "release velocity", then you
 can make multiple independent pipelines.  Only after finishing
@@ -270,3 +269,10 @@ what are the alternatives, and let them use the alternative of
 Modular Monolith or Modular Big Service.
 
 Microservices are a silly fad - don't fall victim.
+
+As an interesting side note, J2EE is a modular monolithic framework.  Hmmm, bravo, J2EE.
+We were suprisingly productive with J2EE, and it led to Spring Boot
+and Java being the server side lagnague to use.
+There was a lot right with J2EE (you run Tomcat today likely.),
+and very little wrong!
+
