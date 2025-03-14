@@ -13,7 +13,7 @@ results. (out of Microservices, and into a Monolith.)
 
 Definition of ["Modular Monolith](https://www.milanjovanovic.tech/blog/what-is-a-modular-monolith)
 
-Google moving to [Modular Monoliths](https://dl.acm.org/doi/pdf/10.1145/3593856.3595909):  
+Google moving to [Modular Monoliths](https://dl.acm.org/doi/pdf/10.1145/3593856.3595909)
 
 ### Executive summary
 
