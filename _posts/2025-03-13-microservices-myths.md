@@ -266,6 +266,7 @@ same code on many boxes.  With Redis and sharding, is it not enough?
 Really?
 
 When your developers tell you to use Microservices, ask them
-what are the alternatives, and let them use the alternatives.
+what are the alternatives, and let them use the alternative of
+Modular Monolith or Modular Big Service.
 
 Microservices are a silly fad - don't fall victim.
