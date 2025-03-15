@@ -17,7 +17,9 @@ We explore the reasons, along with the solutions which should be preferred.
 
 Primarlily, note that developers will always be dissatisfied.  Developer satisfaction
 can be a secondary goal, but never at the cost of a bad UX for your business customers.
-This is the ultimate dissatisfaction, which is working on a bad product, bad business.
+Working on a bad product or failed business, will be much more dissatisfying, for your 
+engineering community.
+
 Coding is a challenging human activity, painstaking labor.  
 
 Deployment independence may be
