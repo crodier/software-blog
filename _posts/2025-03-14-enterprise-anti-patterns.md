@@ -1,4 +1,4 @@
-# Enterprise Anti-Patterns
+# Enterprise Software Anti-Patterns
 
 Here are the common **anti-patterns** (fads) in enterprise
 software in March 2025.  
@@ -6,16 +6,16 @@ software in March 2025.
 We explore the reasons, along with the solutions which should be preferred.
 
 
-| Anti-pattern   | Reason                    | Better solution                | Why                |
-|----------------|---------------------------|--------------------------------|--------------------|
-| Microservices  | Cost, Latency, Complexity | Modular Monolith               | 1,000,000x latency | 
-| Lambdas        | No state, remote calls    | Modular Monolith               | Cold-boot and state|
-| Microfrontends | UX paramount, bloat       | Monorepo + Bit.dev / Ripple CI | User experience    |
-| Kafka          | At-least-once, Rebalances | gRPC (or Solace)               | Kafka is wrong     |
-| Spring XML     | XML based runtime language | Spring Boot / Dagger / Guice   | Obscure XML coding |
+| Anti-pattern   | Reason                    | Better solution                | Why                 |
+|----------------|---------------------------|--------------------------------|---------------------|
+| Microservices  | Cost, Latency, Complexity | Modular Monolith               | 1,000,000x latency  | 
+| Lambdas        | No state, remote calls    | Modular Monolith               | Cold-boot and state |
+| Microfrontends | UX paramount, bloat       | Monorepo + Bit.dev / Ripple CI | User experience     |
+| Kafka          | At-least-once, Rebalances | gRPC (or Solace)               | Wrong tool          |
+| Spring XML     | XML based runtime language | Spring Boot / Dagger / Guice   | Obscure XML coding  |
 
 
-Primarlily, note that developers will always be dissatisfied.  Developer satisfaction
+Note: developers will always be dissatisfied.  Developer satisfaction
 can be a secondary goal, but never at the cost of a bad UX for your business customers.
 Working on a bad product or failed business, will be much more dissatisfying, for your 
 engineering community.
