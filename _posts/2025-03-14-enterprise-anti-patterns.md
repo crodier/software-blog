@@ -6,12 +6,12 @@ software in March 2025.
 We explore the reasons, along with the solutions which should be preferred.
 
 
-| Anti-pattern   | Reason                     | Better solution                | Why                |
-|----------------|----------------------------|--------------------------------|--------------------|
-| Microservices  | Cost, Latency, Complexity  | Modular Monolith               | 1,000,000x latency | 
-| Lambdas        | No state, remote calls     | Modular Monolith               | Cold-boot and state|
-| Microfrontends | UX parapmount, bloat       | Monorepo + Bit.dev / Ripple CI | User experience    |
-| Kafka          | At-least-once, Rebalances  | gRPC (or Solace)               | Kafka is wrong     |
+| Anti-pattern   | Reason                    | Better solution                | Why                |
+|----------------|---------------------------|--------------------------------|--------------------|
+| Microservices  | Cost, Latency, Complexity | Modular Monolith               | 1,000,000x latency | 
+| Lambdas        | No state, remote calls    | Modular Monolith               | Cold-boot and state|
+| Microfrontends | UX paramount, bloat       | Monorepo + Bit.dev / Ripple CI | User experience    |
+| Kafka          | At-least-once, Rebalances | gRPC (or Solace)               | Kafka is wrong     |
 | Spring XML     | XML based runtime language | Spring Boot / Dagger / Guice   | Obscure XML coding |
 
 
