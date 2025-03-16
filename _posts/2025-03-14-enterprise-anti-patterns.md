@@ -20,7 +20,11 @@ can be a secondary goal, but never at the cost of a bad UX for your business cus
 Working on a bad product or failed business, will be much more dissatisfying, for your 
 engineering community.
 
-Coding is a challenging human activity, painstaking labor.  
+#### Psychology notes of coding and business:
+
+1. Coding is a challenging human activity, painstaking and frustrating labor.
+1. Anything outside one's control; one will complain about.
+2. It feels good to blame external forces (defelct blame.)
 
 Deployment independence may be
 solved, and developers will find something else to complain about.  So let them complain about
