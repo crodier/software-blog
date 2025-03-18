@@ -1,7 +1,8 @@
 # J2EE resurgence - modularity
 
 Once upon a time I was at a bank called Lehman Brothers in technology.  
-It was my first job in financial tech, and maybe my best.
+It was my first job in financial technology, and maybe my best.
+
 The group of talent included:
 
 1. [Eric Poirier](https://www.linkedin.com/in/epoirier/)
@@ -20,8 +21,9 @@ The group of talent included:
 13. Yours truly
 
 Lehman was a serious investment bank.  They hired well, and
-we had a fierce group of talent.  I pull up the rear in this group,
-hello friends!
+we had a fierce group of talent.  
+
+I pulled up the rear in this group, hello friends!
 
 ## A magical J2EE time
 
@@ -35,17 +37,18 @@ in IntelliJ, to start up the app.  This is annoying when it is your
 everyday life, little things.  But wow, they were minor; and things have
 since then, deteroirated into Microservices.
 
-But wow, did J2EE do the hard things beautifully.  The entire world runs on WAR
-files, which are simply running a Servlets, in Tomcat.  This was the main 
-"deployment unit", to build a J2EE app, which everyone used, for everything.
+But wow, did J2EE do the hard things beautifully.  The entire world runs on Servlets.
+Serverlets and web-apps were 
+the main "deployment unit", to build a J2EE app, 
+which everyone used, for everything.
 
 But there was another;  EAR files.  An EAR file was "enterprise archive resource."
-In the EAR, you could put these other itneresting things:  EJBs. 
+In the EAR, you could put these other interesting things:  EJBs. 
 Enterprise Java Beans.  You can think of them as an ultra complicated gRPC
 interface, which you had to pre-compile in those days.
 
 In this post, I will explore the incredible thing EJBs got right,
-which to my knoweldge, barely exists if at all in gRPC, and 
+ which, to my knowledge, barely exists if at all in gRPC, and 
 is never talked about in Spring, and it is this.
 
 There was a requirement where if you deployed a Stateless Session
