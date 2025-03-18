@@ -38,7 +38,7 @@ everyday life, little things.  But wow, they were minor; and things have
 since then, deteroirated into Microservices.
 
 But wow, did J2EE do the hard things beautifully.  The entire world runs on Servlets.
-Serverlets and web-apps were 
+Servlets and web-apps were 
 the main "deployment unit", to build a J2EE app, 
 which everyone used, for everything.
 
@@ -60,7 +60,7 @@ one poorly supported gRPC effort which does this, but I've never seen it in use.
 
 This idea is the pure gold, where you have multiple "deployment models" for your app.
 
-The most important one, is developing.  Everyone must be able to deploy everything,
+The most important deployment model, is developing!!  Everyone must be able to deploy everything,
 you could call it "one EAR", one app to rule them all, a composed monolith for development.
 
 Then at runtime, if you truly need to deploy something elsewhere, you do this, 
