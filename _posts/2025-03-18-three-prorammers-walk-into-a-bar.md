@@ -1,9 +1,9 @@
 three programmers walk into a bar.
 
-the first, a staff engineers, says hey team I made a new method in the code.  it's a cool algo, and the method call takes about 10 microseconds.
+the first, a staff engineer, says hey team I made a new method in the code.  it's a cool algo, and the method call takes about 10 microseconds.
 
 the second, a senior staff engineer, says good work.  but we can improve this.  let's add
-an interface and use spring to create the object 
+an interface and use Spring to create the object 
 using reflection.  this makes it more testable.
 the performance cost is only 100 microseconds 
 for the reflection, 10x slower.  but it is worth it.
