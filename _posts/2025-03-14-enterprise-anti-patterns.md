@@ -10,7 +10,7 @@ We explore the reasons, along with the solutions which should be preferred.
 |----------------|---------------------------|--------------------------------|---------------------|
 | Microservices  | Cost, Latency, Complexity | Modular Monolith               | 1,000,000x latency  | 
 | Lambdas        | No state, remote calls    | Modular Monolith               | Cold-boot and state |
-| Microfrontends | UX paramount, bloat       | Monorepo + Bit.dev / Ripple CI | User experience     |
+| Microfrontends | UX paramount, bloat       | Monorepo | User experience     |
 | Kafka          | At-least-once, Rebalances | gRPC (or Solace)               | Wrong tool          |
 | Spring XML     | XML based runtime language | Spring Boot / Dagger / Guice   | Obscure XML coding  |
 
