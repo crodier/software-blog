@@ -32,11 +32,12 @@ deployment independence, and have
 a highly successful business; bring in free lunch with the extra money you make
 by not favoring deployment independence , maybe they will stop complaining about
 having to wait two weeks to deploy.  Note this is not real time to them; this is only
-time waiting for the build to be completed with the features they did not contribute.
+time waiting for the build to be released, and no effort from them.
+
 Deployment independence can be achineved many ways, and "micro stuff" is the wrong way to achieve it.
 
-Its the first one people reach for, and the worst alternative to deployment independene,
-which was anyway not somethign you cared about, and was a false idol to begin with.
+'micro' the first one people reach for, and the worst alternative to deployment independene,
+which was anyway not something you cared about, and was a false idol to begin with.
 
 ## Microservices ANTI-PATTERN
 
@@ -65,7 +66,7 @@ excercise, with a DevOps team, and the pipelines to match.  The costs have explo
 This is in no way worth doing Lambdas.  Everything you do will need some state,
 and then incur this incredible overhead to change your programming model for this fad.
 
-## Microfrontends Anti-Pattern (yes, itself)
+## Microfrontends Anti-Pattern
 
 Your dev team says they want to use the latest version of React, but no one has
 time to upgrade any of the old components.  Now you are stuck, and you don't
@@ -87,11 +88,13 @@ to load.  All your customers are the same as you, and you didn't realize
 how much you dislike latency.  You dislike it more than anything.
 
 You can make latency a stated goal of your UX, and still have problems.
+
 With Microfrontends, you pretned that you can fix latency later (you can't),
 and then you don't fix it, and have a slow system no one likes.  
 
-Everyone wants to use your system on their Meta glasses, but you have
+Everyone wants to use your system but you have
 too many javascript libraries to load.  You've failed, and need to start over.
+
 Millions of person hours invested, in what will always be a slow crappy UX,
 without starting over.  "At least we have the lessons learned."
 
