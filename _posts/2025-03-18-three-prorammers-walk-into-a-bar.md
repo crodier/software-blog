@@ -1,25 +1,44 @@
-three programmers walk into a bar.
+Three Programmers walk into a bar.
 
-the first, a staff engineer, says hey team I made a new method in the code.  it's a cool algo, and the method call takes about 10 microseconds.
+The first, a Staff Engineer, says hey team I made 
+a new method in the code.  It checks if the price
+is valid; non-negative. The method 
+call takes about 10 microseconds.
 
-the second, a senior staff engineer, says good work.  but we can improve this.  let's add
+The second, a Senior Staff Engineer, says good work.  
+But we can improve this.  let's add
 an interface and use Spring to create the object 
 using reflection.  this makes it more testable.
 the performance cost is only 100 microseconds 
 for the reflection, 10x slower.  but it is worth it.
 
-the third, a principal enginner, says good work,
-but we can make it better.  your solution lacks
-developer velocity.  we can make a microservice
-for this method.  the microservice takes 
-10 milliseconds, 1,000,000x slower than the original method.  and we need to duplicate the great hygiene we invested in around the first project.  but you see now, if I need to change the validation logic that price is greater than zero, I can do it with greater velocity.
+The third, a Principal Engineer, says good work,
+But we can make it better.  Your solution lacks
+developer velocity.  We can make a microservice
+for this method.  The microservice takes 
+10 milliseconds, 1,000,000x slower than the original method.  
+And we need to duplicate the great hygiene we invested 
+in the first project.  
+But you see now, if I need to change the validation 
+logic that price is greater than zero, 
+I can do it with greater velocity.
 
-then a senior principal engineer arrives.
-but he is late to the party, and the other three engineers have gone home.
+Then a senior principal engineer arrives.
+But he is late to the party, and the other three 
+engineers have gone home.
 
-he asks the bartender, have you seen the Enginners?  the bartender says yes, they were here, taking about microservices and developer velocity.  the senior principal says oh, I wish I had seen them, I would have told them to use modular monolith approach, oh well, can I have a drink pls, scotch on the rocks?
+He asks the bartender, have you seen the Engineers?  
+The bartender says yes, they were here, taking about 
+microservices and developer velocity.  
+The senior principal says oh, I wish I had seen them, 
+I would have told them to use modular monolith approach, 
+oh well, can I have a drink pls, scotch on the rocks?
 
-the bartender says, I gave up programming long ago, but back before it became complicated, we used to make big programs from software libraries, which we reused.  but you know what I say, the customer is always right, here is your scotch.
+The bartender says, I gave up programming long ago, 
+but back before it became complicated, 
+we used to make big programs from software libraries, 
+which we reused.  But you know what I say, the customer 
+is always right, here is your scotch.
 
 
 
