@@ -24,9 +24,9 @@ first about how to alter the software, with terrible hygiene.
 This is the software equivalent of telling your teenager
 to go forth and make babies, when your teenager has 
 barely learned how to take care of itself.  You would not
-do this as a parent; don't do it as a sofware parent.
+do this as a parent; don't do it as a software parent.
 
-Your software process and hygine needs to grow up.
+Your software process and hygiene needs to grow up.
 This maturation process is mechanical and straightforward,
 yet, it is skipped.  The reason it is skipped is 
 
@@ -42,11 +42,12 @@ Generally, everyone thinks their
 software process is hygenic enough, and are wrong.
 
 If you ask the developers
-who work on one project, what can we do to improve this,
-the answer is never, "first, we must improve this systems 
-sofware development process, our system, because
+who work on one project, "What can we do to improve velocity?".
+
+The answer never is, "first, we must improve the systems 
+software development process, our system, because
 the software development process we ourselves practice
-is unhygenic."  Why is this, why don't they say it?
+is unhygienic." Why is this, why don't they say it?
 
 The developers are close to the system, working on it
 every day.  Because they can be productive after 
@@ -62,12 +63,13 @@ documented *precisely*, and are they *repeatable*?
 
 ## Fordo
 
-Truly, one of the best in the software business is a friend of mine
+Truly, one of the best in the software industry is a friend of mine
 named [Jason Ford.](https://www.linkedin.com/in/jford10014/)
+
 *Thanks Jason if you read this for being an incredible mentor, 
 the greatest really ever, and a dear friend.*
 
-I reported to Jason, and we worked shoulder to shoulder to
+I reported to Jason, and we worked shoulder-to-shoulder to
 expand the Jefferies investment bank, Equity Derivatives
 technology, to support the growing market making operatoins
 of Jefferies.  Jason started at 6am every day to 
@@ -200,12 +202,14 @@ would not run the full global markets; it would run a slice
 of the US equity option market.  And you could configure
 which symbols it was pricing locally, with a config file.
 In this way, Jason invented techniques to make a smaller,
-identical copy, with **one examplative piece** 
+identical copy, with **one good example** 
 of the production system
 which could be run.  Why is this easy?  You don't need
 every single unit to run production; you need a small piece
 of it which represents production.  Can you not define
 a small piece?  Can you not invent one?  Really?
+A test customer, who has a small subset?  (sometimes known as 
+a Golden Copy.)
 
 It is hard for me to believe when I hear "it is hard to 
 run prod locally.", after having worked for Jason,
@@ -308,8 +312,9 @@ I enjoyed talking about the benefits I've seen first hand,
 and my friend and mentor Jason Ford, a worthy post.
 Besides being the best leader and software architect
 ever, Jason Ford is a pleasure to report into, and also
-a lights out C++ coder.  Jason you are really one
-of the best in the business, and you deserve this post and
+a lights out C++ coder.  Jason, you are really one
+of the best in the business (I've been around!), 
+and you deserve this post and
 more.  Certainly in no small part responsible for making
-me the technologist I am today.  At Jeffereies, you redefined
+me the technologist I am today.  At Jefferies, you redefined
 what is possible with focus, intensity, and ingenuity.
