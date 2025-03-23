@@ -40,5 +40,9 @@ we used to make big programs from software libraries,
 which we reused.  But you know what I say, the customer 
 is always right, here is your scotch.
 
+Moral of the story?  Make sure you are not
+[an underpants gnome](https://www.youtube.com/watch?v=WpnM37A4P_8) 
+when you start a microservices journey.
 
+Phase 1... Steal Underpants.
 
