@@ -30,9 +30,9 @@ Your software process and hygine needs to grow up.
 This maturation process is mechanical and straightforward,
 yet, it is skipped.  The reason it is skipped is 
 
-1. lack of awareness
-2. incrorect value judgement
-3. lack of creatifity.
+1. lack of awareness (ignorance)
+2. incorrect value judgement
+3. lack of creativity
 
 Without knowing what it is, people can't seek 
 for an unknown goal.  Without realizing the value,
