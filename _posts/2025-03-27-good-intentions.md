@@ -58,7 +58,7 @@ if I had to pick one.  The 'Gilfoyle' quality of an
 engineer, needs to be the most valued and triumphed, but
 it is actively discouraged "he is not nice."
 
-As a parent, friend (and lover), of course I value
+As a parent, friend (and lover!), of course I value
 kindness and sensitivity.  But not in engineering
 conversations.
 
