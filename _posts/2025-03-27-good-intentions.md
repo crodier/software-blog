@@ -62,9 +62,7 @@ What is not nice, not agreeing with a bad idea,
 or asking challenging and pointed questions?
 As a parent, friend (and lover), of course I value
 kindness and sensitivity.  But not in engineering
-conversations - pls. check your sensitive side at the door,
-along with your feelings.  I'll check mine,
-and let us build some cool and high value systems.
+conversations.
 
 ### HBR on scrutiny at Apple
 
