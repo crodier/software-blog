@@ -16,7 +16,35 @@ $ 100-million dollar software efforts,
 each of which was totally unnecessary.  
 All three cases share one key quality—trying to improve a system in a novel and unproven manner.  As well all three share never having been compared to alternatives properly and in a detailed manner - only a hand wavy comparison stating 'this will be better'.  without any data.
 
-Apple has a discipline where they look at every detail in a design, and look for the hardest parts of the problem.  This is necessary for software design.  A seemingly tiny detail can destroy any hopes of success for a software effort.  We will show a few here and how this is a pattern in industry.  It is a form of lack of analysis.  Part of it comes from people being unwilling and having. a natural aversion to disagreeing in corporate software.  
+## Apple values scrutiny of ideas
+
+Apple has a core discipline where they look 
+at every detail in a design, and look for the hardest 
+parts of the problem.  
+This is necessary for software design.  
+A seemingly tiny detail can destroy any 
+hopes of success for a software effort.  
+We will show a few here and how this is a pattern 
+in industry.  It is a form of lack of analysis.  
+Largely due to a natural aversion to 
+**disagreeing in corporate software.**
+It is not fun, makes one unpopular, and is the
+highest value activity a software engineer
+and manager can do.
+
+### Be like Gilfoyle
+
+You need more [Gilfoyle from Silicon Valley](https://silicon-valley.fandom.com/wiki/Bertram_Gilfoyle), but it is an unpopular
+and unfriendly way to be (comically so.) His unfriendliness and brutality
+is what makes him the most valuable team member.  And
+no one likes Gilfoyle (but Gilfoyle is ok with it.) This is the 
+viewed (and often is) **the antithesis** of 'EQ' 
+from the great book [Emotional Intelligence](https://a.co/d/9b7mBJc); however, 
+this critical thinking and critiquing is the most valuable in software,
+if I had to pick one; it is this 'Gilfoyle' quality of an
+engineer.
+
+### HBR on scruintiy at Apple
 
 This [Harvard Business Review document about Apple Culture](./HBR_How_Apple_Is_Organized_For_Innovation-4.pdf)
 is a must-read.  The biggest takeaway is that **at Apple,
@@ -29,7 +57,7 @@ because software managers are in fact running large
 subdepartments, and should understand economics, business,
 but I am only beginning and very few of us do.)
 
-## No benefit to Disagree
+## No benefit to Disagree (Corporate Game Theory)
 
 From a game theory perspective, there are zero gains 
 to be had as an Engineer, with disagreeing with another 
@@ -50,9 +78,22 @@ and the best way to achieve the benefit is to be well liked.  The easiest way to
 
 The other key thing to do is write down what you want to do, and why, with as much detail as possible.  as Leslie Lamport says in a lecture I will link, Code is not Programming.  The programming is mostly trivial.  The design dictates the outcome.  The design, and 2nd most, what you choose to invest your time and effort in.  Coding is relatively easy for any senior Enginner, tedious, but straightforward.  Particularlry in business systems.  Let's say 98+% of it is straightforward message passing.
 
-Amazon generally do an amazing job of having things written down.  There are now cracks in the system though where some someone senior enough can say they do not like a plan, with zero reasons given or the wrong reasons in some back room, and the best ideas are not used, some other half ass plan is used instead which favors their own promotion.  Politics over code.  Amazon is sufficiently large where everyone is after their own success and no one cares about the firm.  It still works surprisingly well but is incredibly disfucntuinal, Darwinism instead of cooperation - inside a company where people are suppose to help each other succeed.
+Amazon generally do an amazing job of having things 
+written down.  There are now cracks in the system 
+where some someone senior enough can say they do not 
+like a plan, with the best ideas are not used, 
+some otherplan is used instead which favors politics.  
+Politics over code.  Amazon is large enough 
+where everyone is after their own success, 
+and no one cares about the firm.  It still works 
+surprisingly well but is incredibly disjunctional.
 
-Stay tuned for the three biggest project failures, each more than 100 million dollars in time and money, each with trivial alternatives which were missed or discarded...
+Off-topic, **Amazon is Darwinism instead of cooperation—inside a 
+company where people are supposed to help each other succeed.**
+
+Stay tuned for the three biggest project failures, 
+each more than 100 million dollars in time and money, 
+each with trivial alternatives which were missed or discarded...
 
 
 
