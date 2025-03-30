@@ -1,20 +1,32 @@
 (WIP - written on my phone on the train, needs some editing)
 
-The road to software hell is indeed paved with good intentions.  No where in humanity has it ever been as easy to wish to do something good, and instead make a terrible horror or a project.  
-Working with elite talent, it has taken me 
+The road to software hell is indeed paved with good intentions.  
+No where in humanity has it ever been 
+as easy to wish to do something good, 
+and instead make a terrible horror of a project.
+
+Working with elite mentors, it has taken me 
 decades to become decent at using good judgment 
 before I begin a large software project.  
 Like a chess game, it is extremely challenging 
 to see what outcome a 'good software plan' will result in.
 
-Software is a frustrating and time-consuming activity. 
+Software is also a frustrating and time-consuming activity. 
 Engineers are often trying to improve the craft, 
 but are generally not in a position to do so.
 
 In my blogs I will detail three totally flawed, 
 $ 100-million dollar software efforts, 
 each of which was totally unnecessary.  
-All three cases share one key quality—trying to improve a system in a novel and unproven manner.  As well all three share never having been compared to alternatives properly and in a detailed manner - only a hand wavy comparison stating 'this will be better'.  without any data.
+
+Each of the three cases share at least one 
+key qualities—trying to **improve a software system 
+in a novel and unproven way.**  
+
+2nd, all three share the quality of having never 
+been compared to alternatives properly and 
+in a detailed manner—only a hand wavy 
+comparison stating 'this will be better' - **without any real data.**
 
 ## Apple values scrutiny of ideas
 
