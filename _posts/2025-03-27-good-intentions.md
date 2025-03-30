@@ -1,11 +1,11 @@
-(written on my phone on the train, needs some editing)
+(WIP - written on my phone on the train, needs some editing)
 
 The road to software hell is indeed paved with good intentions.  No where in humanity has it ever been as easy to wish to do something good, and instead make a terrible horror or a project.  
 Working with elite talent, it has taken me 
 decades to become decent at using good judgment 
 before I begin a large software project.  
 Like a chess game, it is extremely challenging 
-to see what outcome a 'good softare plan' will result in.
+to see what outcome a 'good software plan' will result in.
 
 Software is a frustrating and time-consuming activity. 
 Engineers are often trying to improve the craft, 
