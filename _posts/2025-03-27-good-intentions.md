@@ -19,8 +19,8 @@ In my blogs I will detail three totally flawed,
 $ 100-million dollar software efforts, 
 each of which was totally unnecessary.  
 
-Each of the three cases share at least one 
-key qualities—trying to **improve a software system 
+Each of the three cases shares at least one 
+key quality—trying to **improve a software system 
 in a novel and unproven way.**  
 
 2nd, all three share the quality of having never 
