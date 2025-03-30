@@ -284,15 +284,17 @@ the difference between the good ones and the terrible ones,
 and are constantly green-lighting ridiculous ideas,
 because they are told to embrace "Think Big."
 
-There eventually go into the graveyard of 
+These Think Bigs eventually end up in the graveyard of 
 failed frameworks and attempts,
 all over Amazon, long lists of them.  It is a nice
 idea in theory, this "Think Big", but if you lack
 the skills, better for these engineers to not build
-their Think Big, but to have another team take the think
-big and do the right thing with it.
+their Think Big, but to have another team take the 'think
+big' and run with it properly.  Because even if it
+is a good idea, the details and implementation
+are critical, very minor details.
 
-### Unlimited funding, no real goals
+### Unlimited funding, no measurable goals
 
 At the investment bank, another common problem was 
 "too much time, too much money."  In this case,
