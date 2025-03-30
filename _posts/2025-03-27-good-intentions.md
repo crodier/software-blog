@@ -58,8 +58,6 @@ if I had to pick one.  The 'Gilfoyle' quality of an
 engineer, needs to be the most valued and triumphed, but
 it is actively discouraged "he is not nice."
 
-What is not nice, not agreeing with a bad idea, 
-or asking challenging and pointed questions?
 As a parent, friend (and lover), of course I value
 kindness and sensitivity.  But not in engineering
 conversations.
