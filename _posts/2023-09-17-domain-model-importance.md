@@ -346,7 +346,7 @@ exercise if one is writing a book or a blog on the weekends;
 but to do this with the pressure of business competition
 is a senseless exercise for any small or medium business.
 
-## How hard is Domain Model
+## How challenging is Domain Model?
 
 To build a domain model, you first need to know what
 the cost and difference are between using Protobufs, its
