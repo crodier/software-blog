@@ -66,7 +66,7 @@ conversations - pls. check your sensitive side at the door,
 along with your feelings.  I'll check mine,
 and let us build some cool and high value systems.
 
-### HBR on scruintiy at Apple
+### HBR on scrutiny at Apple
 
 This [Harvard Business Review document about Apple Culture](./HBR_How_Apple_Is_Organized_For_Innovation-4.pdf)
 is a must-read.  The biggest takeaway is that **at Apple,
