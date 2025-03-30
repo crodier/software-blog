@@ -129,7 +129,7 @@ some otherplan is used instead which favors politics.
 Politics over code.  Amazon is large enough 
 where everyone is after their own success, 
 and no one cares about the firm.  It still works 
-surprisingly well but is incredibly disjunctional.
+surprisingly well but is incredibly dysfunctional.
 
 Off-topic, **Amazon is Darwinism instead of cooperation—inside a 
 company where people are supposed to help each other succeed.**
