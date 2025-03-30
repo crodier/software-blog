@@ -214,32 +214,29 @@ it. This is not only a cost increase but an increase in
 risk of changing domain models and data, once the system
 goes into production.
 
-The ability to have a profound impact on software design
-by spending small investments to do things in a way
-which will help you scale your business system in the future
-and make it easy to extend your business is an incredible
-feature of the software developer's job. After many years
-of developing business systems and after years of studying
-software design after starting work did the importance
-of domain-driven design become completely apparent.
+Software design has this profound ability 
+where small investments have incredible leverage,
+when done correctly.  These investments don't 
+seem like a big deal, when they are happening,
+but they are the most important.
 
 ### Absence makes the heart grow fonder
 
 After designing and working on software systems which relied
 heavily on domain-driven design, and then inheriting major
 multi-tiered systems which did not use domain-driven design,
-did the extreme importance of this topic become apparent.
+did the extreme importance of this topic become clear.
 Domain-driven design is arguably the most important feature
 of a software system. Only after working on systems where
 the domain was copied many times across a large organization,
 and looking across the entire organization, has the paramount
-importance of the Domain Model become apparent to me.
-This was after the 25+ years of coding and studying;
+importance of the Domain Model become clear to me.
+This was after 25+ years of coding and studying;
 professionally.
 
 ### Agreeing on the format for Domain Model
 
-In one situation I observed a second domain model growing
+In one situation, I observed a second domain model growing
 for an important finance problem. The quantitative
 team of mathematicians was using C++ while the rest of the
 software team was using Java. Protobufs can communicate
@@ -252,9 +249,8 @@ doing a deep dive. You can conclude from [this referenced
 performance guide](https://github.com/thekvs/cpp-serializers)
 that Cereal is faster than Protobufs.
 
-There are major problems with this approach of cursory
-evaluation of frameworks. Let us review how wrong this
-decision was.
+There are major problems with using cursory
+evaluation of frameworks. Let us review why.
 
 ### This ridiculous benchmark
 
