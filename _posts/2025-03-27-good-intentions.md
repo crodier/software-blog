@@ -76,9 +76,25 @@ the disagreement.  The biggest potential benefit
 to any Engineer is always a promotion, 
 and the best way to achieve the benefit is to be well liked.  The easiest way to be well liked, is to agree.  This is the simple math of software design and seniority.  Every senior Enginner is aware of this simple equation, and avoiding disagreements.  Somehow I tend to disagree more than most, because I think life carries some deeper meaning, and my time is too valuable on this earth to work on bad software.  Some would say I disagree often, but in fact I am even trying hard to be agreeable; I simply have seen more software failures and am burdened with knowing how it ends.
 
-The other key thing to do is write down what you want to do, and why, with as much detail as possible.  as Leslie Lamport says in a lecture I will link, Code is not Programming.  The programming is mostly trivial.  The design dictates the outcome.  The design, and 2nd most, what you choose to invest your time and effort in.  Coding is relatively easy for any senior Enginner, tedious, but straightforward.  Particularlry in business systems.  Let's say 98+% of it is straightforward message passing.
+### Write down and review the plan:  look for gaps!
 
-Amazon generally do an amazing job of having things 
+The key is **writing down** (a design) 
+both exactly what you want to do, 
+**and why**, with as much detail as possible.  
+
+As Leslie Lamport says, a great video:
+[Code is not Programming](https://www.youtube.com/watch?v=qfxzL17JmOQ)
+
+The programming is mostly trivial.  
+**The design dictates the outcome.**  
+The design, and 2nd most, *what projects you choose 
+to invest your time and effort in*.  
+Coding is relatively easy for any senior Engineer, 
+tedious but straightforward.  
+Particularly in business systems.  
+Let's say 98+% of it is straightforward message passing.
+
+Amazon generally does an amazing job of having things 
 written down.  There are now cracks in the system 
 where some someone senior enough can say they do not 
 like a plan, with the best ideas are not used, 
@@ -94,9 +110,4 @@ company where people are supposed to help each other succeed.**
 Stay tuned for the three biggest project failures, 
 each more than 100 million dollars in time and money, 
 each with trivial alternatives which were missed or discarded...
-
-
-
-
-
 
