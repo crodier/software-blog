@@ -29,7 +29,7 @@ was that because RAM usage of one system was exceeding 4GB,
 that in this 32 bit software world, 
 we needed a distributed cache to hold the data.
 
-In 2008, while most machines were 32bit, with only 4GB RAM
+In 2008, while most machines were 32 bit, with only 4GB RAM
 addressable by the JVM; 64 bit computing existed and was taking
 hold.  Perhaps at the start of the project in 2004, this was
 not the case, but it was certainly the case in 2008 that 64 bit
