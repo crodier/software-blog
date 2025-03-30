@@ -298,20 +298,23 @@ are critical, very minor details.
 
 At the investment bank, another common problem was 
 "too much time, too much money."  In this case,
-the volatility business made a billiion dollars, and
+the volatility business made a billion dollars, and
 had only six developers, and no work left to be done,
 but an excessive pool of money to spend on software.
+
 So they were given a blank check.  These blank checks
-are a receipe for disaster.  And the next year,
-the business lost a ton of money, and then this project
+are a recipe for disaster.  And the next year,
+the trading business lost a ton of money, and then this project
 was in trouble, and then eventually canceled.
+When money is flowing, it is easy to set it on 
+fire in a software group.
 
 This "too much money" problem, causes amazing problems
 in software.  Developers who don't have enough work,
 start to try to invent new solutions to old problems,
 but don't have enough qualifications to be doing this.
 
-Once invented, a marketing campaign ensues by
+Once invented, a marketing campaign ensued by
 the developer and their manager, as to how great
 their framework or technology is.  They have a new
 thing, and they think it will get them promoted, and
@@ -321,21 +324,23 @@ is ugly, is viewed as highly negative, and uncool,
 rocking the boat in the software shop, asking important
 questions like:
 
-1. "why would we build this when it exits?"
-2. "are we qualified to build this?"
-3. "where is the competitive analysis?"
-4. "where is the comparative build / buy analysis, documented?"
+1. Why would we build this when it exits?
+2. Are we qualified to build this?
+3. Where is the competitive analysis?
+4. Where is the comparative build / buy analysis, documented?
 
-Even with all of these documents, it is not easy to tell
+Even with these documents, it is not easy to tell
 someone who works for you "sorry, no, we are not doing
 your idea."  I dislike telling people, everyone dislikes it.
+And I dislike hearing it, even knowing what I know.
 
-What I know is, having seen the other side - better to 
-say it directly, than to let it grow into a failed project
+But having seen the other side - better to 
+say 'no' directly, than to let a poorly formed idea
+grow into a failed project
 which you were around, and did not stop.  While
 saying "no" may make you a little unpopular, at least
 you will not be fired in two years, for having it be 
-greenlit.
+green-lit.
 
 ### Due process
 
@@ -349,14 +354,20 @@ and a ton of documentation as to why it is necessary,
 in a standard format, very long form.  Also, exactly
 how long the project will take, and the exact benefits
 and why these makes the juice worth the squeeze.
+Finally, a risk analysis of the likely reasons for
+failure, in a "pre-mortem" document, of if it fails,
+why it would have failed, looking back from the future.
 
 And I mean excruciating detail.  This is now the level
 of detail I spend on analysis of any software investment,
-because software is under-analyzed, everywhere.  
+because software is under-analyzed, everywhere.
 
-I do this out of habit, produce these documents, to make sure
-the projects succeed.  Anyone who wants to float
-an idea should be made to produce them, with bar raising,
+I produce this level of documentation and analysis out of habit, 
+to make sure the projects succeed *before we start*.  Anyone who wants to float
+an idea should be made to produce this complete set of doucments, 
+as a porfolio of "new idea" documents.  
+Finally the documents need team review, then senior review,
+then executive review, along with bar raising,
 and a presentation to a very senior team where they
 defend the idea.
 
@@ -365,6 +376,21 @@ ambitious junior developers from getting in over
 their head, and proposing a new software infrastructure.
 (or a new in-house software framework.)
 
+We have all done it - I've done it many times.
+I was lucky to have jaded and very senior friends
+who laughed at me and punched holes in the ideas 
+at hedge funds and say "yea, we are not doing that."
+
+Hedge funds have tiny software teams and enormous demands.
+The economics of efficiency have a naturaly way of 
+preventing any work which is not incredibly targeted
+and valuable.  This is a good virtue, which bigger shops
+lack.  Big shops don't have this economic scrutiny
+and extreme demands on the teams' time and output.
+It is nice to go to big shops, without this level
+of pressure or scrutiny, but it can be frustrating
+to see how the excess are spent.
+
 ### The end of the Java RMI global cache
 
 At this investment bank, the 32 bit, Spring XML,
@@ -372,21 +398,43 @@ Java RMI cache, which cost $100M to engineer and use,
 is currently the worst software failure I have ever
 witnessed or been a part of.  
 
-The team were moved
+The team was moved
 to other projects, and the system retired as soon
 as the incredible funding dried up, because it was 
-just not worth it, and free alternatives existed.
+not worth it, was a system without a clear problem statement,
+and free alternatives existed.
+
+A clear problem statement is another good one. 
+Had the problem statement been written, "the world needs
+a better distributed cache," then this system would 
+have never been built.  A PowerPoint was presented instead,
+about the benefits the system would achieve,
+which essentially said nothing.  
+
+In engineering circules, we joke about the use of powerpoint.  If you want to say
+nothing in real engineering terms and say it vaguely -
+powerpoint is your friend.  A good sign of a failure
+in engineering is the quality of the PowerPoint.
+A powerpoint is a necessary evil, and I'm ashamed
+when I need to make one to explain something.  It means
+I'm acting as a marketer for software, as if I 
+studied advertising am working at 'Mad Men'.
+
+**The better the powerpoint, the higher the chance
+the system is a failure, with excellent marketing.**
 
 Java RMI was never fast enough for a cache, or usable enough,
 to compete with anything.
 
-**Everone believes someone else will speak up about
-a bad idea - but no one will.**
+## Everyone believes someone ELSE 
+### will speak up about a bad idea — but no one does.
 
 Speaking up about a bad idea is like CPR; you can't
 expect someone to go get help, you need to ask one
 specific person to go get help, or as they teach you in CPR,
-no one goes - everyone thinks someone else has gone to get help.
+no one goes. 
+
+In CPR class, they will tell you, everyone thinks someone else has gone to get help.
 
 The same applies to stopping bad software infrastructure
 decisions and frameworks.  Unless
