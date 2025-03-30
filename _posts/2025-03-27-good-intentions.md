@@ -54,8 +54,17 @@ no one likes Gilfoyle (but Gilfoyle is ok with it.) This is the
 viewed (and often is) **the antithesis** of 'EQ' 
 from the great book [Emotional Intelligence](https://a.co/d/9b7mBJc); however, 
 this critical thinking and critiquing is the most valuable virtue in software,
-if I had to pick one; it is this 'Gilfoyle' quality of an
-engineer.
+if I had to pick one.  The 'Gilfoyle' quality of an
+engineer, needs to be the most valued and triumphed, but
+it is actively discouraged "he is not nice."
+
+What is not nice, not agreeing with a bad idea, 
+or asking challenging and pointed questions?
+As a parent, friend (and lover), of course I value
+kindness and sensitivity.  But not in engineering
+conversations - pls. check your sensitive side at the door,
+along with your feelings.  I'll check mine,
+and let us build some cool and high value systems.
 
 ### HBR on scruintiy at Apple
 
