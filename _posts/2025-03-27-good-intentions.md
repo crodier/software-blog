@@ -32,15 +32,16 @@ comparison stating 'this will be better' - **without any real data.**
 
 Apple has a core discipline where they look 
 at every detail in a design, and look for the hardest 
-parts of the problem.  
-This is necessary for software design.  
+parts of the problem.  This is necessary for software design.  
+
 A seemingly tiny detail can destroy any 
-hopes of success for a software effort.  
-We will show a few here and how this is a pattern 
+hopes of success for a software effort.  We will 
+show a few here and how this is a pattern 
 in industry.  It is a form of lack of analysis.  
 Largely due to a natural aversion to 
 **disagreeing in corporate software.**
-It is not fun, makes one unpopular, and is the
+
+Disagreeing is not fun, makes one unpopular, and is the
 highest value activity a software engineer
 and manager can do.
 
@@ -52,7 +53,7 @@ is what makes him the most valuable team member.  And
 no one likes Gilfoyle (but Gilfoyle is ok with it.) This is the 
 viewed (and often is) **the antithesis** of 'EQ' 
 from the great book [Emotional Intelligence](https://a.co/d/9b7mBJc); however, 
-this critical thinking and critiquing is the most valuable in software,
+this critical thinking and critiquing is the most valuable virtue in software,
 if I had to pick one; it is this 'Gilfoyle' quality of an
 engineer.
 
@@ -60,26 +61,40 @@ engineer.
 
 This [Harvard Business Review document about Apple Culture](./HBR_How_Apple_Is_Organized_For_Innovation-4.pdf)
 is a must-read.  The biggest takeaway is that **at Apple,
-they look at the hardest part of a problem first**, and scrutinize
-ideas.  Sadly, I have never worked there, but it is admirable
-if it truly holds, which I imagine it does.
+they look at the hardest part of a problem first**, and **scrutinize
+ideas** before they begin.  Sadly, I have never worked at Apple, but it is admirable
+if it is actually held up in practice,
+which is reported to be by HBR.
 
-(HBR is an incredible resource for software managers,
+(side note: HBR is an incredible resource for software managers,
 because software managers are in fact running large
 subdepartments, and should understand economics, business,
 but I am only beginning and very few of us do.)
 
 ## No benefit to Disagree (Corporate Game Theory)
 
-From a game theory perspective, there are zero gains 
-to be had as an Engineer, with disagreeing with another 
-Engineer.  Why is this?  
-The rewards from the disagreement for any employee never outweigh the economic cost of the disagreement.  the disagreement benefits the owners of the company. primary, and the CEO.  
-Only the senior executives and stockholders benefit 
+From a game theory perspective, disagreeing with another 
+Engineer is **always a loss of value**.  
+
+Why is this?  
+
+The rewards from the disagreement for any employee never 
+outweigh the economic cost of the disagreement.  
+
+This kind of scrutiny benefits owners of the company; 
+primarily, and the CEO.  
+
+Inside the company, only the senior executives 
+and stockholders benefit 
 from actual performance of the software system.  
+Not the engineers.  The customers obviously benefit 
+from disagreement and correct decisions and software.
+This use of the customer is convenient as a proxy 
+argument for saying 'do what is good for business, not yourself.'
+
 It is true if the employee software engineer holds stock, 
 then the stock price has value, 
-and the actions taken impact the stock price in some 
+and the actions have an impact on the stock price in some 
 small way.  But this small stock value impact 
 (on some tiny percentage of the 'float'), 
 for disagreeing in a design meeting never 
