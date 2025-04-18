@@ -1,7 +1,6 @@
-(WIP - written on my phone on the train, needs some editing)
-
 The road to software hell is indeed paved with good intentions.  
-No where in humanity has it ever been 
+
+Nowhere in humanity has it ever been 
 as easy to wish to do something good, 
 and instead make a terrible horror of a project.
 
@@ -28,17 +27,23 @@ been compared to alternatives properly and
 in a detailed manner—only a hand wavy 
 comparison stating 'this will be better' - **without any real data.**
 
-## Apple values scrutiny of ideas
+## Apple: Value scrutiny of ideas
 
 Apple has a core discipline where they look 
 at every detail in a design, and look for the hardest 
-parts of the problem.  This is necessary for software design.  
+parts of the problem.  
 
-A seemingly tiny detail can destroy any 
+This approach is necessary for good software design
+(if seemingly unpleasant.)
+
+Tiny details can destroy any 
 hopes of success for a software effort.  We will 
 show a few here and how this is a pattern 
-in industry.  It is a form of lack of analysis.  
-Largely due to a natural aversion to 
+in industry.  
+
+Failing to scrutinize a plan / design 
+is an easy way to fail the analysis phase.  
+This often occurs due to a natural aversion to avoid 
 **disagreeing in corporate software.**
 
 Disagreeing is not fun, makes one unpopular, and is the
@@ -48,13 +53,15 @@ and manager can do.
 ### Be like Gilfoyle
 
 You need more [Gilfoyle from Silicon Valley](https://silicon-valley.fandom.com/wiki/Bertram_Gilfoyle), but it is an unpopular
-and unfriendly way to be (comically so.) His unfriendliness and brutality
+and unfriendly way to be (comically so.) 
+
+GIlfoyles unfriendliness and brutality
 is what makes him the most valuable team member.  And
 no one likes Gilfoyle (but Gilfoyle is ok with it.) This is the 
 viewed (and often is) **the antithesis** of 'EQ' 
 from the great book [Emotional Intelligence](https://a.co/d/9b7mBJc); however, 
-this critical thinking and critiquing is the most valuable virtue in software,
-if I had to pick one.  The 'Gilfoyle' quality of an
+this critical thinking and critiquing is the most valuable 
+virtue in software.  The 'Gilfoyle' quality of an
 engineer, needs to be the most valued and triumphed, but
 it is actively discouraged "he is not nice."
 
@@ -65,7 +72,7 @@ conversations.
 ### HBR on scrutiny at Apple
 
 This [Harvard Business Review document about Apple Culture](./HBR_How_Apple_Is_Organized_For_Innovation-4.pdf)
-is a must-read.  The biggest takeaway is that **at Apple,
+is a must-read.  The key takeaway is that **at Apple,
 they look at the hardest part of a problem first**, and **scrutinize
 ideas** before they begin.  Sadly, I have never worked at Apple, but it is admirable
 if it is actually held up in practice,
@@ -73,7 +80,7 @@ which is reported to be by HBR.
 
 (side note: HBR is an incredible resource for software managers,
 because software managers are in fact running large
-subdepartments, and should understand economics, business,
+sub-departments, and should understand economics, business,
 but I am only beginning and very few of us do.)
 
 ## No benefit to Disagree (Corporate Game Theory)
