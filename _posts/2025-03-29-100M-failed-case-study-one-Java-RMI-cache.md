@@ -5,18 +5,18 @@ software investments is lack of detailed analysis
 of the problem space, the alternative approaches, 
 and the cost-benefits of those approaches.
 
-You would be shocked, to know that in software,
+You may be shocked to learn:
 $100,000,000 software projects which are total failures,
 are minted all the time.  Probably more
 in software than anywhere in history, are the size
-of failed businesses.  Second to this is the
+of failed software businesses.  Second to this is the
 amount of investment in failed "in-house" systems, inside major 
 businesses.
 
 I can save you from green-lighting your next $100M 
 failed software project, having participated in three others.
 
-My fee is only 10%:  $10M (an incredible bargain!)
+My fee is only 10%: $10M (an incredible bargain!)
 
 ### Distributed Spring XML Java RMI Global Data Cache
 
@@ -24,18 +24,17 @@ The first massive failed project I joined was at
 an investment bank, where a decision was made to author
 a distributed cache using Java RMI.  
 
-The hypothesis
-was that because RAM usage of one system was exceeding 4GB, 
-that in this 32 bit software world, 
+**The hypothesis:** RAM usage of one system is exceeding 4GB, 
+in this 32-bit software world; therefore,
 we needed a distributed cache to hold the data.
 
-In 2008, while most machines were 32 bit, with only 4GB RAM
-addressable by the JVM; 64 bit computing existed and was taking
+In 2008, while most machines were 32-bit, with only 4GB RAM
+addressable by the JVM; 64-bit computing existed and was taking
 hold.  Perhaps at the start of the project in 2004, this was
-not the case, but it was certainly the case in 2008 that 64 bit
-machines existed as commidity hardware.  
+not the case, but it was certainly the case in 2008 that 64-bit
+machines existed as commodity hardware.  
 
-The project needed to be re-evaluted
+The project needed to be re-evaluated
 in this new tech landscape, as the fundamental assumption 
 had changed.  Yet, a large team of about 15 developers 
 and multiple managers, worked full-time on this custom,

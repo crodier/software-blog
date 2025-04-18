@@ -1,5 +1,6 @@
 Don't overly focus on your software architecture,
 until you have first maximized your software process itself.
+
 Without the process in place,
 there is no point trying to reorganize the software.
 

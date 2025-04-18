@@ -25,12 +25,18 @@ be productive on a new computer, then you are also unable
 to make a new working copy of the system.
 
 As soon as you can't easily make another copy of the system,
-you have failed.  I'm not being overly dramatic.
+you will have failed, from a productivity standpoint.  
+
+I'm not being overly dramatic.
+
 What happens next is, you can't have more groups of people,
 working independently on the system, because they can't
 make their own QA where they can work on the system,
-and test it until it is ready.  You need almost
-as many copies of the software system as you have developers.
+and test idependently, it until it is fully ready.  
+
+You need almost as many copies of the software 
+system as you have developers.
+
 You want it to be easy to make, and easy for people to 
 isolate themselves, and run the entire thing, until
 they have actually used and verified their own changes.
@@ -38,7 +44,7 @@ they have actually used and verified their own changes.
 I'm not talking about some small system; I'm referring
 to Amazon Ads size systems, major portions of entire
 investment banks.  At hedge funds, this is what we in fact do,
-to keep teams productive, when we need it to survive.
+to keep teams productive.  We need the hygiene, to survive.
 We don't make excuses, we solve the challenges, 
 and reap the rewards of the hygienic environment.
 It does feel painful, but it drives velocity more than
