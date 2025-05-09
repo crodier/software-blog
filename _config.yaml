@@ -1,7 +1,7 @@
 
 # theme: jekyll-theme-hacker
 locale: "en-US"
-title: Failing Slowly (with High Latency)
+title: Reflections on Software Leadership
 name: "Chris Rodier"
 description: Homepage for my blog site about software engineering principles.
 remote_theme: "mmistakes/minimal-mistakes"
