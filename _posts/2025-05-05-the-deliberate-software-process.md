@@ -1,29 +1,38 @@
 # The "Deliberate Software Process" - a new standard for software process deliery [DRAFT]
 
-Planning and designing software is the most critical portion - problem analysis and design.
+Planning and designing software is the most critical phase 
+of a major software delivery - problem analysis and design.
+
 Why are you solving a problem, why this particular problem, and in this particular way?
-How much will it cost, and what is the benefit? (cost/benefit)
+How much will it cost, and what is the benefit?
 
 Without well documented answers to these questions, we must pause before
 beginning any medium to large software system endeavor.  Seemingly minor details 
-(for example consistency / eventual consistency), recovery from failure, scaling,
-and latency, once launched, can become key dimensions for your software success.
+for example consistency / eventual consistency, recovery from failure, scaling,
+and latency, can become key dimensions for your software success or failure.
 
-It is easy to make these decisions informally in a small team setting; however, it is then difficult for a team of
-more than about ten people to review the analysis.  There is a key virtue at Amazon,
-where they want to "poke holes", and seek "disconfirmation of beliefs", at this design
-and project launch phase.  This leads to careful project prioritization,
-and careful assembly of any non-trivial software effort.  
+It is easy to make these decisions informally in a small team setting; 
+however, it is then difficult for a team of
+more than ten people to review the analysis.  
 
-Amazon use documents
+A key virtue at Amazon,
+is a step where engineers "poke holes", and seek "disconfirmation of beliefs", 
+at this design and project decision phase.  
+
+This leads to 1) careful project prioritization,
+and 2) careful assembly of any non-trivial software effort.  
+
+Amazon use _documents_
 to make this process "scalable", allowing people outside the group reviewing the problem.
-This allows management, along with engineering leaders from across a large group
+
+Strong documents allow management, along with engineering leaders from across a large group
 to make meaningful comments on plans and designs, and ask important questions.
 
-Here we outline refinements to this process, which can be re-used as an 
-approach to any software system
+Here we outline refinements to this document driven project 1) selection and 2) design process
 
-### The "Deliberabe Software Process"
+This "Deliberate" process can be re-used as an approach to any software system.
+
+### The "Deliberate Software Process"
 
 1. **PRFAQ** - a press release about the project and the benefits to the customers
 2. **High Level UML use cases** - a list of use cases which are created or impacted by the software change
@@ -39,13 +48,13 @@ approach to any software system
          9. Exact messages incoming and outgoing
          10. Exact systems processing the messages
          11. Deployment
-      7. Includes Mandatory Treatement
+      7. Includes **Mandatory Treatment** of:
          8. Failure and Recovery from failure (crash of any system, outages)
          9. HA/DR
          10. Scalability
          11. Latency estimate p50, p99, p100
          12. Latency at 10x traffic
-         13. Cost to operate (clould and people), and at 10x traffic
+         13. Cost to operate (cloud and people), and at 10x traffic
          14. Monitoring + Logs + Troubleshooting
          15. Impact on Overall Firm Velocity
          16. "Debuggability" and "Testability"
