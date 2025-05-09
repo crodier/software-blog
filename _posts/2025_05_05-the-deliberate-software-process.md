@@ -30,7 +30,7 @@ approach to any software system
 3. **T-short cost estimation (high and low estimate)** - estimation of the time and size of the effort - informally
    4. After this phase, a decision can be made if more time investments are warranted
 5. **Prototype** - potentially produce a rapid POC of the idea, to further vet it out
-4. **Fully Dressed UML use cases** - "fully dressed" UML use cases, using the Larman format
+4. **Fully Dressed UML use cases** - "fully dressed" UML use cases, using the Craig Larman, Fully Dressed format
 5. **High Level System Design** - system design, with alternatives, pros and cons for each
    6. *Following a standard format for High Level Design (draft:  to be documented)*
       7. Primary Section
