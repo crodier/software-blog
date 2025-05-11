@@ -102,8 +102,9 @@ the ability to TA or teach any of these courses.
    4. Read the code for Postgres and study the design
    4. [Book](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)
    5. Study Apache Druid and what is better at than a database, and why
-6. **MIT operating systems online**
-   7. MIT offers operating systems for free; it is worth taking online.
+   6. **MIT operating systems online**
+   7. Operating Systems:  Three Easy Steps - https://pages.cs.wisc.edu/~remzi/OSTEP/
+   8. MIT offers operating systems for free; it is worth taking online.
 
 ## Practical knowledge and application
 
