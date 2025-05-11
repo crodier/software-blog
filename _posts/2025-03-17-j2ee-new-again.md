@@ -114,12 +114,12 @@ and use Service Locator, then this may help.  But it
 many not help, and velocity depends on running the system - 
 one developer, working on any part of it, **instantly**.
 
-Clone --> Build -- Run --> do work.
+Clone --> Build --> Run --> do work.
 
 As soon as this is more than 15 minutes, Developers
 will be frustrated trying to work on any system.
 
-Make the hygine excellent, then Modules, using Service Locator.
+Make the hygiene excellent, then Modules, using Service Locator.
 
 Then and only then, can service boundaries be drawn,
 but they should not be drawn before this.
