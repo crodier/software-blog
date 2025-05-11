@@ -81,4 +81,46 @@ Heed these words, heed them well.
 
 https://medium.com/@dileeppandiya/the-evolution-of-microservices-past-present-and-future-57303e758eb4
 
-Microservices are dead.  Someone pls. bury them forever.
+Microservices are overused.  
+
+Services have been a necessity for productivity sake,
+when there were clear and obvious organzational and functional
+boundaries.  If you try to draw these yourself and 
+they are not clean boundaries, you can run into big problems.
+Latency is another major services / microservices problem.
+
+We can note:
+1. If you need low latency (everyone wants this), you want to run in one service.
+2. Your own developers must develop in one service; to run the platform on their machine.
+
+Therefore, you **must** build a modular system, capable of 
+running on a single developer machine, above all.
+
+If this system can easily be split into Services, 
+then use the Service Locator pattern.
+
+But make sure, the system is **trivial** to start
+and run for a single developer, to work on the system.
+
+Once this deteriorates, your entire velocity will
+deteriorate with it.  And it becomes impossible to
+reconstruct a development environment, once it is undone.
+
+Focus on the ability for one developer to be quick - 
+across your entire stack.  This is the key to velocity.
+
+If you can draw boundaries in the app, and services,
+and use Service Locator, then this may help.  But it 
+many not help, and velocity depends on running the system - 
+one developer, working on any part of it, **instantly**.
+
+Clone --> Build -- Run --> do work.
+
+As soon as this is more than 15 minutes, Developers
+will be frustrated trying to work on any system.
+
+Make the hygine excellent, then Modules, using Service Locator.
+
+Then and only then, can service boundaries be drawn,
+but they should not be drawn before this.
+
