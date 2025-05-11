@@ -109,13 +109,18 @@ good test for velocity - ask yourself, self, would I do this
 if I were the only person in the company.  If you would not,
 then it is probably a bad idea to be doing it even in a large
 company.  Why is this true?  Because microservices are only
-one way to break up code - did you know?  Modules of software
-development have existed since the dawn of time, and distributed
-open source teams (linux), have been wildly productive.  
+one way to break up code.  
 
-If you already didn't know how to code using 
-interfaces and object orientation, then you should not be jumping
-to microservices.
+Modules of software
+development are the primary way teams share ownership of a large system. 
+
+Distributed open source teams (linux), have been wildly productive.  
+
+Start coding first with 
+interfaces and object orientation, and save service
+boundaries for after these clean lines have first been
+proven in one local dev environment, _where it is 
+fully working, after the split has been made._
 
 ### Correctness of a distributed system
 
@@ -233,9 +238,9 @@ This makes you less agile.
 ### Technilogical freedom
 
 Nothing makes for a better "Distributed ball of mud."
-than microservices, and "technoligical freedom."
+than microservices, and "technological freedom."
 
-We can rename the counterarument "too much freedom".
+We can rename the counterargument "too much freedom."
 You want a standard set of tools as much as possible, across your stack.
 
 If someone needs a new library, remind them you are there
