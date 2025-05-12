@@ -3,6 +3,14 @@
 I have been of the belief that software takes too long to learn.
 I am still learning, and often think I am not good at it!
 
+Since writing this guide, it seems someone else has outpaced me!
+
+## Open Source University
+
+This looks fairly outstanding:
+
+http://cs.ossu.dev/
+
 ### Goal of this guide
 
 This is a curated list of free software
@@ -103,7 +111,9 @@ the ability to TA or teach any of these courses.
    4. [Book](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)
    5. Study Apache Druid and what is better at than a database, and why
    6. **MIT operating systems online**
-   7. Operating Systems:  Three Easy Steps - https://pages.cs.wisc.edu/~remzi/OSTEP/
+   7. Operating Systems:  
+      8. Three Easy Steps - https://pages.cs.wisc.edu/~remzi/OSTEP/
+      9. From Open Source University:  http://cs.ossu.dev/coursepages/ostep/
    8. MIT offers operating systems for free; it is worth taking online.
 1.  CMU Advanced database systems
    2. https://www.youtube.com/watch?v=7V1oi_8uvuM
