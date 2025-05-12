@@ -83,7 +83,7 @@ the fixed income software systems; same story.
 At ExodusPoint a tiny team can
 work across the entire hedge fund on a moments' notice.
 In high finance, we have this kind of software hygiene
-because it is necessary to survive, so we figure it out.
+because it is necessary to survive.
 
 Without the ability to create another working copy
 of your entire software system, in an hour or two,
