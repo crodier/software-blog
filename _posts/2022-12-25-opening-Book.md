@@ -37,11 +37,14 @@ and do well and correctly
 during an outage.  The primary
 goal of any business is "make money"
 and save time and money.
+
 By being fast and effective at
 outages you will save your
 firm from reputational risk.
+
 But you will also save time
 triaging the problem itself.
+
 Time improved triaging makes 
 Your team more effective 
 as less time is spent 'on-call'

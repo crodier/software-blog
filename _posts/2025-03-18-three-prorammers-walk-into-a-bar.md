@@ -1,3 +1,10 @@
+---
+title: "Three programmers walk into a bar."
+date: 2025-03-18
+layout: post
+published: false
+---
+
 Three Programmers walk into a bar.
 
 The first, a Staff Engineer, says hey team I made 

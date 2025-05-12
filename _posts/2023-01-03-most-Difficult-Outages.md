@@ -1,6 +1,12 @@
+---
+title: "Most challenging outages"
+date: 2023-01-03
+layout: post
+published: false
+---
 # Most challenging outages
 
-In this chapter we will detail some of 
+In this chapter, we will detail some of 
 the most challenging outages over many years, 
 how we responded to these, and what was learned.
 
