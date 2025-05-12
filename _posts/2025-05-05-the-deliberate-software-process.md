@@ -61,7 +61,11 @@ This "Deliberate" process can be re-used as an approach to any software system.
 7. **Detailed System Design** - detailed API contracts, ERD diagrams, messages, and software systems
 8. **Deep dives on every system** - reviewed by teams individually before beginning
 9. **Detailed project plan** - project plan and more detailed estimates 
-9. **Management review"******** Now we pause, and management review - should we start this effort, what is the **"rank"** against all efforts ***
+9. **Management review"**
+   10. Now we pause, and management review. 
+   11. Should we start this effort?
+   12. What is the **"rank"** against all efforts?
+       13. Rank is used for resource assigment — across every team.
 10. **Staffing, Project plan, timeline**
     11. Only after the greenlight, staffing considerations take place, and resources are assigned, along with a much more detailed project plan
 10. **-- Only now start building --**
