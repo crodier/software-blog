@@ -35,7 +35,7 @@ every time we started the container.  Also, you had to connect a
 remote debugger to the container, instead of just pressing "Run" 
 in IntelliJ, to start up the app.  This is annoying when it is your
 everyday life, little things.  But wow, they were minor; and things have
-since then, deteroirated into Microservices.
+since then, deteriorated into Microservices.
 
 But wow, did J2EE do the hard things beautifully.  The entire world runs on Servlets.
 Servlets and web-apps were 

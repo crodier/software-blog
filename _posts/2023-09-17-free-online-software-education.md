@@ -105,7 +105,7 @@ the ability to TA or teach any of these courses.
    6. **MIT operating systems online**
    7. Operating Systems:  Three Easy Steps - https://pages.cs.wisc.edu/~remzi/OSTEP/
    8. MIT offers operating systems for free; it is worth taking online.
-1.  CMU Advanced databas systems
+1.  CMU Advanced database systems
    2. https://www.youtube.com/watch?v=7V1oi_8uvuM
 
 ## Practical knowledge and application

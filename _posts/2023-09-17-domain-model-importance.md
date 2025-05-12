@@ -46,7 +46,7 @@ representation which are "types" (classes) which have no
 direct mapping to the business domain. This is what is
 considered a 'clean' software model of a business domain.
 Synthetic types should only exist to improve latency. 
-If these object exist beyond improving latency
+If these objects exist beyond improving latency,
 then there is a flaw in the design.
 
 ## Accuracy of the Domain Model
@@ -111,15 +111,15 @@ translate between the two.
 Separate and version the domain model into a project which is 
 exclusively the domain model.  This is one of the most critical artifacts.
 Never split the domain model into multiple packages, as this is
-unnecessary.  Use the package hierarchites.
+unnecessary.  Use the package hierarchies.
 
-Never include any other dependences as the Domain Model is only for 
+Never include any other dependencies as the Domain Model is only for 
 the structure of your system.  The domain model must be purely 
 software structures.
 
 This project must be versioned carefully.
 
-You will never make backwards incompatible changes,
+You will never make backwards incompatible changes;
 as in a distributed environment, any system may be 
 using a prior version of th domain model.
 Make careful additions to the domain model and 

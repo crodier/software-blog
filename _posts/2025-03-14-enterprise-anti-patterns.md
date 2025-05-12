@@ -17,6 +17,7 @@ We explore the reasons, along with the solutions which should be preferred.
 
 Note: developers will always be dissatisfied.  Developer satisfaction
 can be a secondary goal, but never at the cost of a bad UX for your business customers.
+
 Working on a bad product or failed business, will be much more dissatisfying, for your 
 engineering community.
 
@@ -34,24 +35,27 @@ by not favoring deployment independence , maybe they will stop complaining about
 having to wait two weeks to deploy.  Note this is not real time to them; this is only
 time waiting for the build to be released, and no effort from them.
 
-Deployment independence can be achineved many ways, and "micro stuff" is the wrong way to achieve it.
+Deployment independence can be achieved in many ways, and "micro stuff" is the wrong way to achieve it.
 
-'micro' the first one people reach for, and the worst alternative to deployment independene,
+'micro' is the first one people reach for, and the worst alternative to deployment independene,
 which was anyway not something you cared about, and was a false idol to begin with.
 
-## Microservices ANTI-PATTERN
+## Microservices anti-pattern
 
-Microservices are an anti-pattern of software development.  Did you know that Amazon Prime Video
+Microservices are an anti-pattern of software development.  
+
+Did you know that Amazon Prime Video
 moved from a microservices arch into a Monolith, with amazing results.  This is happening
 everywhere in enterprise software, where first principles of software develompent are
 used.  "Developer velocity" is not a feature for your business, and libraries have 
 been used since time eternal to decompose software systems.  
 
 As discussed in
-[Cost of Microservices](./2023-10-07-cost-of-a-microservice.md) and [Microservice Myths](./2025-03-13-microservices-myths.md)
+[Cost of Microservices](./2023-10-07-cost-of-a-microservice.md) 
 a call in memory is 1,000,000 times faster than a network call.  
 You avoid this incredible penalty at all costs.  AuthN/AuthZ is a good service to build.
 It is however, not a microservice; it is a service *tier*. (or a Macroservice.)
+
 Best article on Modular Monoliths is here [Modular Monolith](https://www.milanjovanovic.tech/blog/what-is-a-modular-monolith).
 
 ## Lambdas (AWS Lambda) anti-pattern
@@ -81,10 +85,11 @@ end up with a bloated front end, which is crappy UX wise.  Your entire job
 was to make a UX which was snappy and fun to use, and now you've made a pile
 of microfrontend crap, which is slow to load and no one wants to use.
 
-If you think latency of the front end is not a big deal, go open your Gmail
-and remember every time you touch your phone, you wish it were faster, as
-the seconds of your life tick away waiting for network calls and JS libraries
-to load.  All your customers are the same as you, and you didn't realize
+If you think latency of the front end is not a big deal, 
+you must open your Gmail
+and remember every time you touch your phone, you wish it were faster.
+The seconds of your life tick away waiting for network calls and JS libraries
+to load.  Your customers are the same as you, and you didn't realize
 how much you dislike latency.  You dislike it more than anything.
 
 You can make latency a stated goal of your UX, and still have problems.
@@ -159,16 +164,8 @@ do this, and only ship with the interfaces.  But there is a reafactoring in
 IntelliJ "Extract interface" which can do this for you, later when you need it
 (not to mention ChatGPT.)  
 
-In the end Spring Boot is incredibly useful.  The SpringXML syntax was an
+Spring Boot is incredibly useful.  The SpringXML syntax was an
 is horrible.  "contructor-arg" is the only
 note I need to leave here.  If you have typed "constructor-arg", then you know.
 
-
-
-
-
-
-
-
-
-
+If Spring XML has been used, there is no need to replace it, it works!

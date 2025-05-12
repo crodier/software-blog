@@ -1,10 +1,12 @@
 # [ROUGH DRAFT] Notes on leadership and Principal Engineering
 
 Leadership is the art of being the bigger person.
+
 A few examples and quotes capture this most beautifully.
 My son Patrick said to me "the Ying and the Yang of life
 is one person being nice and one being mean.
 This should be expected, and not an aberration."
+
 Wise words from my 17-year-old son.
 
 Barak Obama famously embraced respectful disagreement:
@@ -14,9 +16,8 @@ Barak Obama famously embraced respectful disagreement:
 As a principal engineer, much of your job is
 to disagree respectfully, and empathetically.  
 
-Second, is to 
-try to head off public disagreements
-, which is a form of empathy.  
+Second, is to try to head off public disagreements, 
+which is a form of empathy.  
 
 Finally is to manage
 disagreements to resolutions; and when possible, provide
@@ -52,7 +53,7 @@ Take off your critical thinking, problem-solving hat.
 Start by noting everything positive you find, and thanking
 everyone for their hard work on the effort.
 
-Your goal is to encourage what is well done first of all.
+Your goal is to encourage what is well done first.
 This will make for an environment of support for the team
 you are on, in which people feel safe.  Safe in the sense
 of the Crucial Conversations book.  Without this safety,
@@ -60,22 +61,23 @@ people won't ask questions and won't disagree.  There
 will be no sharing of information or ideas on modern
 software development, or how to complete the project.
 Without this open sharing and creativity, you have lost
-the best output of a team of people, which is to reflect
+the best output of a team of people.  
+The most important thing is to reflect
 on each others views and ideas, and to improve the ideas
 before the painstaking act of authoring the software, 
 and launching it.  
 
 Before the software is written, when
 decisions are being made on direction and investments
-are when people have the ability to make major contributions,
+are when people can make major contributions
 and also major mistakes.  If mistakes are made, you 
 need to gently explain why the idea is mistaken,
 and emphatically see the good value in the idea.
 You also need to acknowledge you may be wrong, or
-no one may agree with you, or understand your value judgement.
+no one may agree with you, or understand your value judgment.
 In the end, the software can be designed and built thousands
 of ways, like playing a chess game.  There are only 
-value judgements, and different values being expressed.
+value judgments, and different values being expressed.
 
 Always acknowledge this, and the value in any idea,
 if you must go against it.  Do it in private, with

@@ -1,3 +1,10 @@
+---
+title: "Good intentions."
+date: 2025-03-18
+layout: post
+published: false
+---
+
 The road to software hell is indeed paved with good intentions.  
 
 Nowhere in humanity has it ever been 

@@ -1,6 +1,13 @@
+---
+title: "Cost (trade-offs) of Microservices."
+date: 2023-10-07
+layout: post
+published: true
+---
+
 # 60% tax per microservice; where is the value?
 
-Before reading this article it is useful to review the typical 
+Before reading this article, it is useful to review the typical 
 view of a reasonably large microservces deployment from a 
 product perspective:
 
@@ -13,11 +20,14 @@ take something done simply in one service and split it into two
 or more microservices.  You pay a 60% or higher cost to do 
 the work of one service in two microservices.
 
-Why is this?
+### Why do these problems occur with microservies?
 
 1.  A large tax for deployment and monitoring; operational excellence features.
 2.  Five environments are necessary to run an effective software practice
+3.  Every developer must be able to spin up a development environment, and work across the entire system!
 3.  Complexity and latency increase considerably when moving to microservices
+
+### What else can we do?
 
 Prefer libraries, and use the "service locator" pattern
 as a insurance for a future time when you may need microservices.
@@ -26,14 +36,15 @@ Do not blindly tax your organization 60%.
 
 Start without microservices.  
 
-Only pay the microservices tax when
-it becomes absolutely necessary.  
+Only pay the microservices tax when it becomes a clear and obvious necessity.  
+
+### Steps before engaging on Microservices
 
 Be sure to first document and review:
 1) Cost benefits of the microservice approach; what is gained?
 2) The cost difference of assembling libraries into a service; overhead costs?
 
-Libraries are a tried and true approach with well known benefits.
+Libraries are a tried and true approach with well-known benefits.
 Prefer to rely solely on libraries and dependency injection 
 until you are an expert
 user of libraries, and CI/CD with those libraries.  
@@ -46,17 +57,17 @@ What does this mean?
 
 Every microservice you author needs to be completely "hardened".  
 If any microservice stops
-responding you experience a customer facing outage.  
+ responding, you experience a customer facing outage.  
 
 It takes a tremendous amount of investment to handle high uptime reasonably well.
 This effort needs to be cataloged before moving into microservces.
 
-In theory the cloud or a large software team makes it easier with
+In theory, the cloud or a large software team makes it easier with
 economies of scale; however, this has not been the case.  
 
 Technology has reached a point in the curve
 where it has become more expensive than ever to run a high uptime service with a massive skill set needed
-to do it correctly.  High uptime services requires senior engineering time.
+to do it correctly.  High uptime services require senior engineering time.
 Senior engineering time is scarce and expensive.
 
 Next we explore why each microservice comes with a 60% overhead of 
@@ -67,23 +78,23 @@ This metric is a useful warning label.
 
 ### Why do programmers tend to favor microservices? 
 
-Clearly we should avoid an additional 60% more when you can get the same
-outcome for half.  Despite the cost, microserves are adopted 
+We should avoid an additional 60% more when you can get the same
+outcome for half.  Despite the cost, microservices are adopted 
 as a form of idealism.
 
 Where did they come from, and why do programmers often make them today, when they carry an enormous overhead?
 
 #### Be like Amazon
 
-Microservice were adopted heavily at Amazon.  
+Microservices were adopted heavily at Amazon.  
 But Amazon first started and
 was highly successful with a monolith, after which they transitioned to microservices due to 
 their incredible size.  If you want to be like Amazon 
 then perhaps follow their footsteps, by building
 an inexpensive monolith.
 
-Once you are a success you can examine the cost/benefits
-of breaking it up into microservices - but not before you 
+Once you are a success, you can examine the cost/benefits
+of breaking it up into microservices — but not before you 
 are a big success.  
 
 When building the monolith, *use interfaces liberally* 
@@ -95,10 +106,9 @@ interfaces to the monolith.
 The libraries are then version controlled.
 
 Version those libraries and let them contribute to one overall code base.
-Using this simple approach you can gain 99% of any benefit of microservices at 1% of the cost.  
+Using this simple approach, you can gain 99% of any benefit of microservices at 1% of the cost.  
 
-How is this
-accomplished?  Through interface driven design; the same interface driven design you would use when 
+How is this achieved?  Through interface driven design; the same interface driven design you would use when 
 designing the microservices.  Treat the internal components of the system as internal microservices; define 
 boundaries and separate the code into libraries behind interfaces, and into modules of a larger project
 which make those libraries.  This allows developers to iterate quickly on the libraries, in the same
@@ -115,7 +125,7 @@ The benefits of libraries go beyond here; way beyond the immediate observable co
 
 You can actually increase productivity dramatically using this approach.
 
-Why is productivty improved?
+### Why is productivity improved?
 
 For each service you build, you also need to build at least
 five more environments to deploy any service:

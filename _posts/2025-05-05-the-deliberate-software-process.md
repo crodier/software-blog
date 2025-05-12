@@ -36,7 +36,7 @@ This "Deliberate" process can be re-used as an approach to any software system.
 
 1. **PRFAQ** - a press release about the project and the benefits to the customers
 2. **High Level UML use cases** - a list of use cases which are created or impacted by the software change
-3. **T-short cost estimation (high and low estimate)** - estimation of the time and size of the effort - informally
+3. **T-shirt size cost estimation (high and low estimate)** - estimation of the time and size of the effort - informally
    4. After this phase, a decision can be made if more time investments are warranted
 5. **Prototype** - potentially produce a rapid POC of the idea, to further vet it out
 4. **Fully Dressed UML use cases** - "fully dressed" UML use cases, using the Craig Larman, Fully Dressed format
@@ -61,10 +61,15 @@ This "Deliberate" process can be re-used as an approach to any software system.
 7. **Detailed System Design** - detailed API contracts, ERD diagrams, messages, and software systems
 8. **Deep dives on every system** - reviewed by teams individually before beginning
 9. **Detailed project plan** - project plan and more detailed estimates 
-9. **Management review -  "******** Now we pause, and management review - should we start this effort, what is the **"rank"** against all efforts ***
+9. **Management review"******** Now we pause, and management review - should we start this effort, what is the **"rank"** against all efforts ***
 10. **Staffing, Project plan, timeline**
     11. Only after the greenlight, staffing considerations take place, and resources are assigned, along with a much more detailed project plan
-10. **Operational Readiness review**
+10. **-- Only now start building --**
+11. **Weekly scrum of scrums** - report tracking to expected goal, and any blockers, assistance needed
+    12. This references the project ranking.
+    13. Status is updated prior to the 30-minute, scrum of scrum every week to senior management, with all managers and PEs in the division
+    14. Note: Smartsheet has emerged as a highly effective tool for agile project tracking, and rolling up status across a workbook of sheets
+11. **Pre-Launch:  Launch Plan Review + Operational Readiness review**
     11. The system is reviewed to verify it is ready for prod
     12. Includes reviews of operational dashboards
 10. **Launch + Celebrate** + Learnings captured; what went well, what can be done better

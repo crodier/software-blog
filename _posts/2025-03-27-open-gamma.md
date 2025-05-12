@@ -1,12 +1,12 @@
-Two people in the world know, maybe three now, that I invented Strata, the OpenGamma library for pricing financial derivatives.
+Two people in the world know, maybe three now,  I helped invent Strata, the OpenGamma library for pricing financial derivatives.
 
 It's a superb library, kudos to the team who designed and authored it.  I did not author it, but I sketched it in a whiteboard, for the now CTO, when he was getting in started in industry.
 
-My biggest failure as an Enginner led to their success, maybe as an entire organization.  the now CTO was a junior developer, a year out of university, brilliant.  This was in hmmm, 2012 or 2013.  long ago.  We were w client who had signed up to use Open Gamma 1.0.  Strata is 2.0 effectively.
+My biggest failure as an Engineer led to their success, maybe as an entire organization.  the now CTO was a junior developer, a year out of university, brilliant.  This was in hmmm, 2012 or 2013.  long ago.  We were w client who had signed up to use Open Gamma 1.0.  Strata is 2.0 effectively.
 
-OpenGamma 1.0 was a horrible software system, in Java.  It was Java, and my boss asked me to evaluate it to replace FinCad, an expensive commercial library we used, million dollar license fees.  considerable spend for a hedge fund.  FinCad is an awesome library.  It just is not cheap, and you can't alter the pricing models, which is a big deal on a pricing group, at a hedge fund (financial instrument derivative pricing.)
+OpenGamma 1.0 was an extremely complex software system, in Java.  It was Java, and my boss asked me to evaluate it to replace FinCad, an expensive commercial library we used, million dollar license fees.  considerable spend for a hedge fund.  FinCad is an awesome library.  It just is not cheap, and you can't alter the pricing models, which is a big deal on a pricing group, at a hedge fund (financial instrument derivative pricing.)
 
-Strata wise, is good use of UML design for finance, modeling as software, and some slick coding and date math work.  It is not a small problem, but modeled well, is straightforward enough.  there are calculators which take Instruments as inputs, and produce analytics results.  It is a good read if you have time.  I was able to suggest exactly how this should work, after having done FinCad for a long time.
+Strata is good use of UML design for finance, modeling as software, and some slick coding and date math work.  It is not a small problem, but modeled well, is straightforward enough.  there are calculators which take Instruments as inputs, and produce analytics results.  It is a good read if you have time.  I was able to suggest exactly how this should work, after having done FinCad for a long time.
 
 Prior to Strata, my hedge fund was an early adopter of OpenGamma.  Some brilliant quantitative mathematicians had built it "quants.". But in 1.0, they were focused on building "a platform for portfolio pricing", and not a library.  Essentially, in building a framework for pricing a portfolio.
 
@@ -16,7 +16,7 @@ This one extra layer of indirection between the desire to do something in code, 
 
 Debugability is a quality of a system.  If it takes a long time to debug a problem, something is very wrong.  It took days to debug simple problems, due to layers upon layers of indirection, and errors not bubbling up.  Pricing can become many levels deep, to price one thing, first you price something else, an observable or first derivative financial instrument.  this is used to price a second, and so forth.  it becomes highly nestef at times.
 
-For this system, debugability was paramount.  Why did I get number X and not Y out?  This is not easy to track in. calculation system.  Goldman Sachs solves this problem and much success followed.  They cracked debugability as a first order of business.
+For this system, **debugability** was paramount.  Why did I get number X and not Y out?  This is not easy to track in. calculation system.  Goldman Sachs solves this problem and much success followed.  They cracked debugability as a first order of business.
 
 Due to this one or two extra layers of indirection, you could not determine what was happening in the call chain.  We took 30 to 40 hours to trace small problems, with maximum focus, and the original authors on Zoom calls.  They themselves, could not debug version 1.0.
 
@@ -34,11 +34,12 @@ As a team lead, with other much smarter people, I was trusted to make this recom
 
 I think this thing happens, and on software it should be expected.  if you don't take any risks you don't learn anything, and you can miss major opportunities.  When it does happen, don't chase the good money with the bad, do abort.  A bad software project never gets better, it gets worse and worse.
 
-It feels good to skip the analysis
+It feels good to skip the analysis, and start coding !  Don't do this.
+
 Overinvest in decisions which will be expensive.
 first you need to do a cost estimate if the decision impact.
 
-you can't do this on every decision. but slow down on the big ones.
+You can't invest heavily on every decision. but slow down on the big ones.
 
 
 

@@ -1,3 +1,10 @@
+---
+title: "100M-failed-case-study-one."
+date: 2025-03-29
+layout: post
+published: false
+---
+
 I want to chronicle the largest failed projects
 I've seen in software, as there are shared qualities.
 The number one shared quality in failed or poor
