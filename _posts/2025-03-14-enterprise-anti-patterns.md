@@ -1,3 +1,10 @@
+---
+title: "Enterprise Software anti-patterns."
+date: 2025-03-28
+layout: post
+published: false
+---
+
 # Enterprise Software Anti-Patterns
 
 Here are the common **anti-patterns** (fads) in enterprise
