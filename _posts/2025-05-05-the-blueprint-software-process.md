@@ -80,10 +80,17 @@ This "Blueprint" process can be re-used as an approach to any software system.
          14. Monitoring + Logs + Troubleshooting
          15. Impact on Overall Firm Velocity
          16. "Debuggability" and "Testability"
+17. **Initial engineering review**
+    18. Before more major design investments, senior engineers are required to give feedback
+    19. This could be anonoymized; and the design ranked 0 to 5 by everyone attending, 
+    20. as a requirement on many dimensions of design
+    21. The key dimension being "Simplicity"
 7. **Detailed System Design** - detailed API contracts, ERD diagrams, messages, and software systems
 8. **Deep dives on every system** - reviewed by teams individually before beginning
+   9. Changes are reflected back up to the High Level Design
 9. **Detailed project plan** - project plan and more detailed estimates 
-9. **Management review"**
+   9. Changes at this stage feed back up to complete the high level design with specific API contracts, ERDs, messages
+10. **Management review"**
    10. Now we pause, and management review. 
    11. Should we start this effort?
    12. What is the **"rank"** against all efforts?
@@ -98,7 +105,8 @@ This "Blueprint" process can be re-used as an approach to any software system.
 11. **Pre-Launch:  Launch Plan Review + Operational Readiness review**
     11. The system is reviewed to verify it is ready for prod
     12. Includes reviews of operational dashboards
-10. **Launch + Celebrate** + Learnings captured; what went well, what can be done better
+10. **Launch + Celebrate**
+    11. Learnings captured; what went well, what can be done better
 
 ## Project documentation homepage
 
@@ -133,8 +141,8 @@ the problem, and to play the chess game before it begins.
 
 Engineers often believe this is a waste of keystrokes, as I did for much of my career.
 
-I give credit to Amazon for their deliberate approach to software (and teaching me),
-where the process of writing pushes the engineering team to perform very detailed
+I give credit to Amazon for their deliberate approach to software (and teaching me.)
+The process of writing pushes the engineering team to perform very detailed
 analysis, and to effectively perform multiple iterations on a plan, 
 but not as software iterations - before the software has even begun.
 
@@ -151,5 +159,5 @@ It leads to the two most important things in software:
 One brief training video can bring anyone up to speed on why and how to 
 follow the process.
 
-The value is considerable to any medium or large software group, at Amazon scale.
+The value is considerable to any medium or large software group.
 

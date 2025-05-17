@@ -1,3 +1,9 @@
+---
+title: "Cost of software hygiene."
+date: 2025-03-28
+layout: post
+published: false
+---
 
 If your senior software engineers can't clone
 and make a working copy of your software system,

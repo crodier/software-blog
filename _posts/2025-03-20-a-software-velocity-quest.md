@@ -1,10 +1,3 @@
----
-title: "A software velocity quest."
-date: 2025-03-28
-layout: post
-published: false
----
-
 Don't overly focus on your software architecture,
 until you have first maximized your software process itself.
 
