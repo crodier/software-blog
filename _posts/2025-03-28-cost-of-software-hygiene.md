@@ -1,3 +1,4 @@
+
 If your senior software engineers can't clone
 and make a working copy of your software system,
 and then contribute to your project in a day in meaningful

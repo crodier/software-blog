@@ -1,4 +1,11 @@
-# The "Deliberate Software Process" - a new standard for software process deliery [DRAFT]
+---
+title: "The Blueprint - software delivery at scale."
+date: 2025-05-05
+layout: post
+published: true
+---
+
+# The Blueprint - a new standard for software process delivery [DRAFT]
 
 Planning and designing software is the most critical phase 
 of a major software delivery - problem analysis and design.
@@ -6,31 +13,46 @@ of a major software delivery - problem analysis and design.
 Why are you solving a problem, why this particular problem, and in this particular way?
 How much will it cost, and what is the benefit?
 
-Without well documented answers to these questions, we must pause before
-beginning any medium to large software system endeavor.  Seemingly minor details 
-for example consistency / eventual consistency, recovery from failure, scaling,
-and latency, can become key dimensions for your software success or failure.
+Without well-documented answers to these questions, we must pause before
+beginning any medium-to-large software system endeavor.  
+Seemingly minor details, for example,  consistency / eventual consistency, recovery from failure, scaling,
+and latency, can become key dimensions for your software effort.
 
-It is easy to make these decisions informally in a small team setting; 
-however, it is then difficult for a team of
+It is straightforward to make these decisions informally in a small team setting; 
+however, it is then challenging for a team of
 more than ten people to review the analysis.  
 
-A key virtue at Amazon,
-is a step where engineers "poke holes", and seek "disconfirmation of beliefs", 
+A key virtue at Amazon
+is a step where engineers "poke holes", 
+and "actively seek disconfirmation of beliefs", 
 at this design and project decision phase.  
-
 This leads to 1) careful project prioritization,
 and 2) careful assembly of any non-trivial software effort.  
 
+**Aside**: _Disconfirming one's own beliefs_ is the most difficult
+activity for a corporate software professional; asking publicly
+"please tell me I am wrong, and why", opening yourself
+up to criticism.  Yet, it is the most important activity
+for any software architect - this level of confidence
+and vulnerability to receive honest and direct feedback.
+The key is noting feedback is not about you, but is about
+one design you are presenting.  And if you are receiving
+feedback it means you have captured the audiences attention,
+if even with a "straw man" design, to raise awareness of
+the problem.
+
+### Document centricity
+
 Amazon use _documents_
-to make this process "scalable", allowing people outside the group reviewing the problem.
+to make software design and delivery "scalable", 
+allowing people outside the group reviewing the problem.
 
 Strong documents allow management, along with engineering leaders from across a large group
 to make meaningful comments on plans and designs, and ask important questions.
 
 Here we outline refinements to this document driven project 1) selection and 2) design process
 
-This "Deliberate" process can be re-used as an approach to any software system.
+This "Blueprint" process can be re-used as an approach to any software system.
 
 ### The "Deliberate Software Process"
 
