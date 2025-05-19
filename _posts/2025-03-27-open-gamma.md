@@ -1,17 +1,18 @@
 Two people in the world know, maybe three now,  
 I helped invent Strata, the OpenGamma library for pricing financial derivatives.
 
-It's a superb library, kudos to the team who designed and authored it.  
+Strata is a superb financial pricing library; kudos to the team who designed and authored it.  
 I did not author it, but I sketched it in a whiteboard, for the now CTO, 
 when he was getting in started in industry.
 
 My biggest failure as an Engineer led to their success, 
 maybe as an entire organization.  The now CTO was a junior developer, 
-a year out of university, brilliant.  This was in hmmm, 2012 or 2013.  
-We were w client who had signed up to use Open Gamma 1.0.  Strata is OpenGamma, v 2.0.
+a year out of university, and very brilliant.  This was in 2012 or 2013.  
+My firm was an early client of Open Gamma 1.0.  
+Strata is the second iteration of Open Gamma; effectively OpenGamma, v 2.0.
 
 OpenGamma 1.0 was an extremely complex software system, in Java.  
-It was Java, and my boss asked me to evaluate it to replace FinCad, 
+It was Java, and my manager asked me to evaluate it to replace FinCad, 
 an expensive commercial library we used, million dollar license fees.  
 Millions is a considerable spend for a hedge fund.  
 FinCad is an awesome library.  
@@ -81,14 +82,20 @@ The problem is, I signed us up for OpenGamma 1.0.
 
 My manager asked me if it looked ok, and I said
 after a brief look "it is a Java system, how hard can it be?".  
-It turned out to be not only very hard, it was impossible.  This lack of analysis, cost is the five years into the effort.  My boss and mentor trusted me.  Asked me to review it.  In my defense it was n informal ask, because some other people had said it was good.  they were more fact checking with me.  
+It turned out to be not only very hard, it was impossible.  This lack of analysis, cost is the five years into the effort.  
+My manager and mentor trusted me to review the system.  
 
-I myself had an opportunity, to try to actually learn it, 
-try something, and give real feedback.  
-I did not, and probably cost this fund ten million in developer costs. 
+In my defense it was an informal ask, to confirm what had already been said
+by other members of the team.
 
-Later, I built them HFT infrastructure 
-and the fund did very well, but let me say, I think this decision was the worst mistake
+Yet, I had an opportunity, to "go deep", actually learn the code, 
+kick the tires, and give meaningful feedback.  
+I failed to do so!  And in failing, cost this 
+hedge fund ten million in developer costs. 
+
+Later, I built the HFT infrastructure for the fund 
+and the fund did very well.  
+But I think the neglect on the OpenGamma 1.0 decision was the worst mistake
 I have made, in my career - analysis wise.
 
 Today, I would never make such a massive decision without 
