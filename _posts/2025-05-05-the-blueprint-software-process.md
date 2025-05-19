@@ -1,11 +1,4 @@
----
-title: "The Blueprint - software delivery at scale."
-date: 2025-05-05
-layout: post
-published: true
----
-
-# The Blueprint - a new standard for software process delivery [DRAFT]
+# "The Blueprint" - a new standard for software process delivery
 
 Planning and designing software is the most critical phase 
 of a major software delivery - problem analysis and design.
