@@ -37,11 +37,7 @@ By not shipping features during this time, you also
 risk the satisfaction of making progress, burnout,
 and other serious business problems.
 
-If you can't estimate these numbers, don't begin doing anything;
-you are probably setting money on fire on an emotional quest
-by a developer "I don't like someone else's code, I prefer my own."
-
-(which is how all developers feel about all code, everywhere.)
+If you can't estimate these numbers, don't begin doing anything.
 
 As engineers, a challenging senior understanding exists,
 captured by the [**"Respect what came before you"**](https://www.amazon.jobs/content/en/teams/principal-engineering/tenets)
