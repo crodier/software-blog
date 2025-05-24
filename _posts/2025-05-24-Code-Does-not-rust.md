@@ -29,8 +29,9 @@ by a developer "I don't like someone else's code, I prefer my own."
 
 (which is how all developers feel about all code, everywhere.)
 
-As engineers, a key and difficult senior understanding exists,
-captured by the "Respect what came befor you" tenet.
+As engineers, a challenging senior understanding exists,
+captured by the [**"Respect what came before you"**](https://www.amazon.jobs/content/en/teams/principal-engineering/tenets)
+, Amazon Principal Engineering tenet.
 
 We need to first realize this emotion exists to disrespect what came before ,
 the strength of this emotion, and - this is not a rational response.
@@ -38,7 +39,7 @@ the strength of this emotion, and - this is not a rational response.
 ## Is it time to rewrite or refactor?
 
 I've spent many months and years both refactoring 
-and rewriting existing business software (of the 28 total, at time of writing.)
+and rewriting existing business software (of 28 years total, at time of writing.)
 
 On this topic, my favorite blog (from the year 2000) with the best software advice I've read is "Joel on Software":
 
