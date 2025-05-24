@@ -30,7 +30,7 @@ $$V = (F \cdot A) - (R \cdot Z \cdot O) - (F \cdot B)$$
 
 **V** must be positive to even consider proceeding with a refactoring.
 
-Otherwise, you are investing in an emotionally driven, irrational quest to improve
+Otherwise, you are investing in an emotionally driven quest to improve
 code "As if code rusted."
 
 By not shipping features during this time, you also
