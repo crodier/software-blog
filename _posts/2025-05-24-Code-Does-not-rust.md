@@ -242,6 +242,7 @@ managing tens of billions in investor money.
 
 We needed the resulting report to be in Excel, 
 to allow for changing numbers and "fiddling" with the results.
+
 The workbook had 10 "sheets", each with charts and graphs
 of a table of aggregate numbers; where the underlying numbers
 were available as raw data elsewhere in the sheet.
@@ -249,16 +250,18 @@ were available as raw data elsewhere in the sheet.
 The management team knew how to drive it, and formulas connected
 the results to the data, in the sheet itself.
 
-I had used (at Lehman), the [Apache POI](https://poi.apache.org/)
-library.
-
 ### Cost estimate to rewrite
+
+I had used (at Lehman), the [Apache POI](https://poi.apache.org/)
+library, where Java can generate and format an Excel workbook.
 
 I reviewed the VBA code in Excel, and there were 10 sheets.
 I estimated that I could convert one of them (this was pre-AI),
 per day, to Java using Apache POI, and have the exact same result,
-tested, taking 10 days total.  This would be **80 hours**
-invested in the rewrite.  
+tested, taking 10 days total.  
+
+By my math, it would take **80 hours**
+invested in the rewrite.
 
 ### ROI
 
