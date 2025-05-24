@@ -1,3 +1,10 @@
+---
+title: "Opening Book"
+date: 2022-12-25
+layout: post
+published: false
+---
+
 # Why invest in an outage process?
 Many software teams will not experience a severe
 software outage more than once a year.
