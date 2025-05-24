@@ -19,10 +19,11 @@ to disagree respectfully, and empathetically.
 Second, is to try to head off public disagreements, 
 which is a form of empathy.  
 
-Finally is to manage
+Finally, is to manage
 disagreements to resolutions; and when possible, provide
-a decision framework for similar decisions (e.g. see 
-my blog here ["Cost of a Microservice."](./2023-10-07-cost-of-a-microservice.md))
+a decision framework for similar decisions.
+
+e.g. [Code does not rust](./2025-05-24-Code-Does-not-rust.md)
 
 ### Every conversation is "crucial"
 
