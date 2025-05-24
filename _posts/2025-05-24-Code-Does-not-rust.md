@@ -4,7 +4,10 @@
 The bugs and code smells of outrageous legacy..*
 
 **Value of refactoring:**
-$$V = (F * A) - (R * Z * O) - (F * B)$$
+
+\[
+V = (F \cdot A) - (R \cdot Z \cdot O) - (F \cdot B)
+\]
 
 1. R = Time to refactor / rewrite
 2. F = Number of features / times you alter this code
