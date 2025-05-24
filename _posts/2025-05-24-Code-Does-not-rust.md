@@ -69,13 +69,11 @@ The key quote:
 
 ### The Amazon Principal Tenets
 
-We should review the Amazon Principal Engineer Tenets.
+We should review the **[Amazon Principal Engineer Tenets](https://www.amazon.jobs/content/en/teams/principal-engineering/tenets)**.
 
 Notably, **"Respect What Came Before You"**
 
-https://www.amazon.jobs/content/en/teams/principal-engineering/tenets
-
-The principles are a good guiding light for any Principal Engineering group.
+The principles are a strong guiding light for any Principal Engineering group.
 
 ### Developers always dislike other people's code
 
