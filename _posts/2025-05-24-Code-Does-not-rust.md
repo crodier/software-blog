@@ -224,9 +224,9 @@ inside this Excel Workbook.  I owned the sheet, and needed
 hedge fund leadership, including the CEO.
 
 We had major problems most days.  This Excel workbook, when it was making REST calls to 
-fetch data, would often freeze / crash on, even on a very big PC.
+fetch data, would often freeze / crash, even on a beefy PC.
 
-We invented workarounds in the VBA code where we would break up certain
+First, we added tactical workarounds in the VBA code where we would break up certain
 calculations.  We added five or ten new buttons in the sheet,
  press them one at a time, to divide the work the sheet was
 doing (and then wait, then press the next "go" button on the sheet.)
@@ -236,7 +236,7 @@ critical for the investment business.
 
 Every day, due to the problems, one team member would spend about a hour or more dealing with it
 as an operational risk function for a major hedge fund,
-managing tens of billions in investor money. 
+managing tens of billions in investor money.
 
 ### What to do?  I think we better rewrite (gulp.)
 
