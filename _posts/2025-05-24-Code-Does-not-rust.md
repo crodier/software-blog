@@ -284,7 +284,7 @@ to see if we could quickly "get in and get out."
 ### Time to rewrite - measuring as we go
 
 I bid the two weeks on the rewrite, and my mentor and manager
-said "I don't know if you can pull it off, but lets see."
+said "I don't know if you can pull it off, but let's see."
 
 After the first day, I had done the easiest one, and it looked ok.
 
