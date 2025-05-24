@@ -342,17 +342,18 @@ Fixed Income software, as a Principal Engineer.
 In six months, we built some of the best systems
 on Wall St.  This is not subjective.  Portfolio Managers
 were hired, from Citadel, into Exodus Point.  Those PMs
-asked "where did you buy these great systems, these are better
+ asked, "where did you buy these great systems, these are better
 than what we had at Citadel."  To which, our management
 told the PMs "we built them here."  the PMs said, 
 this is not possible, you just started the hedge fund
-six months agao.  The managers said, we have some guys who 
+six months ago.  The managers said, we have some guys who 
 built this, they are friends and were hired to work together.
 
-This was and is a true story, Exodus Point has world and Wall St. besting
-systems for many of the things it does.  I was 25 years
-into building hedge fund tech, hands on, when I started 
-designing and building Exodus Point, and had seen the best 
+This was and is a true story, Exodus Point has best in class
+systems for many of the things we built.  
+
+I was 25 years into building hedge fund tech, hands on, 
+when I started designing and building Exodus Point, and had seen the best 
 designs at many of the top hedge funds, producing a synthesis
 of the best of these designs.
 
