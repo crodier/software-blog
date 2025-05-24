@@ -1,4 +1,4 @@
-# [ROUGH DRAFT] Notes on leadership and Principal Engineering
+# Notes on leadership and Principal Engineering
 
 Leadership is the art of being the bigger person.
 
