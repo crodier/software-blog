@@ -47,7 +47,7 @@ Here we outline refinements to this document driven project 1) selection and 2) 
 
 This "Blueprint" process can be re-used as an approach to any software system.
 
-### The "Deliberate Software Process"
+### "The Blueprint" Software Process"
 
 1. **PRFAQ** - a press release about the project and the benefits to the customers
 2. **High Level UML use cases** - a list of use cases which are created or impacted by the software change
@@ -83,11 +83,15 @@ This "Blueprint" process can be re-used as an approach to any software system.
    9. Changes are reflected back up to the High Level Design
 9. **Detailed project plan** - project plan and more detailed estimates 
    9. Changes at this stage feed back up to complete the high level design with specific API contracts, ERDs, messages
-10. **Management review"**
-   10. Now we pause, and management review. 
-   11. Should we start this effort?
-   12. What is the **"rank"** against all efforts?
-       13. Rank is used for resource assigment — across every team.
+10. **Management review - project "selection"**
+    10. Now we pause, and management review.  
+    11. We don't start coding until cost benefit is reviewed
+        12. *Cost*
+        13. *Value*
+        14. Rank
+    11. Should we start this effort?
+    12. What is the **"rank"** against all efforts?
+    13. Rank is used for resource assigment — across every team.
 10. **Staffing, Project plan, timeline**
     11. Only after the greenlight, staffing considerations take place, and resources are assigned, along with a much more detailed project plan
 10. **-- Only now start building --**
