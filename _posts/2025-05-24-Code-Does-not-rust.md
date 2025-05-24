@@ -29,6 +29,12 @@ by a developer "I don't like someone else's code, I prefer my own."
 
 (which is how all developers feel about all code, everywhere.)
 
+As engineers, a key and difficult senior understanding exists,
+captured by the "Respect what came befor you" tenet.
+
+We need to first realize this emotion exists to disrespect what came before ,
+the strength of this emotion, and - this is not a rational response.
+
 ## Is it time to rewrite or refactor?
 
 I've spent many months and years both refactoring 
