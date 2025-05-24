@@ -152,7 +152,7 @@ which was then inserted into a database.  This was the
 Brothers, in the "POINT" system for bond analytics.  
 
 This was part of
-a large distributed system, bond pricing and risk reporting system.  
+a large distributed, bond pricing and risk reporting system.  
 
 When a bond is priced, the
 analytics about the bond (sensitivities to interest rates changes)
