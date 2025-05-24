@@ -23,8 +23,8 @@ V = (F \cdot A) - (R \cdot Z \cdot O) - (F \cdot B)
 3. A = Additional cost to work on the existing code
 4. B = Perceived cost to work on refactored / rewritten code
 5. V = Value of refactoring
-6. Z = Risk of mis-estimating coefficient
-7. O = Opportunity cost factor
+6. Z = Risk of mis-estimating coefficient (use 2 by default)
+7. O = Opportunity cost coefficient (use 2 by default)
 
 **V** must be positive to even consider proceeding with a refactoring.
 
