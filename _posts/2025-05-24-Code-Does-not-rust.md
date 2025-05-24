@@ -358,8 +358,8 @@ designs at many of the top hedge funds, producing a synthesis
 of the best of these designs.
 
 The results were fairly incredible and done with a small budget
-and small time to market 
-(3-6 months to the initial launch, ~ five develpoers.)
+and rapid time to market 
+(3-6 months to the initial launch, ~ five developers.)
 
 ### The team grows
 
