@@ -1,3 +1,12 @@
+---
+layout: default
+---
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 ## To refactor or not refactor, that is the question --
 
 *Whether ’tis nobler in the mind to suffer
