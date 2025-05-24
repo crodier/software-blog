@@ -427,7 +427,7 @@ I learned this later, when I joined Amazon.
 This is an amazing list of Tenets, I had not seen put together before,
 but it captures many advanced thoughts about software and software groups.
 
-Respect what came before, is a powerful, profound conclusion.
+"Respect what came before" is a powerful, profound conclusion.
 
 Software is never perfect but "they pulled it off."
 
