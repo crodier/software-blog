@@ -3,6 +3,9 @@
 *Whether ’tis nobler in the mind to suffer
 The bugs and code smells of outrageous legacy..*
 
+**Value of refactoring:**
+$V = (F * A) - (R * Z * O) - (F * B)$
+
 1. R = Time to refactor / rewrite
 2. F = Number of features / times you alter this code
 3. A = Additional cost to work on the existing code
@@ -11,10 +14,7 @@ The bugs and code smells of outrageous legacy..*
 6. Z = Risk of mis-estimating coefficient
 7. O = Opportunity cost factor
 
-**Value of refactoring:** 
-$V = (F * A) - (R * Z * O) - (F * B)$
-
-V must be positive to even consider proceeding with a refactoring.
+**V** must be positive to even consider proceeding with a refactoring.
 
 Otherwise, you are investing in an emotionally driven, irrational quest to improve
 code "As if code rusted."
@@ -32,7 +32,7 @@ by a developer "I don't like someone else's code, I prefer my own."
 ## Is it time to rewrite or refactor?
 
 I've spent many months and years both refactoring 
-and rewriting existing business software.
+and rewriting existing business software (of the 28 total, at time of writing.)
 
 On this topic, my favorite blog (from the year 2000) with the best software advice I've read is "Joel on Software":
 
@@ -48,12 +48,13 @@ The key quote:
 
 ### The "Amazon Pricipal Tenets."
 
-Next, review the Amazon Principal Engineer Tenets.
+We should review the Amazon Principal Engineer Tenets.
 
-Notably, "Respect What Came Before You"
+Notably, **"Respect What Came Before You"**
 
 https://www.amazon.jobs/content/en/teams/principal-engineering/tenets
 
+The principals are a good guiding light for any Principal Engineering group.
 
 ### Developers always dislike other people's code
 
