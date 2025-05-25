@@ -53,9 +53,8 @@ and rewriting existing business software (of 28 years total, at time of writing.
 
 On this topic, my favorite blog (from the year 2000) with the best software advice I've read is "Joel on Software":
 
-**Things you should never do, Part 1.**
-
-https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/
+[**Things you should never do, Part 1.**](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/
+)
 
 The key quote:
 
@@ -434,6 +433,4 @@ which Amazon Principal engineers have nicely codified.
 
 ### Appendix
 
-One more amazing blog from Joel:
-
-https://www.joelonsoftware.com/2009/09/23/the-duct-tape-programmer/
+One more amazing blog from Joel:  [Duct Tape and Rust](https://www.joelonsoftware.com/2009/09/23/the-duct-tape-programmer/)
