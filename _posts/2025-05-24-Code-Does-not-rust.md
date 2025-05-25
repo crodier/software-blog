@@ -205,8 +205,7 @@ The architect was and is, truly, a brilliant and kind person.
 
 But it was a bad investment, and we agreed later, a mistake.
 
-It was a good learning for me,
-and for him, and the team.
+It was an important learning we agreed upon.
 
 I started developing this idea about when to rewrite,
 and also found the Joel Article, during this effort.
